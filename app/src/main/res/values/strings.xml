@@ -1,0 +1,13 @@
+<resources>
+  <string name="app_name">MathMurderMystery</string>
+  <string name="navigation_drawer_open">Open navigation drawer</string>
+  <string name="navigation_drawer_close">Close navigation drawer</string>
+  <string name="nav_header_title">Welcome to Math Murder Mystery</string>
+  <string name="nav_header_subtitle">Username</string>
+  <string name="nav_header_subtitle2">Users Score</string>
+  <string name="nav_header_desc">Navigation header</string>
+  <string name="action_settings">History</string>
+
+  <!-- TODO: Remove or change this placeholder text -->
+  <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
