@@ -26,12 +26,22 @@
     android:layout_height="wrap_content"
     android:paddingTop="@dimen/nav_header_vertical_spacing"
     android:text="@string/nav_header_title"
-    android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
+    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+    android:textColor="#0b0b0b"
+    android:shadowColor="#545454"
+    android:textSize="24sp"
+    android:textStyle="bold"
+    android:shadowDx="0"
+    android:shadowDy="0"/>
+
+
 
   <TextView
     android:id="@+id/textView"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:text="@string/nav_header_subtitle"/>
+    android:text="@string/nav_header_subtitle"
+    android:textColor="@android:color/holo_red_dark"
+    android:shadowColor="@android:color/black"/>
 
 </LinearLayout>
