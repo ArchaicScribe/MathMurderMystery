@@ -1,0 +1,3 @@
+# Utilizing SQL in Math Murder Mystery
+
+In Math Murder Mystery or M Cubed, SQL will be utilized by storing the math problems that will be used in the game. By keeping track of the math problems, their difficulties, and how they will be used in each level will all be completed through the database. Also, keeping track of the player's progress throughout the game will come into play as well. Using LEFT, RIGHT, and FULL JOIN in the program to compartmentalize and organize all of the player's data and history. Using queries, if the player wants to see a detail of their progress within the game will also come in handy for them to see and read about during the game. 
