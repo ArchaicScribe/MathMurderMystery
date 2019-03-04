@@ -9,11 +9,33 @@ public class Levels {
 
 
   @PrimaryKey
-  private int levelId;
+  private long levelId;
   @ColumnInfo
   private String levelTitle;
   @ColumnInfo
-  private int levelDifficultyOfPRoblems;
+  private long levelDifficultyOfPRoblems;
 
+  public long getLevelId() {
+    return levelId;
+  }
 
+  public void setLevelId(int levelId) {
+    this.levelId = levelId;
+  }
+
+  public String getLevelTitle() {
+    return levelTitle;
+  }
+
+  public void setLevelTitle(String levelTitle) {
+    this.levelTitle = levelTitle;
+  }
+
+  public long getLevelDifficultyOfPRoblems() {
+    return levelDifficultyOfPRoblems;
+  }
+
+  public void setLevelDifficultyOfPRoblems(int levelDifficultyOfPRoblems) {
+    this.levelDifficultyOfPRoblems = levelDifficultyOfPRoblems;
+  }
 }

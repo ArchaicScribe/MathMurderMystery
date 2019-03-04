@@ -18,5 +18,29 @@ public class UserInformation {
   @ColumnInfo
   private String userProgress;
 
+  @NonNull
+  public String getUserId() {
+    return userId;
+  }
+
+  public void setUserId(@NonNull String userId) {
+    this.userId = userId;
+  }
+
+  public String getUsername() {
+    return username;
+  }
+
+  public void setUsername(String username) {
+    this.username = username;
+  }
+
+  public String getUserProgress() {
+    return userProgress;
+  }
+
+  public void setUserProgress(String userProgress) {
+    this.userProgress = userProgress;
+  }
 }
 

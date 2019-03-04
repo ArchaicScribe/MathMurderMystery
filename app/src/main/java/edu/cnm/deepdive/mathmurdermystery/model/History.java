@@ -15,4 +15,21 @@ public class History {
   private String problemId;
   @ColumnInfo
   private String userId;
+
+  @NonNull
+  public String getProblemId() {
+    return problemId;
+  }
+
+  public void setProblemId(@NonNull String problemId) {
+    this.problemId = problemId;
+  }
+
+  public String getUserId() {
+    return userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
 }
