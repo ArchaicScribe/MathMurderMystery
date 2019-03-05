@@ -9,10 +9,6 @@
       android:icon="@drawable/ic_menu_send"
       android:title="Play"/>
     <item
-      android:id="@+id/continue_arrow"
-      android:icon="@drawable/ic_continue_arrow"
-      android:title="Resume"/>
-    <item
       android:id="@+id/help_arrow"
       android:icon="@drawable/ic_help_arrow"
       android:title="Help"/>

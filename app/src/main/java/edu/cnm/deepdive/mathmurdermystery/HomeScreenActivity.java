@@ -76,8 +76,6 @@ public class HomeScreenActivity extends AppCompatActivity
 
     if (id == R.id.play_arrow) {
 
-    } else if (id == R.id.continue_arrow) {
-
     } else if (id == R.id.help_arrow) {
 
     } else if (id == R.id.scroreboard) {
