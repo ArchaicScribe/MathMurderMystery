@@ -22,6 +22,8 @@ public class MathProblem {
   @ColumnInfo(name = "pool_of_problems")
   @NonNull
   private String poolOfProblems;
+  @ColumnInfo(name = "outcome_of_problem", index = true)
+  private boolean outcomeOfProblem;
 
   public String getProblemId() {
     return problemId;
@@ -61,5 +63,13 @@ public class MathProblem {
 
   public void setPoolOfProblems(String poolOfProblems) {
     this.poolOfProblems = poolOfProblems;
+  }
+
+  public boolean isOutcomeOfProblem() {
+    return outcomeOfProblem;
+  }
+
+  public void setOutcomeOfProblem(boolean outcomeOfProblem) {
+    this.outcomeOfProblem = outcomeOfProblem;
   }
 }
