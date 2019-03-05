@@ -3,15 +3,15 @@ package edu.cnm.deepdive.mathmurdermystery.model.dao;
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
-import edu.cnm.deepdive.mathmurdermystery.model.Room;
+import edu.cnm.deepdive.mathmurdermystery.model.Connection;
 import java.util.List;
 
 @Dao
-public interface RoomDao {
+public interface ConnectionDao {
 
   @Insert
-  public String insertRoom(Room room);
+  public Long insertConnection(Connection connection);
 
-  @Query("SELECT * FROM Room")
-  public List<Room> getRoomId();
+  @Query("SELECT * FROM Connection")
+  public List<Connection> getConnection();
 }

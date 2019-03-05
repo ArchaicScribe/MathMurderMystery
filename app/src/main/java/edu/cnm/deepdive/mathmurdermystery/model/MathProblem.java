@@ -6,7 +6,7 @@ import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
 
 @Entity
-public class MathProblems {
+public class MathProblem {
 
   @PrimaryKey
   @ColumnInfo

@@ -3,15 +3,20 @@ package edu.cnm.deepdive.mathmurdermystery.model.dao;
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
-import edu.cnm.deepdive.mathmurdermystery.model.MathProblems;
+import android.arch.persistence.room.Update;
+import edu.cnm.deepdive.mathmurdermystery.model.MathProblem;
+import java.util.List;
 
 
 @Dao
 public interface MathProblemsDao {
 
-  @Insert(MathProblems)
+  @Insert
+  List<Long> insert (List<MathProblem> mathProblems);
 
+  @Update
+  Void update (MathProblem mathProblems);
 
-  @Query("SELECT * FROM mathproblems ORDER BY poolOfProblems DESC")
-  public MathProblems
+  @Query("SELECT * FROM MathProblem ORDER BY poolOfProblems DESC")
+  public List<MathProblem> getAll();
 }

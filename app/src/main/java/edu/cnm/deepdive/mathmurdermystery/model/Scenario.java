@@ -6,7 +6,7 @@ import android.arch.persistence.room.PrimaryKey;
 
 @Entity
 
-public class Scenarios {
+public class Scenario {
 
   @PrimaryKey
   private int scenarioId;
