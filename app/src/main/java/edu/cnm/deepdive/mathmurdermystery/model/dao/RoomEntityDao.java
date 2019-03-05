@@ -7,7 +7,7 @@ import edu.cnm.deepdive.mathmurdermystery.model.RoomEntity;
 import java.util.List;
 
 @Dao
-public interface RoomDao {
+public interface RoomEntityDao {
 
   @Insert
   public String insertRoom(RoomEntity room);

@@ -9,7 +9,7 @@ import java.util.List;
 
 
 @Dao
-public interface MathProblemsDao {
+public interface MathProblemDao {
 
   @Insert
   List<Long> insert (List<MathProblem> mathProblems);
