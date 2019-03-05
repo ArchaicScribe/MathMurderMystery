@@ -7,7 +7,7 @@ import android.arch.persistence.room.PrimaryKey;
 
 @Entity (foreignKeys = @ForeignKey(entity = Level.class,
     parentColumns = "level_id", childColumns = "level_id"))
-public class Room {
+public class RoomEntity {
 
   @PrimaryKey
   private int roomId;
