@@ -1,4 +1,4 @@
-package edu.cnm.deepdive.mathmurdermystery.model;
+package edu.cnm.deepdive.mathmurdermystery.model.entity;
 
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
@@ -14,8 +14,10 @@ public class UserInformation {
   @NonNull
   private String userId;
   @ColumnInfo
+  @NonNull
   private String username;
   @ColumnInfo
+  @NonNull
   private String userProgress;
 
   @NonNull

@@ -1,4 +1,4 @@
-package edu.cnm.deepdive.mathmurdermystery.model;
+package edu.cnm.deepdive.mathmurdermystery.model.entity;
 
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
@@ -14,9 +14,9 @@ public class History {
   @NonNull
   private String problemId;
   @ColumnInfo
+  @NonNull
   private String userId;
 
-  @NonNull
   public String getProblemId() {
     return problemId;
   }

@@ -1,4 +1,4 @@
-package edu.cnm.deepdive.mathmurdermystery.model;
+package edu.cnm.deepdive.mathmurdermystery.model.entity;
 
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
@@ -10,13 +10,16 @@ public class MathProblem {
 
   @PrimaryKey
   @ColumnInfo
+  @NonNull
   private String problemId;
   @ColumnInfo(name = "level_difficulty_of_problems")
+  @NonNull
   private String problemDifficulty;
   @ColumnInfo
-  private int problemAnswer;
+  @NonNull
+  private long problemAnswer;
   @ColumnInfo
-  private int numberOfAttemptsPermitted;
+  private long numberOfAttemptsPermitted;
   @ColumnInfo
   private String poolOfProblems;
 
@@ -36,19 +39,19 @@ public class MathProblem {
     this.problemDifficulty = problemDifficulty;
   }
 
-  public int getProblemAnswer() {
+  public long getProblemAnswer() {
     return problemAnswer;
   }
 
-  public void setProblemAnswer(int problemAnswer) {
+  public void setProblemAnswer(long problemAnswer) {
     this.problemAnswer = problemAnswer;
   }
 
-  public int getNumberOfAttemptsPermitted() {
+  public long getNumberOfAttemptsPermitted() {
     return numberOfAttemptsPermitted;
   }
 
-  public void setNumberOfAttemptsPermitted(int numberOfAttemptsPermitted) {
+  public void setNumberOfAttemptsPermitted(long numberOfAttemptsPermitted) {
     this.numberOfAttemptsPermitted = numberOfAttemptsPermitted;
   }
 

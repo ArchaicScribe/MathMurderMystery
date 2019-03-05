@@ -1,32 +1,33 @@
-package edu.cnm.deepdive.mathmurdermystery.model;
+package edu.cnm.deepdive.mathmurdermystery.model.entity;
 
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.ForeignKey;
 import android.arch.persistence.room.PrimaryKey;
+import edu.cnm.deepdive.mathmurdermystery.model.entity.Level;
 
 @Entity (foreignKeys = @ForeignKey(entity = Level.class,
-    parentColumns = "level_id", childColumns = "level_id"))
+    parentColumns = "levelId", childColumns = "levelId"))
 public class RoomEntity {
 
   @PrimaryKey
-  private int roomId;
+  private long roomId;
   @ColumnInfo
-  private int levelId;
+  private long levelId;
 
-  public int getRoomId() {
+  public long getRoomId() {
     return roomId;
   }
 
-  public void setRoomId(int roomId) {
+  public void setRoomId(long roomId) {
     this.roomId = roomId;
   }
 
-  public int getLevelId() {
+  public long getLevelId() {
     return levelId;
   }
 
-  public void setLevelId(int levelId) {
+  public void setLevelId(long levelId) {
     this.levelId = levelId;
   }
 }

@@ -11,6 +11,13 @@ import edu.cnm.deepdive.mathmurdermystery.model.dao.MathProblemDao;
 import edu.cnm.deepdive.mathmurdermystery.model.dao.RoomEntityDao;
 import edu.cnm.deepdive.mathmurdermystery.model.dao.ScenarioDao;
 import edu.cnm.deepdive.mathmurdermystery.model.dao.UserInformationDao;
+import edu.cnm.deepdive.mathmurdermystery.model.entity.Connection;
+import edu.cnm.deepdive.mathmurdermystery.model.entity.History;
+import edu.cnm.deepdive.mathmurdermystery.model.entity.Level;
+import edu.cnm.deepdive.mathmurdermystery.model.entity.MathProblem;
+import edu.cnm.deepdive.mathmurdermystery.model.entity.RoomEntity;
+import edu.cnm.deepdive.mathmurdermystery.model.entity.Scenario;
+import edu.cnm.deepdive.mathmurdermystery.model.entity.UserInformation;
 
 @Database(
     entities = {Connection.class, History.class, Level.class, MathProblem.class, RoomEntity.class,

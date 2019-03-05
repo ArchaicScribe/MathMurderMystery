@@ -1,4 +1,4 @@
-package edu.cnm.deepdive.mathmurdermystery.model;
+package edu.cnm.deepdive.mathmurdermystery.model.entity;
 
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
@@ -9,15 +9,15 @@ import android.arch.persistence.room.PrimaryKey;
 public class Scenario {
 
   @PrimaryKey
-  private int scenarioId;
+  private long scenarioId;
   @ColumnInfo
   private String scenarioTitle;
 
-  public int getScenarioId() {
+  public long getScenarioId() {
     return scenarioId;
   }
 
-  public void setScenarioId(int scenarioId) {
+  public void setScenarioId(long scenarioId) {
     this.scenarioId = scenarioId;
   }
 

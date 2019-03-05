@@ -1,4 +1,4 @@
-package edu.cnm.deepdive.mathmurdermystery.model;
+package edu.cnm.deepdive.mathmurdermystery.model.entity;
 
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
@@ -13,13 +13,13 @@ public class Level {
   @ColumnInfo
   private String levelTitle;
   @ColumnInfo
-  private long levelDifficultyOfPRoblems;
+  private long levelDifficultyOfProblems;
 
   public long getLevelId() {
     return levelId;
   }
 
-  public void setLevelId(int levelId) {
+  public void setLevelId(long levelId) {
     this.levelId = levelId;
   }
 
@@ -31,11 +31,11 @@ public class Level {
     this.levelTitle = levelTitle;
   }
 
-  public long getLevelDifficultyOfPRoblems() {
-    return levelDifficultyOfPRoblems;
+  public long getLevelDifficultyOfProblems() {
+    return levelDifficultyOfProblems;
   }
 
-  public void setLevelDifficultyOfPRoblems(int levelDifficultyOfPRoblems) {
-    this.levelDifficultyOfPRoblems = levelDifficultyOfPRoblems;
+  public void setLevelDifficultyOfProblems(long levelDifficultyOfProblems) {
+    this.levelDifficultyOfProblems = levelDifficultyOfProblems;
   }
 }
