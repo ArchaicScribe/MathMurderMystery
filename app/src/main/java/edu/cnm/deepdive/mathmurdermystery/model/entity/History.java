@@ -7,13 +7,13 @@ import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
 
 @Entity(foreignKeys = @ForeignKey(entity = UserInformation.class,
-    parentColumns = "userId", childColumns = "userId"))
+    parentColumns = "user_id", childColumns = "user_id"))
 public class History {
 
   @PrimaryKey
   @NonNull
   private String problemId;
-  @ColumnInfo
+  @ColumnInfo(name = "user_id", index = true)
   @NonNull
   private String userId;
 

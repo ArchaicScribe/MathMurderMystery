@@ -7,12 +7,12 @@ import android.arch.persistence.room.PrimaryKey;
 import edu.cnm.deepdive.mathmurdermystery.model.entity.Level;
 
 @Entity (foreignKeys = @ForeignKey(entity = Level.class,
-    parentColumns = "levelId", childColumns = "levelId"))
+    parentColumns = "level_id", childColumns = "level_id"))
 public class RoomEntity {
 
   @PrimaryKey
   private long roomId;
-  @ColumnInfo
+  @ColumnInfo(name = "level_id", index = true)
   private long levelId;
 
   public long getRoomId() {

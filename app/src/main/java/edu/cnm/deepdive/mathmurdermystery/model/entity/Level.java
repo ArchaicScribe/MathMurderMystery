@@ -9,10 +9,11 @@ public class Level {
 
 
   @PrimaryKey
+  @ColumnInfo(name = "level_id", index = true)
   private long levelId;
-  @ColumnInfo
+  @ColumnInfo(name = "level_title", index = true)
   private String levelTitle;
-  @ColumnInfo
+  @ColumnInfo(name = "level_of_difficulty_of_problems", index = true)
   private long levelDifficultyOfProblems;
 
   public long getLevelId() {

@@ -12,11 +12,12 @@ public class UserInformation {
 
   @PrimaryKey
   @NonNull
+  @ColumnInfo(name = "user_id", index = true)
   private String userId;
-  @ColumnInfo
+  @ColumnInfo(name = "username", index = true)
   @NonNull
   private String username;
-  @ColumnInfo
+  @ColumnInfo(name = "user_progress", index = true)
   @NonNull
   private String userProgress;
 

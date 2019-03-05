@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "6a2d48065e95343a97b5b4f3ff19c50d",
+    "identityHash": "7c195019de4ddfd7becd9f6f9dd02891",
     "entities": [
       {
         "tableName": "Connection",
@@ -26,7 +26,7 @@
       },
       {
         "tableName": "History",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`problemId` TEXT NOT NULL, `userId` TEXT NOT NULL, PRIMARY KEY(`problemId`), FOREIGN KEY(`userId`) REFERENCES `UserInformation`(`userId`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`problemId` TEXT NOT NULL, `user_id` TEXT NOT NULL, PRIMARY KEY(`problemId`), FOREIGN KEY(`user_id`) REFERENCES `UserInformation`(`user_id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
         "fields": [
           {
             "fieldPath": "problemId",
@@ -36,7 +36,7 @@
           },
           {
             "fieldPath": "userId",
-            "columnName": "userId",
+            "columnName": "user_id",
             "affinity": "TEXT",
             "notNull": true
           }
@@ -47,60 +47,94 @@
           ],
           "autoGenerate": false
         },
-        "indices": [],
+        "indices": [
+          {
+            "name": "index_History_user_id",
+            "unique": false,
+            "columnNames": [
+              "user_id"
+            ],
+            "createSql": "CREATE  INDEX `index_History_user_id` ON `${TABLE_NAME}` (`user_id`)"
+          }
+        ],
         "foreignKeys": [
           {
             "table": "UserInformation",
             "onDelete": "NO ACTION",
             "onUpdate": "NO ACTION",
             "columns": [
-              "userId"
+              "user_id"
             ],
             "referencedColumns": [
-              "userId"
+              "user_id"
             ]
           }
         ]
       },
       {
         "tableName": "Level",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`levelId` INTEGER NOT NULL, `levelTitle` TEXT, `levelDifficultyOfProblems` INTEGER NOT NULL, PRIMARY KEY(`levelId`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`level_id` INTEGER NOT NULL, `level_title` TEXT, `level_of_difficulty_of_problems` INTEGER NOT NULL, PRIMARY KEY(`level_id`))",
         "fields": [
           {
             "fieldPath": "levelId",
-            "columnName": "levelId",
+            "columnName": "level_id",
             "affinity": "INTEGER",
             "notNull": true
           },
           {
             "fieldPath": "levelTitle",
-            "columnName": "levelTitle",
+            "columnName": "level_title",
             "affinity": "TEXT",
             "notNull": false
           },
           {
             "fieldPath": "levelDifficultyOfProblems",
-            "columnName": "levelDifficultyOfProblems",
+            "columnName": "level_of_difficulty_of_problems",
             "affinity": "INTEGER",
             "notNull": true
           }
         ],
         "primaryKey": {
           "columnNames": [
-            "levelId"
+            "level_id"
           ],
           "autoGenerate": false
         },
-        "indices": [],
+        "indices": [
+          {
+            "name": "index_Level_level_id",
+            "unique": false,
+            "columnNames": [
+              "level_id"
+            ],
+            "createSql": "CREATE  INDEX `index_Level_level_id` ON `${TABLE_NAME}` (`level_id`)"
+          },
+          {
+            "name": "index_Level_level_title",
+            "unique": false,
+            "columnNames": [
+              "level_title"
+            ],
+            "createSql": "CREATE  INDEX `index_Level_level_title` ON `${TABLE_NAME}` (`level_title`)"
+          },
+          {
+            "name": "index_Level_level_of_difficulty_of_problems",
+            "unique": false,
+            "columnNames": [
+              "level_of_difficulty_of_problems"
+            ],
+            "createSql": "CREATE  INDEX `index_Level_level_of_difficulty_of_problems` ON `${TABLE_NAME}` (`level_of_difficulty_of_problems`)"
+          }
+        ],
         "foreignKeys": []
       },
       {
         "tableName": "MathProblem",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`problemId` TEXT NOT NULL, `level_difficulty_of_problems` TEXT NOT NULL, `problemAnswer` INTEGER NOT NULL, `numberOfAttemptsPermitted` INTEGER NOT NULL, `poolOfProblems` TEXT, PRIMARY KEY(`problemId`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`problem_id` TEXT NOT NULL, `level_difficulty_of_problems` TEXT NOT NULL, `problem_answer` INTEGER NOT NULL, `number_of_attempts_permitted` INTEGER NOT NULL, `poolOfProblems` TEXT, PRIMARY KEY(`problem_id`))",
         "fields": [
           {
             "fieldPath": "problemId",
-            "columnName": "problemId",
+            "columnName": "problem_id",
             "affinity": "TEXT",
             "notNull": true
           },
@@ -112,13 +146,13 @@
           },
           {
             "fieldPath": "problemAnswer",
-            "columnName": "problemAnswer",
+            "columnName": "problem_answer",
             "affinity": "INTEGER",
             "notNull": true
           },
           {
             "fieldPath": "numberOfAttemptsPermitted",
-            "columnName": "numberOfAttemptsPermitted",
+            "columnName": "number_of_attempts_permitted",
             "affinity": "INTEGER",
             "notNull": true
           },
@@ -131,16 +165,49 @@
         ],
         "primaryKey": {
           "columnNames": [
-            "problemId"
+            "problem_id"
           ],
           "autoGenerate": false
         },
-        "indices": [],
+        "indices": [
+          {
+            "name": "index_MathProblem_problem_id",
+            "unique": false,
+            "columnNames": [
+              "problem_id"
+            ],
+            "createSql": "CREATE  INDEX `index_MathProblem_problem_id` ON `${TABLE_NAME}` (`problem_id`)"
+          },
+          {
+            "name": "index_MathProblem_level_difficulty_of_problems",
+            "unique": false,
+            "columnNames": [
+              "level_difficulty_of_problems"
+            ],
+            "createSql": "CREATE  INDEX `index_MathProblem_level_difficulty_of_problems` ON `${TABLE_NAME}` (`level_difficulty_of_problems`)"
+          },
+          {
+            "name": "index_MathProblem_problem_answer",
+            "unique": false,
+            "columnNames": [
+              "problem_answer"
+            ],
+            "createSql": "CREATE  INDEX `index_MathProblem_problem_answer` ON `${TABLE_NAME}` (`problem_answer`)"
+          },
+          {
+            "name": "index_MathProblem_number_of_attempts_permitted",
+            "unique": false,
+            "columnNames": [
+              "number_of_attempts_permitted"
+            ],
+            "createSql": "CREATE  INDEX `index_MathProblem_number_of_attempts_permitted` ON `${TABLE_NAME}` (`number_of_attempts_permitted`)"
+          }
+        ],
         "foreignKeys": []
       },
       {
         "tableName": "RoomEntity",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`roomId` INTEGER NOT NULL, `levelId` INTEGER NOT NULL, PRIMARY KEY(`roomId`), FOREIGN KEY(`levelId`) REFERENCES `Level`(`levelId`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`roomId` INTEGER NOT NULL, `level_id` INTEGER NOT NULL, PRIMARY KEY(`roomId`), FOREIGN KEY(`level_id`) REFERENCES `Level`(`level_id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
         "fields": [
           {
             "fieldPath": "roomId",
@@ -150,7 +217,7 @@
           },
           {
             "fieldPath": "levelId",
-            "columnName": "levelId",
+            "columnName": "level_id",
             "affinity": "INTEGER",
             "notNull": true
           }
@@ -161,24 +228,33 @@
           ],
           "autoGenerate": false
         },
-        "indices": [],
+        "indices": [
+          {
+            "name": "index_RoomEntity_level_id",
+            "unique": false,
+            "columnNames": [
+              "level_id"
+            ],
+            "createSql": "CREATE  INDEX `index_RoomEntity_level_id` ON `${TABLE_NAME}` (`level_id`)"
+          }
+        ],
         "foreignKeys": [
           {
             "table": "Level",
             "onDelete": "NO ACTION",
             "onUpdate": "NO ACTION",
             "columns": [
-              "levelId"
+              "level_id"
             ],
             "referencedColumns": [
-              "levelId"
+              "level_id"
             ]
           }
         ]
       },
       {
         "tableName": "Scenario",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`scenarioId` INTEGER NOT NULL, `scenarioTitle` TEXT, PRIMARY KEY(`scenarioId`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`scenarioId` INTEGER NOT NULL, `scenario_title` TEXT, PRIMARY KEY(`scenarioId`))",
         "fields": [
           {
             "fieldPath": "scenarioId",
@@ -188,7 +264,7 @@
           },
           {
             "fieldPath": "scenarioTitle",
-            "columnName": "scenarioTitle",
+            "columnName": "scenario_title",
             "affinity": "TEXT",
             "notNull": false
           }
@@ -199,16 +275,25 @@
           ],
           "autoGenerate": false
         },
-        "indices": [],
+        "indices": [
+          {
+            "name": "index_Scenario_scenario_title",
+            "unique": false,
+            "columnNames": [
+              "scenario_title"
+            ],
+            "createSql": "CREATE  INDEX `index_Scenario_scenario_title` ON `${TABLE_NAME}` (`scenario_title`)"
+          }
+        ],
         "foreignKeys": []
       },
       {
         "tableName": "UserInformation",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`userId` TEXT NOT NULL, `username` TEXT NOT NULL, `userProgress` TEXT NOT NULL, PRIMARY KEY(`userId`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`user_id` TEXT NOT NULL, `username` TEXT NOT NULL, `user_progress` TEXT NOT NULL, PRIMARY KEY(`user_id`))",
         "fields": [
           {
             "fieldPath": "userId",
-            "columnName": "userId",
+            "columnName": "user_id",
             "affinity": "TEXT",
             "notNull": true
           },
@@ -220,24 +305,49 @@
           },
           {
             "fieldPath": "userProgress",
-            "columnName": "userProgress",
+            "columnName": "user_progress",
             "affinity": "TEXT",
             "notNull": true
           }
         ],
         "primaryKey": {
           "columnNames": [
-            "userId"
+            "user_id"
           ],
           "autoGenerate": false
         },
-        "indices": [],
+        "indices": [
+          {
+            "name": "index_UserInformation_user_id",
+            "unique": false,
+            "columnNames": [
+              "user_id"
+            ],
+            "createSql": "CREATE  INDEX `index_UserInformation_user_id` ON `${TABLE_NAME}` (`user_id`)"
+          },
+          {
+            "name": "index_UserInformation_username",
+            "unique": false,
+            "columnNames": [
+              "username"
+            ],
+            "createSql": "CREATE  INDEX `index_UserInformation_username` ON `${TABLE_NAME}` (`username`)"
+          },
+          {
+            "name": "index_UserInformation_user_progress",
+            "unique": false,
+            "columnNames": [
+              "user_progress"
+            ],
+            "createSql": "CREATE  INDEX `index_UserInformation_user_progress` ON `${TABLE_NAME}` (`user_progress`)"
+          }
+        ],
         "foreignKeys": []
       }
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"6a2d48065e95343a97b5b4f3ff19c50d\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"7c195019de4ddfd7becd9f6f9dd02891\")"
     ]
   }
 }

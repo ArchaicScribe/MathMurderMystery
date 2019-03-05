@@ -9,16 +9,16 @@ import android.support.annotation.NonNull;
 public class MathProblem {
 
   @PrimaryKey
-  @ColumnInfo
+  @ColumnInfo(name = "problem_id", index = true)
   @NonNull
   private String problemId;
-  @ColumnInfo(name = "level_difficulty_of_problems")
+  @ColumnInfo(name = "level_difficulty_of_problems", index = true)
   @NonNull
   private String problemDifficulty;
-  @ColumnInfo
+  @ColumnInfo(name = "problem_answer", index = true)
   @NonNull
   private long problemAnswer;
-  @ColumnInfo
+  @ColumnInfo(name = "number_of_attempts_permitted", index = true)
   private long numberOfAttemptsPermitted;
   @ColumnInfo
   private String poolOfProblems;

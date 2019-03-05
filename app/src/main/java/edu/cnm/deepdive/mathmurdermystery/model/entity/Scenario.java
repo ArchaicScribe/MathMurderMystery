@@ -10,7 +10,7 @@ public class Scenario {
 
   @PrimaryKey
   private long scenarioId;
-  @ColumnInfo
+  @ColumnInfo(name = "scenario_title", index = true)
   private String scenarioTitle;
 
   public long getScenarioId() {
