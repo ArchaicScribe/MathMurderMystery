@@ -12,6 +12,7 @@ public class History {
 
   @PrimaryKey
   @NonNull
+  @ColumnInfo(name = "problem_id", index = true)
   private String problemId;
   @ColumnInfo(name = "user_id", index = true)
   @NonNull

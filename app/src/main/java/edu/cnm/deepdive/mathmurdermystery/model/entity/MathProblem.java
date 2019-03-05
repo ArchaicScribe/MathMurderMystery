@@ -20,7 +20,7 @@ public class MathProblem {
   private long problemAnswer;
   @ColumnInfo(name = "number_of_attempts_permitted", index = true)
   private long numberOfAttemptsPermitted;
-  @ColumnInfo
+  @ColumnInfo(name = "pool_of_problems")
   private String poolOfProblems;
 
   public String getProblemId() {

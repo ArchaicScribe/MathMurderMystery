@@ -11,6 +11,7 @@ import edu.cnm.deepdive.mathmurdermystery.model.entity.Level;
 public class RoomEntity {
 
   @PrimaryKey
+  @ColumnInfo(name = "room_id", index = true)
   private long roomId;
   @ColumnInfo(name = "level_id", index = true)
   private long levelId;

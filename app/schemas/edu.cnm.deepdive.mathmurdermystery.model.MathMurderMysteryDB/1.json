@@ -2,35 +2,82 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "7c195019de4ddfd7becd9f6f9dd02891",
+    "identityHash": "6ac39b594596891ecbaf6c882a44cbb9",
     "entities": [
       {
         "tableName": "Connection",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`roomId` TEXT NOT NULL, PRIMARY KEY(`roomId`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`room_id1` INTEGER NOT NULL, `room_id2` INTEGER NOT NULL, PRIMARY KEY(`room_id1`, `room_id2`), FOREIGN KEY(`room_id1`) REFERENCES `RoomEntity`(`room_id`) ON UPDATE NO ACTION ON DELETE NO ACTION , FOREIGN KEY(`room_id2`) REFERENCES `RoomEntity`(`room_id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
         "fields": [
           {
-            "fieldPath": "roomId",
-            "columnName": "roomId",
-            "affinity": "TEXT",
+            "fieldPath": "roomId1",
+            "columnName": "room_id1",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "roomId2",
+            "columnName": "room_id2",
+            "affinity": "INTEGER",
             "notNull": true
           }
         ],
         "primaryKey": {
           "columnNames": [
-            "roomId"
+            "room_id1",
+            "room_id2"
           ],
           "autoGenerate": false
         },
-        "indices": [],
-        "foreignKeys": []
+        "indices": [
+          {
+            "name": "index_Connection_room_id1",
+            "unique": false,
+            "columnNames": [
+              "room_id1"
+            ],
+            "createSql": "CREATE  INDEX `index_Connection_room_id1` ON `${TABLE_NAME}` (`room_id1`)"
+          },
+          {
+            "name": "index_Connection_room_id2",
+            "unique": false,
+            "columnNames": [
+              "room_id2"
+            ],
+            "createSql": "CREATE  INDEX `index_Connection_room_id2` ON `${TABLE_NAME}` (`room_id2`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "RoomEntity",
+            "onDelete": "NO ACTION",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "room_id1"
+            ],
+            "referencedColumns": [
+              "room_id"
+            ]
+          },
+          {
+            "table": "RoomEntity",
+            "onDelete": "NO ACTION",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "room_id2"
+            ],
+            "referencedColumns": [
+              "room_id"
+            ]
+          }
+        ]
       },
       {
         "tableName": "History",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`problemId` TEXT NOT NULL, `user_id` TEXT NOT NULL, PRIMARY KEY(`problemId`), FOREIGN KEY(`user_id`) REFERENCES `UserInformation`(`user_id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`problem_id` TEXT NOT NULL, `user_id` TEXT NOT NULL, PRIMARY KEY(`problem_id`), FOREIGN KEY(`user_id`) REFERENCES `UserInformation`(`user_id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
         "fields": [
           {
             "fieldPath": "problemId",
-            "columnName": "problemId",
+            "columnName": "problem_id",
             "affinity": "TEXT",
             "notNull": true
           },
@@ -43,11 +90,19 @@
         ],
         "primaryKey": {
           "columnNames": [
-            "problemId"
+            "problem_id"
           ],
           "autoGenerate": false
         },
         "indices": [
+          {
+            "name": "index_History_problem_id",
+            "unique": false,
+            "columnNames": [
+              "problem_id"
+            ],
+            "createSql": "CREATE  INDEX `index_History_problem_id` ON `${TABLE_NAME}` (`problem_id`)"
+          },
           {
             "name": "index_History_user_id",
             "unique": false,
@@ -130,7 +185,7 @@
       },
       {
         "tableName": "MathProblem",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`problem_id` TEXT NOT NULL, `level_difficulty_of_problems` TEXT NOT NULL, `problem_answer` INTEGER NOT NULL, `number_of_attempts_permitted` INTEGER NOT NULL, `poolOfProblems` TEXT, PRIMARY KEY(`problem_id`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`problem_id` TEXT NOT NULL, `level_difficulty_of_problems` TEXT NOT NULL, `problem_answer` INTEGER NOT NULL, `number_of_attempts_permitted` INTEGER NOT NULL, `pool_of_problems` TEXT, PRIMARY KEY(`problem_id`))",
         "fields": [
           {
             "fieldPath": "problemId",
@@ -158,7 +213,7 @@
           },
           {
             "fieldPath": "poolOfProblems",
-            "columnName": "poolOfProblems",
+            "columnName": "pool_of_problems",
             "affinity": "TEXT",
             "notNull": false
           }
@@ -207,11 +262,11 @@
       },
       {
         "tableName": "RoomEntity",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`roomId` INTEGER NOT NULL, `level_id` INTEGER NOT NULL, PRIMARY KEY(`roomId`), FOREIGN KEY(`level_id`) REFERENCES `Level`(`level_id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`room_id` INTEGER NOT NULL, `level_id` INTEGER NOT NULL, PRIMARY KEY(`room_id`), FOREIGN KEY(`level_id`) REFERENCES `Level`(`level_id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
         "fields": [
           {
             "fieldPath": "roomId",
-            "columnName": "roomId",
+            "columnName": "room_id",
             "affinity": "INTEGER",
             "notNull": true
           },
@@ -224,11 +279,19 @@
         ],
         "primaryKey": {
           "columnNames": [
-            "roomId"
+            "room_id"
           ],
           "autoGenerate": false
         },
         "indices": [
+          {
+            "name": "index_RoomEntity_room_id",
+            "unique": false,
+            "columnNames": [
+              "room_id"
+            ],
+            "createSql": "CREATE  INDEX `index_RoomEntity_room_id` ON `${TABLE_NAME}` (`room_id`)"
+          },
           {
             "name": "index_RoomEntity_level_id",
             "unique": false,
@@ -254,11 +317,11 @@
       },
       {
         "tableName": "Scenario",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`scenarioId` INTEGER NOT NULL, `scenario_title` TEXT, PRIMARY KEY(`scenarioId`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`scenario_id` INTEGER NOT NULL, `scenario_title` TEXT NOT NULL, PRIMARY KEY(`scenario_id`))",
         "fields": [
           {
             "fieldPath": "scenarioId",
-            "columnName": "scenarioId",
+            "columnName": "scenario_id",
             "affinity": "INTEGER",
             "notNull": true
           },
@@ -266,16 +329,24 @@
             "fieldPath": "scenarioTitle",
             "columnName": "scenario_title",
             "affinity": "TEXT",
-            "notNull": false
+            "notNull": true
           }
         ],
         "primaryKey": {
           "columnNames": [
-            "scenarioId"
+            "scenario_id"
           ],
           "autoGenerate": false
         },
         "indices": [
+          {
+            "name": "index_Scenario_scenario_id",
+            "unique": false,
+            "columnNames": [
+              "scenario_id"
+            ],
+            "createSql": "CREATE  INDEX `index_Scenario_scenario_id` ON `${TABLE_NAME}` (`scenario_id`)"
+          },
           {
             "name": "index_Scenario_scenario_title",
             "unique": false,
@@ -347,7 +418,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"7c195019de4ddfd7becd9f6f9dd02891\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"6ac39b594596891ecbaf6c882a44cbb9\")"
     ]
   }
 }

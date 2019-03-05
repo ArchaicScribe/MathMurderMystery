@@ -17,6 +17,6 @@ public interface MathProblemDao {
   @Update
   void update(MathProblem mathProblems);
 
-  @Query("SELECT * FROM MathProblem ORDER BY poolOfProblems DESC")
+  @Query("SELECT * FROM MathProblem ORDER BY pool_of_problems DESC")
   List<MathProblem> getAll();
 }
