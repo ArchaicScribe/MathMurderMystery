@@ -7,6 +7,7 @@
   android:background="#0014ed">
 
   <TextView
+    android:id="@+id/play_fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:textColor="#00FF00"

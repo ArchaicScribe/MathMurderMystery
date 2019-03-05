@@ -3,6 +3,8 @@ package edu.cnm.deepdive.mathmurdermystery;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -68,17 +70,13 @@ public class HomeScreenActivity extends AppCompatActivity
     return super.onOptionsItemSelected(item);
   }
 
-  @SuppressWarnings("StatementWithEmptyBody")
+
   @Override
   public boolean onNavigationItemSelected(MenuItem item) {
-    // Handle navigation view item clicks here.
-    int id = item.getItemId();
+    Bundle args = new Bundle();
+    switch (item.getItemId()) {
+    case R.id.play_fragment:
 
-    if (id == R.id.play_arrow) {
-
-    } else if (id == R.id.help_arrow) {
-
-    } else if (id == R.id.scroreboard) {
 
     }
 
