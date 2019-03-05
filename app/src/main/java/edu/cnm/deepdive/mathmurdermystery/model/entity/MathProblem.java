@@ -16,11 +16,11 @@ public class MathProblem {
   @NonNull
   private String problemDifficulty;
   @ColumnInfo(name = "problem_answer", index = true)
-  @NonNull
   private long problemAnswer;
   @ColumnInfo(name = "number_of_attempts_permitted", index = true)
   private long numberOfAttemptsPermitted;
   @ColumnInfo(name = "pool_of_problems")
+  @NonNull
   private String poolOfProblems;
 
   public String getProblemId() {

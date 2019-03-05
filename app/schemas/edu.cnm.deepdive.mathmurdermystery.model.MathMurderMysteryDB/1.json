@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "6ac39b594596891ecbaf6c882a44cbb9",
+    "identityHash": "80ca870d233b7f3cdd067f40b2837818",
     "entities": [
       {
         "tableName": "Connection",
@@ -128,7 +128,7 @@
       },
       {
         "tableName": "Level",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`level_id` INTEGER NOT NULL, `level_title` TEXT, `level_of_difficulty_of_problems` INTEGER NOT NULL, PRIMARY KEY(`level_id`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`level_id` INTEGER NOT NULL, `level_title` TEXT NOT NULL, `level_of_difficulty_of_problems` INTEGER NOT NULL, PRIMARY KEY(`level_id`))",
         "fields": [
           {
             "fieldPath": "levelId",
@@ -140,7 +140,7 @@
             "fieldPath": "levelTitle",
             "columnName": "level_title",
             "affinity": "TEXT",
-            "notNull": false
+            "notNull": true
           },
           {
             "fieldPath": "levelDifficultyOfProblems",
@@ -185,7 +185,7 @@
       },
       {
         "tableName": "MathProblem",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`problem_id` TEXT NOT NULL, `level_difficulty_of_problems` TEXT NOT NULL, `problem_answer` INTEGER NOT NULL, `number_of_attempts_permitted` INTEGER NOT NULL, `pool_of_problems` TEXT, PRIMARY KEY(`problem_id`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`problem_id` TEXT NOT NULL, `level_difficulty_of_problems` TEXT NOT NULL, `problem_answer` INTEGER NOT NULL, `number_of_attempts_permitted` INTEGER NOT NULL, `pool_of_problems` TEXT NOT NULL, PRIMARY KEY(`problem_id`))",
         "fields": [
           {
             "fieldPath": "problemId",
@@ -215,7 +215,7 @@
             "fieldPath": "poolOfProblems",
             "columnName": "pool_of_problems",
             "affinity": "TEXT",
-            "notNull": false
+            "notNull": true
           }
         ],
         "primaryKey": {
@@ -418,7 +418,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"6ac39b594596891ecbaf6c882a44cbb9\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"80ca870d233b7f3cdd067f40b2837818\")"
     ]
   }
 }
