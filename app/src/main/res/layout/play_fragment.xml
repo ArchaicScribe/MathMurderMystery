@@ -2,43 +2,56 @@
 <LinearLayout
   xmlns:android="http://schemas.android.com/apk/res/android"
   android:layout_width="match_parent"
-  android:layout_height="match_parent"
-  android:background="#0014ed"
-  android:orientation="horizontal">
+  android:layout_height="wrap_content"
+  android:gravity="center"
+  android:background="#ffffff"
+  android:orientation="vertical">
 
   <TextView
     android:id="@+id/play_game"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:textColor="#00FF00"
     android:textSize="72sp"
     android:text="@string/play_fragment"/>
 
   <Button
     android:id="@+id/new_game_button"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:layout_marginLeft="8dp"
+    android:layout_marginRight="8dp"
     android:layout_marginBottom="24dp"
+    android:gravity="center"
     android:textColor="#cc1b04"
+    android:background="#808080"
     android:textSize="32sp"
     android:text="@string/new_game"/>
 
   <Button
     android:id="@+id/continue_game_button"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:layout_marginLeft="8dp"
+    android:layout_marginRight="8dp"
     android:layout_marginBottom="20dp"
+    android:gravity="center"
     android:textColor="#812501"
     android:textSize="32sp"
+    android:background="#808080"
     android:text="@string/continue_game"/>
 
   <Button
     android:id="@+id/return_to_main_menu"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginLeft="8dp"
+    android:layout_marginRight="8dp"
     android:layout_marginBottom="16dp"
+    android:gravity="center"
     android:textColor="#001458"
     android:textSize="32sp"
+    android:background="#808080"
     android:text="@string/return_to_main_menu"/>
 
 </LinearLayout>
