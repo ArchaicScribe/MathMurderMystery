@@ -2,8 +2,11 @@ package edu.cnm.deepdive.mathmurdermystery;
 
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
+
+
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -12,6 +15,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import edu.cnm.deepdive.mathmurdermystery.controller.HelpFragment;
+import edu.cnm.deepdive.mathmurdermystery.controller.MainScreenFragment;
 import edu.cnm.deepdive.mathmurdermystery.controller.PlayFragment;
 import edu.cnm.deepdive.mathmurdermystery.controller.ScoreboardFragment;
 
@@ -35,6 +39,15 @@ public class HomeScreenActivity extends AppCompatActivity
 
     NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
     navigationView.setNavigationItemSelectedListener(this);
+
+    Fragment fragmentMainScreenFragment = new MainScreenFragment();
+
+    FragmentManager manager = getSupportFragmentManager();
+    FragmentTransaction transaction = manager.beginTransaction();
+    transaction.add(R.id.fragment_container, fragmentMainScreenFragment, "home");
+    transaction.addToBackStack(null);
+    transaction.commit();
+
   }
 
   @Override

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout
   xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
   android:background="#0000c0">
@@ -13,5 +14,18 @@
     android:textSize="72sp"
     android:textStyle="italic"
     android:text="@string/scoreboard_welcome"/>
+
+
+  <Button
+    android:id="@+id/return_to_main_menu"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="#808080"
+    android:gravity="center"
+    android:text="@string/return_to_main_menu"
+    android:textColor="#001458"
+    android:textSize="32sp"
+    tools:layout_editor_absoluteX="13dp"
+    tools:layout_editor_absoluteY="338dp"/>
 
 </android.support.constraint.ConstraintLayout>
