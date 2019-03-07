@@ -8,6 +8,9 @@
   <string name="nav_header_desc">Navigation header</string>
   <string name="action_settings">History</string>
   <string name="play_fragment">Start a new game or continue?</string>
+  <string name="new_game">Start a new game</string>
+  <string name="continue_game">Continue game</string>
+  <string name="return_to_main_menu">Return to Main Menu</string>
 
   <!-- TODO: Remove or change this placeholder text -->
   <string name="hello_blank_fragment">Hello blank fragment</string>

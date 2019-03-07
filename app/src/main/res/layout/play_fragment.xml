@@ -1,17 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<LinearLayout
   xmlns:android="http://schemas.android.com/apk/res/android"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
-  xmlns:tools="http://schemas.android.com/tools"
   android:background="#0014ed">
 
   <TextView
-    android:id="@+id/play_fragment"
+    android:id="@+id/play_game"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:textColor="#00FF00"
     android:textSize="72sp"
     android:text="@string/play_fragment"/>
 
-</android.support.constraint.ConstraintLayout>
+  <Button
+    android:id="@+id/new_game_button"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="24dp"
+    android:textColor="#cc1b04"
+    android:textSize="32sp"
+    android:text="@string/new_game"/>
+
+  <Button
+    android:id="@+id/continue_game_button"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="20dp"
+    android:textColor="#812501"
+    android:textSize="32sp"
+    android:text="@string/continue_game"/>
+
+  <Button
+    android:id="@+id/return_to_main_menu"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="16dp"
+    android:textColor="#001458"
+    android:textSize="32sp"
+    android:text="@string/return_to_main_menu"/>
+
+</LinearLayout>

@@ -1,12 +1,9 @@
 package edu.cnm.deepdive.mathmurdermystery;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.view.View;
-import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -14,6 +11,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import edu.cnm.deepdive.mathmurdermystery.controller.PlayFragment;
+import edu.cnm.deepdive.mathmurdermystery.controller.ScoreboardFragment;
 
 public class HomeScreenActivity extends AppCompatActivity
     implements NavigationView.OnNavigationItemSelectedListener {
@@ -24,7 +23,6 @@ public class HomeScreenActivity extends AppCompatActivity
     setContentView(R.layout.activity_home_screen);
     Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
     setSupportActionBar(toolbar);
-
 
     toolbar.setTitle("MathMurderMystery");
 
@@ -75,13 +73,29 @@ public class HomeScreenActivity extends AppCompatActivity
   public boolean onNavigationItemSelected(MenuItem item) {
     Bundle args = new Bundle();
     switch (item.getItemId()) {
-    case R.id.play_fragment:
-
-
+      case R.id.play_button:
+        loadFragment(new PlayFragment(), R.id.fragment_container, "playFragment", args);
+        break;
+      case R.id.scroreboard_button:
+        loadFragment(new ScoreboardFragment(), R.id.fragment_container, "scoreboardFragment", args);
+        break;
+//      case R.id.help_button:
+//        loadFragment(new Fragment(), R.id.fragment_container, "helpFragment", args);
+        //break;
     }
 
     DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
     drawer.closeDrawer(GravityCompat.START);
     return true;
+  }
+
+  public void loadFragment(Fragment fragment, int container, String tag, Bundle args) {
+    FragmentManager manager = getSupportFragmentManager();
+    if (args != null) {
+      fragment.setArguments(args);
+    }
+    manager.beginTransaction()
+        .add(container, fragment, tag)
+        .commit();
   }
 }

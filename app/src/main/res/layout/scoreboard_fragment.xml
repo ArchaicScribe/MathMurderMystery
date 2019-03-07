@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:background="#0000c0">
+
+  <TextView
+    android:id="@+id/scroreboard_game"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:textColor="#174800"
+    android:textSize="72sp"
+    android:textStyle="italic"
+    android:text="Welcome to the Scoreboard"/>
+
+</android.support.constraint.ConstraintLayout>
