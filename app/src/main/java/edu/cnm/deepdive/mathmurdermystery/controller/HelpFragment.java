@@ -13,6 +13,6 @@ public class HelpFragment extends Fragment {
   @Override
   public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
       @Nullable Bundle savedInstanceState) {
-    return inflater.inflate(R.layout.scoreboard_fragment, container, false);
+    return inflater.inflate(R.layout.help_fragment, container, false);
   }
 }

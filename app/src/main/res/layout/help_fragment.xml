@@ -3,15 +3,17 @@
   xmlns:android="http://schemas.android.com/apk/res/android"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
-  android:background="#0000c0">
+  android:background="#0122b4">
+
 
   <TextView
-    android:id="@+id/scroreboard_game"
+    android:id="@+id/help_game"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:textColor="#174800"
+    android:textColor="#51ff00"
     android:textSize="72sp"
     android:textStyle="italic"
-    android:text="@string/scoreboard_welcome"/>
+    android:text="@string/help_user"/>
+
 
 </android.support.constraint.ConstraintLayout>

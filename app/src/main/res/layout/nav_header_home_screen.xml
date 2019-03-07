@@ -42,6 +42,6 @@
     android:layout_height="wrap_content"
     android:text="@string/nav_header_subtitle"
     android:textColor="@android:color/holo_red_dark"
-    android:shadowColor="@android:color/black"/>
+    android:shadowColor="#4b4b4b"/>
 
 </LinearLayout>
