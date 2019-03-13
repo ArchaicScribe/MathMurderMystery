@@ -10,7 +10,7 @@
   <string name="play_fragment">Would you like to start a new game, or continue?</string>
   <string name="new_game">Start a new game</string>
   <string name="continue_game">Continue game</string>
-  <string name="return_to_main_menu">Return to Main Menu</string>
+  <string name="return_to_main_menu">Main Menu</string>
 
 
   <string name="hello_blank_fragment">Hello blank fragment</string>

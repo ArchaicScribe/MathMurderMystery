@@ -14,6 +14,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 import edu.cnm.deepdive.mathmurdermystery.controller.HelpFragment;
 import edu.cnm.deepdive.mathmurdermystery.controller.MainScreenFragment;
 import edu.cnm.deepdive.mathmurdermystery.controller.PlayFragment;
@@ -21,6 +24,9 @@ import edu.cnm.deepdive.mathmurdermystery.controller.ScoreboardFragment;
 
 public class HomeScreenActivity extends AppCompatActivity
     implements NavigationView.OnNavigationItemSelectedListener {
+
+  private Button mainMenuButton;
+
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +46,11 @@ public class HomeScreenActivity extends AppCompatActivity
     NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
     navigationView.setNavigationItemSelectedListener(this);
 
+    loadHomeFragment();
+
+  }
+
+  private void loadHomeFragment() {
     Fragment fragmentMainScreenFragment = new MainScreenFragment();
 
     FragmentManager manager = getSupportFragmentManager();
@@ -47,7 +58,6 @@ public class HomeScreenActivity extends AppCompatActivity
     transaction.add(R.id.fragment_container, fragmentMainScreenFragment, "home");
     transaction.addToBackStack(null);
     transaction.commit();
-
   }
 
   @Override
@@ -87,6 +97,10 @@ public class HomeScreenActivity extends AppCompatActivity
   public boolean onNavigationItemSelected(MenuItem item) {
     Bundle args = new Bundle();
     switch (item.getItemId()) {
+      case R.id.main_menu_button:
+        loadFragment(new MainScreenFragment(), R.id.fragment_container, "mainMenuFragment",
+            args);
+        break;
       case R.id.play_button:
         loadFragment(new PlayFragment(), R.id.fragment_container, "playFragment", args);
         break;

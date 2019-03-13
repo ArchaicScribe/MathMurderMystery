@@ -5,6 +5,11 @@
 
   <group android:checkableBehavior="single">
     <item
+      android:id="@+id/main_menu_button"
+      android:icon="@drawable/ic_main_menu"
+      android:title="@string/return_to_main_menu"/>
+
+    <item
       android:id="@+id/play_button"
       android:icon="@drawable/ic_menu_send"
       android:title="Play Fragment"/>
