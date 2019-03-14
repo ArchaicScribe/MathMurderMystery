@@ -1,0 +1,285 @@
+{
+  "response_code": 0,
+  "results": [
+    {
+      "category": "Science: Mathematics",
+      "type": "multiple",
+      "difficulty": "hard",
+      "question": "What is the derivative of Acceleration with respect to time?",
+      "correct_answer": "Jerk",
+      "incorrect_answers": [
+        "Shift",
+        "Bump",
+        "Slide"
+      ]
+    },
+    {
+      "category": "Science: Mathematics",
+      "type": "multiple",
+      "difficulty": "hard",
+      "question": "What is the approximate value of mathematical constant e?",
+      "correct_answer": "2.72",
+      "incorrect_answers": [
+        "3.14",
+        "1.62",
+        "1.41"
+      ]
+    },
+    {
+      "category": "Science: Mathematics",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "How many zeros are there in a googol?",
+      "correct_answer": "100",
+      "incorrect_answers": [
+        "10",
+        "1,000",
+        "1,000,000"
+      ]
+    },
+    {
+      "category": "Science: Mathematics",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "What is the area of a circle with a diameter of 20 inches if &pi;= 3.1415?",
+      "correct_answer": "314.15 Inches",
+      "incorrect_answers": [
+        "380.1215 Inches",
+        "3141.5 Inches",
+        "1256.6 Inches"
+      ]
+    },
+    {
+      "category": "Science: Mathematics",
+      "type": "boolean",
+      "difficulty": "medium",
+      "question": "The Pythagorean theorem states that the square of the hypotenuse is equal to the product of the squares of the other two sides.",
+      "correct_answer": "False",
+      "incorrect_answers": [
+        "True"
+      ]
+    },
+    {
+      "category": "Science: Mathematics",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "In Roman Numerals, what does XL equate to?",
+      "correct_answer": "40",
+      "incorrect_answers": [
+        "60",
+        "15",
+        "90"
+      ]
+    },
+    {
+      "category": "Science: Mathematics",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "What is the Roman numeral for 500?",
+      "correct_answer": "D",
+      "incorrect_answers": [
+        "L",
+        "C",
+        "X"
+      ]
+    },
+    {
+      "category": "Science: Mathematics",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "What&#039;s the square root of 49?",
+      "correct_answer": "7",
+      "incorrect_answers": [
+        "4",
+        "12",
+        "9"
+      ]
+    },
+    {
+      "category": "Science: Mathematics",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "What is the first Mersenne prime over 1000?",
+      "correct_answer": "1279",
+      "incorrect_answers": [
+        "2203",
+        "1009",
+        "1069"
+      ]
+    },
+    {
+      "category": "Science: Mathematics",
+      "type": "boolean",
+      "difficulty": "medium",
+      "question": "The proof for the Chinese Remainder Theorem used in Number Theory was NOT developed by its first publisher, Sun Tzu.",
+      "correct_answer": "True",
+      "incorrect_answers": [
+        "False"
+      ]
+    },
+    {
+      "category": "Science: Mathematics",
+      "type": "boolean",
+      "difficulty": "medium",
+      "question": "111,111,111 x 111,111,111 = 12,345,678,987,654,321",
+      "correct_answer": "True",
+      "incorrect_answers": [
+        "False"
+      ]
+    },
+    {
+      "category": "Science: Mathematics",
+      "type": "boolean",
+      "difficulty": "hard",
+      "question": "The binary number &quot;101001101&quot; is equivalent to the Decimal number &quot;334&quot;",
+      "correct_answer": "False",
+      "incorrect_answers": [
+        "True"
+      ]
+    },
+    {
+      "category": "Science: Mathematics",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "What prime number comes next after 19?",
+      "correct_answer": "23",
+      "incorrect_answers": [
+        "25",
+        "21",
+        "27"
+      ]
+    },
+    {
+      "category": "Science: Mathematics",
+      "type": "boolean",
+      "difficulty": "hard",
+      "question": "If you could fold a piece of paper in half 50 times, its&#039; thickness will be 3/4th the distance from the Earth to the Sun.",
+      "correct_answer": "True",
+      "incorrect_answers": [
+        "False"
+      ]
+    },
+    {
+      "category": "Science: Mathematics",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "What is the alphanumeric representation of the imaginary number?",
+      "correct_answer": "i",
+      "incorrect_answers": [
+        "e",
+        "n",
+        "x"
+      ]
+    },
+    {
+      "category": "Science: Mathematics",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "What Greek letter is used to signify summation?",
+      "correct_answer": "Sigma",
+      "incorrect_answers": [
+        "Delta",
+        "Alpha",
+        "Omega"
+      ]
+    },
+    {
+      "category": "Science: Mathematics",
+      "type": "multiple",
+      "difficulty": "hard",
+      "question": "What is the 100th digit of Pi?",
+      "correct_answer": "9",
+      "incorrect_answers": [
+        "4",
+        "7",
+        "2"
+      ]
+    },
+    {
+      "category": "Science: Mathematics",
+      "type": "boolean",
+      "difficulty": "medium",
+      "question": "Zero factorial is equal to zero. ",
+      "correct_answer": "False",
+      "incorrect_answers": [
+        "True"
+      ]
+    },
+    {
+      "category": "Science: Mathematics",
+      "type": "boolean",
+      "difficulty": "medium",
+      "question": "A &#039;Millinillion&#039; is a real number.",
+      "correct_answer": "True",
+      "incorrect_answers": [
+        "False"
+      ]
+    },
+    {
+      "category": "Science: Mathematics",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "How many sides does a heptagon have?",
+      "correct_answer": "7",
+      "incorrect_answers": [
+        "8",
+        "6",
+        "5"
+      ]
+    },
+    {
+      "category": "Science: Mathematics",
+      "type": "multiple",
+      "difficulty": "hard",
+      "question": "What is the plane curve proposed by Descartes to challenge Fermat&#039;s extremum-finding techniques called?",
+      "correct_answer": "Folium of Descartes",
+      "incorrect_answers": [
+        "Elliptic Paraboloid of Descartes",
+        "Cartesian Coordinates",
+        "Descarte&#039;s Helicoid"
+      ]
+    },
+    {
+      "category": "Science: Mathematics",
+      "type": "boolean",
+      "difficulty": "hard",
+      "question": "In Topology, the complement of an open set is a closed set.",
+      "correct_answer": "True",
+      "incorrect_answers": [
+        "False"
+      ]
+    },
+    {
+      "category": "Science: Mathematics",
+      "type": "boolean",
+      "difficulty": "medium",
+      "question": "The set of all algebraic numbers is countable.",
+      "correct_answer": "True",
+      "incorrect_answers": [
+        "False"
+      ]
+    },
+    {
+      "category": "Science: Mathematics",
+      "type": "boolean",
+      "difficulty": "easy",
+      "question": "The sum of any two odd integers is odd.",
+      "correct_answer": "False",
+      "incorrect_answers": [
+        "True"
+      ]
+    },
+    {
+      "category": "Science: Mathematics",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "What is the correct order of operations for solving equations?",
+      "correct_answer": "Parentheses, Exponents, Multiplication, Division, Addition, Subtraction",
+      "incorrect_answers": [
+        "Addition, Multiplication, Division, Subtraction, Addition, Parentheses",
+        "Parentheses, Exponents, Addition, Substraction, Multiplication, Division",
+        "The order in which the operations are written."
+      ]
+    }
+  ]
+}

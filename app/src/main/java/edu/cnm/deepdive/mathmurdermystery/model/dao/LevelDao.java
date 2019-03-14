@@ -14,4 +14,11 @@ public interface LevelDao {
 
   @Query("SELECT * FROM Level")
   List<Level> getAllLevels();
+
+  @Query("SELECT * FROM level WHERE scenario_id =:scenarioId")
+  List<Level> findAllByScenarioId(long scenarioId);
+
+  @Query("SELECT * FROM level WHERE scenario_id =:scenarioId AND level_title =:levelTitle")
+  List<Level> findFirstByScenarioIdLevelTitle(long scenarioId, String levelTitle);
+
 }

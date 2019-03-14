@@ -17,6 +17,10 @@ public interface MathProblemDao {
   @Update
   void update(MathProblem mathProblems);
 
-  @Query("SELECT * FROM MathProblem ORDER BY pool_of_problems DESC")
+  @Query("SELECT * FROM MathProblem ORDER BY poolPorblems DESC")
   List<MathProblem> getAll();
+
+  @Query("SELECT * FROM MathProblem WHERE difficulty = :difficulty ORDER BY RANDOM() LIMIT 1")
+  MathProblem getRandom(String difficulty);
+
 }

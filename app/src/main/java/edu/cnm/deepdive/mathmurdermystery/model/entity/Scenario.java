@@ -2,10 +2,11 @@ package edu.cnm.deepdive.mathmurdermystery.model.entity;
 
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.Index;
 import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
 
-@Entity
+@Entity(indices = @Index(value = "scenario_title", unique = true))
 
 public class Scenario {
 
@@ -13,8 +14,9 @@ public class Scenario {
   @ColumnInfo(name = "scenario_id", index = true)
   private long scenarioId;
   @NonNull
-  @ColumnInfo(name = "scenario_title", index = true)
-  private String scenarioTitle;
+  @ColumnInfo(name = "scenario_title")
+  private String title;
+
 
   public long getScenarioId() {
     return scenarioId;
@@ -24,11 +26,11 @@ public class Scenario {
     this.scenarioId = scenarioId;
   }
 
-  public String getScenarioTitle() {
-    return scenarioTitle;
+  public String getTitle() {
+    return title;
   }
 
-  public void setScenarioTitle(String scenarioTitle) {
-    this.scenarioTitle = scenarioTitle;
+  public void setTitle(String title) {
+    this.title = title;
   }
 }

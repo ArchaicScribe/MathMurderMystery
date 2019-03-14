@@ -14,4 +14,8 @@ public interface ScenarioDao {
 
   @Query("SELECT * FROM Scenario")
   List<Scenario> getAllScenarios();
+
+  @Query("SELECT * FROM Scenario WHERE scenario_title = :scenarioTitle")
+  Scenario findFirstByScenarioTitle(String scenarioTitle);
+
 }

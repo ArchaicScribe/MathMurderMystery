@@ -4,26 +4,34 @@ import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
+import com.google.gson.annotations.Expose;
+
 
 @Entity
+
 public class MathProblem {
 
   @PrimaryKey
   @ColumnInfo(name = "problem_id", index = true)
   @NonNull
+  @Expose
   private String problemId;
-  @ColumnInfo(name = "level_difficulty_of_problems", index = true)
+  @ColumnInfo(name = "difficulty", index = true)
   @NonNull
-  private String problemDifficulty;
-  @ColumnInfo(name = "problem_answer", index = true)
-  private long problemAnswer;
-  @ColumnInfo(name = "number_of_attempts_permitted", index = true)
-  private long numberOfAttemptsPermitted;
+  @Expose
+  private String difficulty;
+  @ColumnInfo(name = "answer", index = true)
+  @Expose
+  private long answer;
+  @ColumnInfo(name = "attempts", index = true)
+  private long attempts;
   @ColumnInfo(name = "pool_of_problems")
   @NonNull
-  private String poolOfProblems;
-  @ColumnInfo(name = "outcome_of_problem", index = true)
-  private boolean outcomeOfProblem;
+  @Expose
+  private String poolProblems;
+  @ColumnInfo(name = "outcome", index = true)
+  @Expose
+  private boolean outcome;
 
   public String getProblemId() {
     return problemId;
@@ -33,43 +41,43 @@ public class MathProblem {
     this.problemId = problemId;
   }
 
-  public String getProblemDifficulty() {
-    return problemDifficulty;
+  public String getDifficulty() {
+    return difficulty;
   }
 
-  public void setProblemDifficulty(String problemDifficulty) {
-    this.problemDifficulty = problemDifficulty;
+  public void setDifficulty(String difficulty) {
+    this.difficulty = difficulty;
   }
 
-  public long getProblemAnswer() {
-    return problemAnswer;
+  public long getAnswer() {
+    return answer;
   }
 
-  public void setProblemAnswer(long problemAnswer) {
-    this.problemAnswer = problemAnswer;
+  public void setAnswer(long answer) {
+    this.answer = answer;
   }
 
-  public long getNumberOfAttemptsPermitted() {
-    return numberOfAttemptsPermitted;
+  public long getAttempts() {
+    return attempts;
   }
 
-  public void setNumberOfAttemptsPermitted(long numberOfAttemptsPermitted) {
-    this.numberOfAttemptsPermitted = numberOfAttemptsPermitted;
+  public void setAttempts(long attempts) {
+    this.attempts = attempts;
   }
 
-  public String getPoolOfProblems() {
-    return poolOfProblems;
+  public String getPoolProblems() {
+    return poolProblems;
   }
 
-  public void setPoolOfProblems(String poolOfProblems) {
-    this.poolOfProblems = poolOfProblems;
+  public void setPoolProblems(String poolProblems) {
+    this.poolProblems = poolProblems;
   }
 
-  public boolean isOutcomeOfProblem() {
-    return outcomeOfProblem;
+  public boolean isOutcome() {
+    return outcome;
   }
 
-  public void setOutcomeOfProblem(boolean outcomeOfProblem) {
-    this.outcomeOfProblem = outcomeOfProblem;
+  public void setOutcome(boolean outcome) {
+    this.outcome = outcome;
   }
 }
