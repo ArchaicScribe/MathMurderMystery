@@ -10,7 +10,15 @@ import java.util.List;
 public interface ScenarioDao {
 
   @Insert
-  Long insertScenario(Scenario scenario);
+  List<Long> insert(Scenario... scenarios);
+
+  @Insert
+  List<Long> insert(List<Scenario> scenarios);
+
+
+
+  @Insert
+  Long insert(Scenario scenario);
 
   @Query("SELECT * FROM Scenario")
   List<Scenario> getAllScenarios();

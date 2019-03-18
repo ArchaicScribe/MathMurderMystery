@@ -10,6 +10,12 @@ import java.util.List;
 public interface RoomEntityDao {
 
   @Insert
+  List<Long> insert(RoomEntity... scenarios);
+
+  @Insert
+  List<Long> insert(List<RoomEntity> scenarios);
+
+  @Insert
   Long insertRoom(RoomEntity room);
 
   @Query("SELECT * FROM RoomEntity")

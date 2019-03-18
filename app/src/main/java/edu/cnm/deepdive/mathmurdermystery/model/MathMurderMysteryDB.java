@@ -6,6 +6,10 @@ import android.arch.persistence.room.Room;
 import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import edu.cnm.deepdive.android.BaseFluentAsyncTask;
+import edu.cnm.deepdive.mathmurdermystery.MathMurderMysteryApplication;
+import edu.cnm.deepdive.mathmurdermystery.R;
 import edu.cnm.deepdive.mathmurdermystery.model.dao.ConnectionDao;
 import edu.cnm.deepdive.mathmurdermystery.model.dao.HistoryDao;
 import edu.cnm.deepdive.mathmurdermystery.model.dao.LevelDao;
@@ -20,14 +24,23 @@ import edu.cnm.deepdive.mathmurdermystery.model.entity.MathProblem;
 import edu.cnm.deepdive.mathmurdermystery.model.entity.RoomEntity;
 import edu.cnm.deepdive.mathmurdermystery.model.entity.Scenario;
 import edu.cnm.deepdive.mathmurdermystery.model.entity.UserInformation;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.util.LinkedList;
+import java.util.List;
+import org.apache.commons.csv.CSVFormat;
+import org.apache.commons.csv.CSVParser;
+import org.apache.commons.csv.CSVRecord;
 
 @Database(
     entities = {Connection.class, History.class, Level.class, MathProblem.class, RoomEntity.class,
-    Scenario.class, UserInformation.class},
+        Scenario.class, UserInformation.class},
     version = 1,
     exportSchema = true
 )
-
 
 public abstract class MathMurderMysteryDB extends RoomDatabase {
 
@@ -41,13 +54,13 @@ public abstract class MathMurderMysteryDB extends RoomDatabase {
 
   public abstract HistoryDao getHistory();
 
-  public abstract LevelDao getLevel();
+  public abstract LevelDao getLevelDao();
 
   public abstract MathProblemDao getMathProblem();
 
   public abstract RoomEntityDao getRoomEntity();
 
-  public abstract ScenarioDao getScenario();
+  public abstract ScenarioDao getScenarioDao();
 
   public abstract UserInformationDao getUserInformation();
 
@@ -56,11 +69,10 @@ public abstract class MathMurderMysteryDB extends RoomDatabase {
   private static class InstanceHolder {
 
     private static final MathMurderMysteryDB INSTANCE =
-        Room.databaseBuilder(MathMurderMysteryDB.getInstance().getApplicationContext(),
+        Room.databaseBuilder(MathMurderMysteryApplication.getInstance().getApplicationContext(),
             MathMurderMysteryDB.class, DB_NAME)
             .addCallback(new Callback())
             .build();
-
   }
 
   private static class Callback extends RoomDatabase.Callback {
@@ -68,23 +80,91 @@ public abstract class MathMurderMysteryDB extends RoomDatabase {
     @Override
     public void onCreate(@NonNull SupportSQLiteDatabase db) {
       super.onCreate(db);
-      new PreloadTask().execute;
+      new PreloadTask().ex
     }
-
-
-    @Override
-    public void onOpen(@NonNull SupportSQLiteDatabase db) {
-      super.onOpen(db);
-      MathMurderMysteryDB database = MathMurderMysteryDB.getInstance();
-      new BaseFluentTask<Void, Void, >
-    }
-
-    public synchronized static MathMurderMysteryDB getInstance(Context context) {
-    if (instance == null) {
-      instance = Room.databaseBuilder(context.getApplicationContext(), MathMurderMysteryDB.class,
-          DB_NAME).build();
-    }
-  return instance;
   }
-}
-}
+
+
+  private static class PreloadTask extends BaseFluentAsyncTask<Void, Void, Void, Void> {
+
+    @Nullable
+    @Override
+    protected Void perform(Void... voids) throws TaskException {
+      Context context = MathMurderMysteryApplication.getInstance().getApplicationContext();
+      MathMurderMysteryDB db = MathMurderMysteryDB.getInstance();
+      return getAScenario(context, db);
+    }
+
+
+    private List<Level> loadLevels(long levelId, String levelName) {
+      Context context = MathMurderMysteryApplication.getInstance().getApplicationContext();
+      int resourceId = context.getResources()
+          .getIdentifier(levelName, "raw", context.getPackageName());
+      try (
+          InputStream input = context.getResources().openRawResource(resourceId);
+          Reader reader = new InputStreamReader(input);
+          BufferedReader buffer = new BufferedReader(reader);
+      ) {
+        List<Level> levels = new LinkedList<>();
+        String line;
+        while ((line = buffer.readLine()) != null) {
+          if (!((line = line.trim()).isEmpty())) {
+            Level level = new Level();
+            level.setLevelId(levelId);
+            level.setLevelTitle(line);
+            levels.add(level);
+          }
+        }
+        return levels;
+      } catch (IOException e) {
+        throw new TaskException(e);
+      }
+    }
+
+
+    private Void getAScenario(Context context, MathMurderMysteryDB db) {
+      try (
+          InputStream inputStream = context.getResources().openRawResource(R.raw.scenarios);
+          Reader reader = new InputStreamReader(inputStream);
+          CSVParser parser = new CSVParser(reader, CSVFormat.DEFAULT);
+      ) {
+        List<Scenario> scenarios = new LinkedList<>();
+        for (CSVRecord record : parser) {
+          Scenario scenario = new Scenario();
+          scenario.setScenarioId(Integer.parseInt(record.get(0)));
+          scenario.setTitle(record.get(1));
+          scenarios.add(scenario);
+        }
+        db.getScenarioDao().insert(scenarios);
+        return null;
+      } catch (IOException e) {
+        throw new TaskException(e);
+      }
+    }
+
+    private List<Scenario> loadScenarios(long scenarioId, String scenarioName) {
+      Context context = MathMurderMysteryApplication.getInstance().getApplicationContext();
+      int resourceId = context.getResources()
+          .getIdentifier(scenarioName, "raw", context.getPackageName());
+      try (
+          InputStream input = context.getResources().openRawResource(resourceId);
+          Reader reader = new InputStreamReader(input);
+          BufferedReader buffer = new BufferedReader(reader);
+      ) {
+        List<Scenario> scenarios = new LinkedList<>();
+        String line;
+        while ((line = buffer.readLine()) != null) {
+          if (!((line = line.trim()).isEmpty())) {
+            Scenario scenario = new Scenario();
+            scenario.setScenarioId(scenarioId);
+            scenario.setTitle(line);
+            scenarios.add(scenario);
+          }
+        }
+        return scenarios;
+      } catch (IOException e) {
+        throw new TaskException(e);
+      }
+    }
+
+  }
