@@ -80,7 +80,7 @@ public abstract class MathMurderMysteryDB extends RoomDatabase {
     @Override
     public void onCreate(@NonNull SupportSQLiteDatabase db) {
       super.onCreate(db);
-      new PreloadTask().ex
+      new PreloadTask().execute();
     }
   }
 
@@ -95,11 +95,35 @@ public abstract class MathMurderMysteryDB extends RoomDatabase {
       return getAScenario(context, db);
     }
 
+    private Void getAScenario(Context context, MathMurderMysteryDB db) {
+      try (
+          InputStream inputStream = context.getResources().openRawResource(R.raw.scenarios);
+          Reader reader = new InputStreamReader(inputStream);
+          CSVParser parser = new CSVParser(reader, CSVFormat.DEFAULT);
+      ) {
+        List<Scenario> scenarios = new LinkedList<>();
+        for (CSVRecord record : parser) {
+          Scenario scenario = new Scenario();
+          scenario.setScenarioId(Integer.parseInt(record.get(0)));
+          scenario.setTitle(record.get(1));
+          scenarios.add(scenario);
+        }
+        db.getScenarioDao().insert(scenarios);
+        return null;
+      } catch (IOException e) {
+        throw new TaskException(e);
+      }
+    }
+
 
     private List<Level> loadLevels(long levelId, String levelName) {
       Context context = MathMurderMysteryApplication.getInstance().getApplicationContext();
       int resourceId = context.getResources()
           .getIdentifier(levelName, "raw", context.getPackageName());
+      return getLevels(levelId, context, resourceId);
+    }
+
+    private List<Level> getLevels(long levelId, Context context, int resourceId) {
       try (
           InputStream input = context.getResources().openRawResource(resourceId);
           Reader reader = new InputStreamReader(input);
@@ -122,49 +146,33 @@ public abstract class MathMurderMysteryDB extends RoomDatabase {
     }
 
 
-    private Void getAScenario(Context context, MathMurderMysteryDB db) {
-      try (
-          InputStream inputStream = context.getResources().openRawResource(R.raw.scenarios);
-          Reader reader = new InputStreamReader(inputStream);
-          CSVParser parser = new CSVParser(reader, CSVFormat.DEFAULT);
-      ) {
-        List<Scenario> scenarios = new LinkedList<>();
-        for (CSVRecord record : parser) {
-          Scenario scenario = new Scenario();
-          scenario.setScenarioId(Integer.parseInt(record.get(0)));
-          scenario.setTitle(record.get(1));
-          scenarios.add(scenario);
-        }
-        db.getScenarioDao().insert(scenarios);
-        return null;
-      } catch (IOException e) {
-        throw new TaskException(e);
-      }
-    }
-
-    private List<Scenario> loadScenarios(long scenarioId, String scenarioName) {
+    private List<RoomEntity> loadRoomEntity(long roomEntityId, String roomEntityName) {
       Context context = MathMurderMysteryApplication.getInstance().getApplicationContext();
       int resourceId = context.getResources()
-          .getIdentifier(scenarioName, "raw", context.getPackageName());
+          .getIdentifier(roomEntityName, "raw", context.getPackageName());
+      return getRoomEntities(roomEntityId, context, resourceId);
+    }
+
+    private List<RoomEntity> getRoomEntities(long roomEntityId, Context context, int resourceId) {
       try (
           InputStream input = context.getResources().openRawResource(resourceId);
           Reader reader = new InputStreamReader(input);
           BufferedReader buffer = new BufferedReader(reader);
       ) {
-        List<Scenario> scenarios = new LinkedList<>();
-        String line;
+        List<RoomEntity> roomEntities = new LinkedList<>();
+        String line;//Cannot be a String because it is declared as a long. Fix.
         while ((line = buffer.readLine()) != null) {
           if (!((line = line.trim()).isEmpty())) {
-            Scenario scenario = new Scenario();
-            scenario.setScenarioId(scenarioId);
-            scenario.setTitle(line);
-            scenarios.add(scenario);
+            RoomEntity roomEntity = new RoomEntity();
+            roomEntity.setRoomId(roomEntityId);
+            roomEntity.setRoomId(line);
+            roomEntities.add(roomEntity);
           }
         }
-        return scenarios;
+        return roomEntities;
       } catch (IOException e) {
         throw new TaskException(e);
       }
     }
-
   }
+}

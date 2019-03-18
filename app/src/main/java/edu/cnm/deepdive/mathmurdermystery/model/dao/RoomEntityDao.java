@@ -10,10 +10,10 @@ import java.util.List;
 public interface RoomEntityDao {
 
   @Insert
-  List<Long> insert(RoomEntity... scenarios);
+  List<Long> insert(RoomEntity... roomEntities);
 
   @Insert
-  List<Long> insert(List<RoomEntity> scenarios);
+  List<Long> insert(List<RoomEntity> roomEntities);
 
   @Insert
   Long insertRoom(RoomEntity room);
