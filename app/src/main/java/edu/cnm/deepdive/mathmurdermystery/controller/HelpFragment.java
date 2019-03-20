@@ -15,7 +15,7 @@ public class HelpFragment extends LinkedFragment {
   public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
       @Nullable Bundle savedInstanceState) {
     View view = inflater.inflate(R.layout.help_fragment, container, false);
-    return linkButton(view);
+    return menuButton(view);
 
   }
 }

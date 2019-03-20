@@ -14,7 +14,7 @@ public class ScoreboardFragment extends LinkedFragment {
   public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
       @Nullable Bundle savedInstanceState) {
     View view = inflater.inflate(R.layout.scoreboard_fragment, container, false);
-    return linkButton(view);
+    return menuButton(view);
   }
 
 

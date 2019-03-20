@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import edu.cnm.deepdive.mathmurdermystery.R;
 
-public class RoomFragment extends LinkedFragment {
+public class RoomEntityFragment extends LinkedFragment {
 
 
   private Button roomSelectionButton;
@@ -17,6 +17,6 @@ public class RoomFragment extends LinkedFragment {
   public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
       @Nullable Bundle savedInstanceState) {
     View view = inflater.inflate(R.layout.room_fragment, container, false);
-    return linkButton(view);
+    return menuButton(view);
   }
 }
