@@ -1,15 +1,25 @@
 package edu.cnm.deepdive.mathmurdermystery.model;
 
+import static edu.cnm.deepdive.mathmurdermystery.model.entity.MathProblem.Difficulty.EASY;
+import static edu.cnm.deepdive.mathmurdermystery.model.entity.MathProblem.Difficulty.HARD;
+import static edu.cnm.deepdive.mathmurdermystery.model.entity.MathProblem.Difficulty.MEDIUM;
+import static edu.cnm.deepdive.mathmurdermystery.model.entity.MathProblem.Type.BOOLEAN;
+import static edu.cnm.deepdive.mathmurdermystery.model.entity.MathProblem.Type.MULTIPLE;
+
 import android.arch.persistence.db.SupportSQLiteDatabase;
 import android.arch.persistence.room.Database;
 import android.arch.persistence.room.Room;
 import android.arch.persistence.room.RoomDatabase;
+import android.arch.persistence.room.TypeConverter;
+import android.arch.persistence.room.TypeConverters;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import com.google.gson.Gson;
 import edu.cnm.deepdive.android.BaseFluentAsyncTask;
 import edu.cnm.deepdive.mathmurdermystery.MathMurderMysteryApplication;
 import edu.cnm.deepdive.mathmurdermystery.R;
+import edu.cnm.deepdive.mathmurdermystery.model.MathMurderMysteryDB.Converters;
 import edu.cnm.deepdive.mathmurdermystery.model.dao.ConnectionDao;
 import edu.cnm.deepdive.mathmurdermystery.model.dao.HistoryDao;
 import edu.cnm.deepdive.mathmurdermystery.model.dao.LevelDao;
@@ -29,6 +39,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.sql.Wrapper;
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import org.apache.commons.csv.CSVFormat;
@@ -41,7 +53,7 @@ import org.apache.commons.csv.CSVRecord;
     version = 1,
     exportSchema = true
 )
-
+@TypeConverters(Converters.class)
 public abstract class MathMurderMysteryDB extends RoomDatabase {
 
   private static final String DB_NAME = "math_murder_mystery_DB";
@@ -87,15 +99,23 @@ public abstract class MathMurderMysteryDB extends RoomDatabase {
 
   private static class PreloadTask extends BaseFluentAsyncTask<Void, Void, Void, Void> {
 
+
     @Nullable
     @Override
     protected Void perform(Void... voids) throws TaskException {
       Context context = MathMurderMysteryApplication.getInstance().getApplicationContext();
       MathMurderMysteryDB db = MathMurderMysteryDB.getInstance();
-      return getAScenario(context, db);
+      getAScenario(context, db);
+      getLevels(context, db);
+      getRoomEntities(context, db);
+      Gson gson = new Gson();
+      MathProblem[] arr = gson.fromJson(new InputStreamReader(context.getResources().
+          openRawResource(R.raw.questions)), MathProblem[].class);
+      db.getMathProblem().insert(Arrays.asList(arr));
+      return null;
     }
 
-    private Void getAScenario(Context context, MathMurderMysteryDB db) {
+    private void getAScenario(Context context, MathMurderMysteryDB db) {
       try (
           InputStream inputStream = context.getResources().openRawResource(R.raw.scenarios);
           Reader reader = new InputStreamReader(inputStream);
@@ -109,6 +129,28 @@ public abstract class MathMurderMysteryDB extends RoomDatabase {
           scenarios.add(scenario);
         }
         db.getScenarioDao().insert(scenarios);
+      } catch (IOException e) {
+        throw new TaskException(e);
+      }
+    }
+
+
+    private List<Level> getLevels(Context context,
+        MathMurderMysteryDB db) {
+      try (
+          InputStream inputStream = context.getResources().openRawResource(R.raw.levels);
+          Reader reader = new InputStreamReader(inputStream);
+          CSVParser parser = new CSVParser(reader, CSVFormat.DEFAULT);
+      ) {
+        List<Level> levels = new LinkedList<>();
+        for (CSVRecord record : parser) {
+          Level level = new Level();
+          level.setLevelId(Long.parseLong(record.get(0)));
+          level.setScenrioId(Long.parseLong(record.get(2)));
+          level.setLevelTitle(record.get(1));
+          levels.add(level);
+        }
+        db.getLevelDao().insert(levels);
         return null;
       } catch (IOException e) {
         throw new TaskException(e);
@@ -116,63 +158,65 @@ public abstract class MathMurderMysteryDB extends RoomDatabase {
     }
 
 
-    private List<Level> loadLevels(long levelId, String levelName) {
-      Context context = MathMurderMysteryApplication.getInstance().getApplicationContext();
-      int resourceId = context.getResources()
-          .getIdentifier(levelName, "raw", context.getPackageName());
-      return getLevels(levelId, context, resourceId);
-    }
-
-    private List<Level> getLevels(long levelId, Context context, int resourceId) {
+    private List<RoomEntity> getRoomEntities(Context context,
+        MathMurderMysteryDB db) {
       try (
-          InputStream input = context.getResources().openRawResource(resourceId);
-          Reader reader = new InputStreamReader(input);
-          BufferedReader buffer = new BufferedReader(reader);
+          InputStream inputStream = context.getResources().openRawResource(R.raw.rooms);
+          Reader reader = new InputStreamReader(inputStream);
+          CSVParser parser = new CSVParser(reader, CSVFormat.DEFAULT);
       ) {
-        List<Level> levels = new LinkedList<>();
-        String line;
-        while ((line = buffer.readLine()) != null) {
-          if (!((line = line.trim()).isEmpty())) {
-            Level level = new Level();
-            level.setLevelId(levelId);
-            level.setLevelTitle(line);
-            levels.add(level);
-          }
+        List<RoomEntity> entities = new LinkedList<>();
+        for (CSVRecord record : parser) {
+          RoomEntity entity = new RoomEntity();
+          entity.setRoomId(Long.parseLong(record.get(0)));
+          entity.setLevelId(Long.parseLong(record.get(2)));
+          entities.add(entity);
         }
-        return levels;
+        db.getRoomEntity().insert(entities);
+        return null;
       } catch (IOException e) {
         throw new TaskException(e);
       }
     }
+  }
 
 
-    private List<RoomEntity> loadRoomEntity(long roomEntityId, String roomEntityName) {
-      Context context = MathMurderMysteryApplication.getInstance().getApplicationContext();
-      int resourceId = context.getResources()
-          .getIdentifier(roomEntityName, "raw", context.getPackageName());
-      return getRoomEntities(roomEntityId, context, resourceId);
+  public static class Converters {
+
+    @TypeConverter
+    public static MathProblem.Difficulty difficulty(int difficulty) {
+      if (difficulty == EASY.ordinal()) {
+        return EASY;
+      } else if (difficulty == MEDIUM.ordinal()) {
+        return MEDIUM;
+      } else if (difficulty == HARD.ordinal()) {
+        return HARD;
+      } else {
+        throw new IllegalArgumentException("Could not assign difficulty");
+      }
     }
 
-    private List<RoomEntity> getRoomEntities(long roomEntityId, Context context, int resourceId) {
-      try (
-          InputStream input = context.getResources().openRawResource(resourceId);
-          Reader reader = new InputStreamReader(input);
-          BufferedReader buffer = new BufferedReader(reader);
-      ) {
-        List<RoomEntity> roomEntities = new LinkedList<>();
-        String line;//Cannot be a String because it is declared as a long. Fix.
-        while ((line = buffer.readLine()) != null) {
-          if (!((line = line.trim()).isEmpty())) {
-            RoomEntity roomEntity = new RoomEntity();
-            roomEntity.setRoomId(roomEntityId);
-            roomEntity.setRoomId(line);
-            roomEntities.add(roomEntity);
-          }
-        }
-        return roomEntities;
-      } catch (IOException e) {
-        throw new TaskException(e);
+    @TypeConverter
+    public static int difficultyToInt(MathProblem.Difficulty difficulty) {
+      return difficulty.ordinal();
+    }
+
+
+    @TypeConverter
+    public static MathProblem.Type type(int type) {
+      if (type == MULTIPLE.ordinal()) {
+        return MULTIPLE;
+      } else if (type == BOOLEAN.ordinal()) {
+        return BOOLEAN;
+      } else {
+        throw new IllegalArgumentException("Could not assign type");
       }
+    }
+
+    @TypeConverter
+    public static int typeToInt(MathProblem.Type type) {
+      return type.ordinal();
+
     }
   }
 }

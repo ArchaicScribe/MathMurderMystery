@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "606d05eae60f4109124cb491062d7b2d",
+    "identityHash": "a10f169997668a944817dec3cdb3a6c8",
     "entities": [
       {
         "tableName": "Connection",
@@ -128,7 +128,7 @@
       },
       {
         "tableName": "Level",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`level_id` INTEGER NOT NULL, `level_title` TEXT NOT NULL, `level_of_difficulty_of_problems` INTEGER NOT NULL, PRIMARY KEY(`level_id`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`level_id` INTEGER NOT NULL, `level_title` TEXT NOT NULL, `level_of_difficulty_of_problems` INTEGER NOT NULL, `scenario_id` INTEGER NOT NULL, PRIMARY KEY(`level_id`))",
         "fields": [
           {
             "fieldPath": "levelId",
@@ -147,6 +147,12 @@
             "columnName": "level_of_difficulty_of_problems",
             "affinity": "INTEGER",
             "notNull": true
+          },
+          {
+            "fieldPath": "scenrioId",
+            "columnName": "scenario_id",
+            "affinity": "INTEGER",
+            "notNull": true
           }
         ],
         "primaryKey": {
@@ -156,6 +162,15 @@
           "autoGenerate": false
         },
         "indices": [
+          {
+            "name": "index_Level_scenario_id_level_title",
+            "unique": true,
+            "columnNames": [
+              "scenario_id",
+              "level_title"
+            ],
+            "createSql": "CREATE UNIQUE INDEX `index_Level_scenario_id_level_title` ON `${TABLE_NAME}` (`scenario_id`, `level_title`)"
+          },
           {
             "name": "index_Level_level_id",
             "unique": false,
@@ -179,47 +194,61 @@
               "level_of_difficulty_of_problems"
             ],
             "createSql": "CREATE  INDEX `index_Level_level_of_difficulty_of_problems` ON `${TABLE_NAME}` (`level_of_difficulty_of_problems`)"
+          },
+          {
+            "name": "index_Level_scenario_id",
+            "unique": false,
+            "columnNames": [
+              "scenario_id"
+            ],
+            "createSql": "CREATE  INDEX `index_Level_scenario_id` ON `${TABLE_NAME}` (`scenario_id`)"
           }
         ],
         "foreignKeys": []
       },
       {
         "tableName": "MathProblem",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`problem_id` TEXT NOT NULL, `level_difficulty_of_problems` TEXT NOT NULL, `problem_answer` INTEGER NOT NULL, `number_of_attempts_permitted` INTEGER NOT NULL, `pool_of_problems` TEXT NOT NULL, `outcome_of_problem` INTEGER NOT NULL, PRIMARY KEY(`problem_id`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`problem_id` INTEGER NOT NULL, `difficulty` INTEGER NOT NULL, `type` INTEGER NOT NULL, `answer` INTEGER NOT NULL, `attempts` INTEGER NOT NULL, `pool_of_problems` TEXT NOT NULL, `outcome` INTEGER NOT NULL, PRIMARY KEY(`problem_id`))",
         "fields": [
           {
             "fieldPath": "problemId",
             "columnName": "problem_id",
-            "affinity": "TEXT",
-            "notNull": true
-          },
-          {
-            "fieldPath": "problemDifficulty",
-            "columnName": "level_difficulty_of_problems",
-            "affinity": "TEXT",
-            "notNull": true
-          },
-          {
-            "fieldPath": "problemAnswer",
-            "columnName": "problem_answer",
             "affinity": "INTEGER",
             "notNull": true
           },
           {
-            "fieldPath": "numberOfAttemptsPermitted",
-            "columnName": "number_of_attempts_permitted",
+            "fieldPath": "difficulty",
+            "columnName": "difficulty",
             "affinity": "INTEGER",
             "notNull": true
           },
           {
-            "fieldPath": "poolOfProblems",
+            "fieldPath": "type",
+            "columnName": "type",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "answer",
+            "columnName": "answer",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "attempts",
+            "columnName": "attempts",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "poolProblems",
             "columnName": "pool_of_problems",
             "affinity": "TEXT",
             "notNull": true
           },
           {
-            "fieldPath": "outcomeOfProblem",
-            "columnName": "outcome_of_problem",
+            "fieldPath": "outcome",
+            "columnName": "outcome",
             "affinity": "INTEGER",
             "notNull": true
           }
@@ -240,36 +269,44 @@
             "createSql": "CREATE  INDEX `index_MathProblem_problem_id` ON `${TABLE_NAME}` (`problem_id`)"
           },
           {
-            "name": "index_MathProblem_level_difficulty_of_problems",
+            "name": "index_MathProblem_difficulty",
             "unique": false,
             "columnNames": [
-              "level_difficulty_of_problems"
+              "difficulty"
             ],
-            "createSql": "CREATE  INDEX `index_MathProblem_level_difficulty_of_problems` ON `${TABLE_NAME}` (`level_difficulty_of_problems`)"
+            "createSql": "CREATE  INDEX `index_MathProblem_difficulty` ON `${TABLE_NAME}` (`difficulty`)"
           },
           {
-            "name": "index_MathProblem_problem_answer",
+            "name": "index_MathProblem_type",
             "unique": false,
             "columnNames": [
-              "problem_answer"
+              "type"
             ],
-            "createSql": "CREATE  INDEX `index_MathProblem_problem_answer` ON `${TABLE_NAME}` (`problem_answer`)"
+            "createSql": "CREATE  INDEX `index_MathProblem_type` ON `${TABLE_NAME}` (`type`)"
           },
           {
-            "name": "index_MathProblem_number_of_attempts_permitted",
+            "name": "index_MathProblem_answer",
             "unique": false,
             "columnNames": [
-              "number_of_attempts_permitted"
+              "answer"
             ],
-            "createSql": "CREATE  INDEX `index_MathProblem_number_of_attempts_permitted` ON `${TABLE_NAME}` (`number_of_attempts_permitted`)"
+            "createSql": "CREATE  INDEX `index_MathProblem_answer` ON `${TABLE_NAME}` (`answer`)"
           },
           {
-            "name": "index_MathProblem_outcome_of_problem",
+            "name": "index_MathProblem_attempts",
             "unique": false,
             "columnNames": [
-              "outcome_of_problem"
+              "attempts"
             ],
-            "createSql": "CREATE  INDEX `index_MathProblem_outcome_of_problem` ON `${TABLE_NAME}` (`outcome_of_problem`)"
+            "createSql": "CREATE  INDEX `index_MathProblem_attempts` ON `${TABLE_NAME}` (`attempts`)"
+          },
+          {
+            "name": "index_MathProblem_outcome",
+            "unique": false,
+            "columnNames": [
+              "outcome"
+            ],
+            "createSql": "CREATE  INDEX `index_MathProblem_outcome` ON `${TABLE_NAME}` (`outcome`)"
           }
         ],
         "foreignKeys": []
@@ -340,7 +377,7 @@
             "notNull": true
           },
           {
-            "fieldPath": "scenarioTitle",
+            "fieldPath": "title",
             "columnName": "scenario_title",
             "affinity": "TEXT",
             "notNull": true
@@ -354,20 +391,20 @@
         },
         "indices": [
           {
+            "name": "index_Scenario_scenario_title",
+            "unique": true,
+            "columnNames": [
+              "scenario_title"
+            ],
+            "createSql": "CREATE UNIQUE INDEX `index_Scenario_scenario_title` ON `${TABLE_NAME}` (`scenario_title`)"
+          },
+          {
             "name": "index_Scenario_scenario_id",
             "unique": false,
             "columnNames": [
               "scenario_id"
             ],
             "createSql": "CREATE  INDEX `index_Scenario_scenario_id` ON `${TABLE_NAME}` (`scenario_id`)"
-          },
-          {
-            "name": "index_Scenario_scenario_title",
-            "unique": false,
-            "columnNames": [
-              "scenario_title"
-            ],
-            "createSql": "CREATE  INDEX `index_Scenario_scenario_title` ON `${TABLE_NAME}` (`scenario_title`)"
           }
         ],
         "foreignKeys": []
@@ -432,7 +469,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"606d05eae60f4109124cb491062d7b2d\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"a10f169997668a944817dec3cdb3a6c8\")"
     ]
   }
 }

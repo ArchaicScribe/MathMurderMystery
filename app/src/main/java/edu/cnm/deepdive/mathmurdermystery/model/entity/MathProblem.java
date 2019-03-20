@@ -5,6 +5,7 @@ import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
 import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
 
 @Entity
@@ -15,11 +16,15 @@ public class MathProblem {
   @ColumnInfo(name = "problem_id", index = true)
   @NonNull
   @Expose
-  private String problemId;
+  private long problemId;
   @ColumnInfo(name = "difficulty", index = true)
   @NonNull
   @Expose
-  private String difficulty;
+  private Difficulty difficulty;
+  @ColumnInfo(name = "type", index = true)
+  @NonNull
+  @Expose
+  private Type type;
   @ColumnInfo(name = "answer", index = true)
   @Expose
   private long answer;
@@ -33,20 +38,31 @@ public class MathProblem {
   @Expose
   private boolean outcome;
 
-  public String getProblemId() {
+  public long getProblemId() {
     return problemId;
   }
 
-  public void setProblemId(String problemId) {
+  public void setProblemId(long problemId) {
     this.problemId = problemId;
   }
 
-  public String getDifficulty() {
+  @NonNull
+  public Difficulty getDifficulty() {
     return difficulty;
   }
 
-  public void setDifficulty(String difficulty) {
+  public void setDifficulty(
+      @NonNull Difficulty difficulty) {
     this.difficulty = difficulty;
+  }
+
+  @NonNull
+  public Type getType() {
+    return type;
+  }
+
+  public void setType(@NonNull Type type) {
+    this.type = type;
   }
 
   public long getAnswer() {
@@ -65,11 +81,12 @@ public class MathProblem {
     this.attempts = attempts;
   }
 
+  @NonNull
   public String getPoolProblems() {
     return poolProblems;
   }
 
-  public void setPoolProblems(String poolProblems) {
+  public void setPoolProblems(@NonNull String poolProblems) {
     this.poolProblems = poolProblems;
   }
 
@@ -80,4 +97,21 @@ public class MathProblem {
   public void setOutcome(boolean outcome) {
     this.outcome = outcome;
   }
+
+  public enum Difficulty {
+    @SerializedName("easy")
+    EASY,
+    @SerializedName("medium")
+    MEDIUM,
+    @SerializedName("hard")
+    HARD
+  }
+
+  public enum Type {
+    @SerializedName("multiple")
+    MULTIPLE,
+    @SerializedName("boolean")
+    BOOLEAN
+  }
 }
+

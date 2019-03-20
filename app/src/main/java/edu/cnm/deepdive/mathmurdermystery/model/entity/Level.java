@@ -45,4 +45,12 @@ public class Level {
   public void setLevelDifficultyOfProblems(long levelDifficultyOfProblems) {
     this.levelDifficultyOfProblems = levelDifficultyOfProblems;
   }
+
+  public long getScenrioId() {
+    return scenrioId;
+  }
+
+  public void setScenrioId(long scenrioId) {
+    this.scenrioId = scenrioId;
+  }
 }
