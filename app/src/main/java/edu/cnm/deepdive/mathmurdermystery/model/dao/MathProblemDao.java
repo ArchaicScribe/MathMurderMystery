@@ -12,7 +12,7 @@ import java.util.List;
 public interface MathProblemDao {
 
   @Insert
-  List<Long> insert (List<MathProblem> mathProblems);
+  List<Long> insert(List<MathProblem> mathProblems);
 
   @Update
   void update(MathProblem mathProblems);

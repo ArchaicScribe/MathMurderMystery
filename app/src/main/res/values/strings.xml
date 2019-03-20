@@ -13,8 +13,10 @@
   <string name="return_to_main_menu">Main Menu</string>
 
 
-  <string name="hello_blank_fragment">Hello blank fragment</string>
   <string name="welcome_string">Welcome to Math Murder Mystery!</string>
   <string name="scoreboard_welcome">Welcome to the Scoreboard</string>
   <string name="help_user">How can I help you?</string>
+  <string name="new_level">New Level</string>
+  <string name="new_room">New room</string>
+  <string name="new_room_game">Beginning of new game</string>
 </resources>
