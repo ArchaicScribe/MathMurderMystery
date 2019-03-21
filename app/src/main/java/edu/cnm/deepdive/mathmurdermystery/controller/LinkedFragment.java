@@ -10,11 +10,11 @@ import edu.cnm.deepdive.mathmurdermystery.R;
 public abstract class LinkedFragment extends Fragment {
 
   private Button mainMenuButton;
-  private Button selectLevelButton;
-  private Button selectGameFragButton;
-  private Button selectRoomButton;
-
-
+  private Button levelButton;
+  private Button startNewGameButton;
+  private Button roomEntityButton;
+  private Button loadScenarioButton;
+  private Button startGameButton;
 
   protected void loadHomeFragment() {
     Fragment fragmentMainScreenFragment = new MainScreenFragment();
@@ -27,18 +27,6 @@ public abstract class LinkedFragment extends Fragment {
     transaction.commit();
   }
 
-  protected View menuButton(View view) {
-    mainMenuButton = (Button) view.findViewById(R.id.return_to_main_menu);
-    mainMenuButton.setOnClickListener(new View.OnClickListener() {
-
-      @Override
-      public void onClick(View view) {
-        loadHomeFragment();
-      }
-
-    });
-    return view;
-  }
 
 
   protected void loadScenarioFragment() {
@@ -52,18 +40,6 @@ public abstract class LinkedFragment extends Fragment {
     transaction.commit();
   }
 
-  protected View selectLevelButton(View view) {
-    selectLevelButton = (Button) view.findViewById(R.id.new_level_button);
-    selectLevelButton.setOnClickListener(new View.OnClickListener() {
-
-      @Override
-      public void onClick(View view) {
-        loadLevelFragment();
-      }
-
-    });
-    return view;
-  }
 
 
   protected void loadLevelFragment() {
@@ -77,16 +53,7 @@ public abstract class LinkedFragment extends Fragment {
     transaction.commit();
   }
 
-  protected View selectRoomButton(View view) {
-    selectRoomButton = (Button) view.findViewById(R.id.new_room_button);
-    selectRoomButton.setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick(View view) {
-        loadRoomFragment();
-      }
-    });
-    return view;
-  }
+
 
   protected void loadRoomFragment() {
     Fragment fragmentRoomFragment = new RoomEntityFragment();
@@ -99,29 +66,17 @@ public abstract class LinkedFragment extends Fragment {
     transaction.commit();
   }
 
-//  protected View selectGameFragButton(View view) {
-//    selectGameFragButton = (Button) view.findViewById(R.id.new_game_button);
-//    selectGameFragButton.setOnClickListener(new View.OnClickListener() {
-//      @Override
-//      public void onClick(View view) {
-//        loadPlayFragment;
-//
-//        @Override
-//        public void onClick (View view){
-//          loadPl;
-//        }
-//
-//      });
-//    return view;
-//    }
-//    protected void loadPlayFragment() {
-//      Fragment fragmentPlayFragment = new PlayFragment();
-//
-//      FragmentManager manager = getFragmentManager();
-//      FragmentTransaction transaction = manager.beginTransaction();
-//      transaction.add(R.id.fragment_container, fragmentPlayFragment,
-//          fragmentPlayFragment.getClass().getSimpleName());
-//      transaction.addToBackStack("Play");
-//      transaction.commit();
-//    }
+
+
+  protected void loadProblemFragment() {
+    Fragment fragmentProblemFragment = new ProblemFragment();
+
+    FragmentManager manager = getFragmentManager();
+    FragmentTransaction transaction = manager.beginTransaction();
+    transaction.add(R.id.fragment_container, fragmentProblemFragment,
+        fragmentProblemFragment.getClass().getSimpleName());
+    transaction.addToBackStack("Problems");
+    transaction.commit();
   }
+}
+

@@ -19,4 +19,6 @@
   <string name="new_level">New Level</string>
   <string name="new_room">New room</string>
   <string name="new_room_game">Beginning of new game</string>
+  <string name="new_scenario">Scenarios</string>
+  <string name="new_problem_game">go_to_problem</string>
 </resources>

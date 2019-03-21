@@ -2,8 +2,6 @@ package edu.cnm.deepdive.mathmurdermystery;
 
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
-
-
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -14,10 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.Button;
-import edu.cnm.deepdive.mathmurdermystery.controller.HelpFragment;
 import edu.cnm.deepdive.mathmurdermystery.controller.MainScreenFragment;
 import edu.cnm.deepdive.mathmurdermystery.controller.PlayFragment;
 import edu.cnm.deepdive.mathmurdermystery.controller.ScoreboardFragment;
@@ -107,9 +102,9 @@ public class HomeScreenActivity extends AppCompatActivity
       case R.id.scroreboard_button:
         loadFragment(new ScoreboardFragment(), R.id.fragment_container, "scoreboardFragment", args);
         break;
-      case R.id.help_button:
-        loadFragment(new HelpFragment(), R.id.fragment_container, "helpFragment", args);
-        break;
+//      case R.id.help_button:
+//        loadFragment(new HelpFragment(), R.id.fragment_container, "helpFragment", args);
+//        break;
     }
 
     DrawerLayout drawer = findViewById(R.id.drawer_layout);

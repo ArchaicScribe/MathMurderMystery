@@ -8,15 +8,16 @@
   android:gravity="center"
   android:orientation="vertical">
 
+
   <Button
-    android:id="@+id/new_room_button"
+    android:id="@+id/new_go_to_problems"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_marginBottom="24dp"
     android:layout_marginLeft="8dp"
     android:layout_marginRight="8dp"
     android:background="#616161"
-    android:text="@string/new_room_game"
+    android:text="@string/new_room"
     android:textColor="#830303"
     android:textSize="24sp"
     tools:padding="24dp"/>

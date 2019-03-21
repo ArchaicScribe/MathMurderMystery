@@ -10,7 +10,7 @@
 
 
   <Button
-    android:id="@+id/new_game_button"
+    android:id="@+id/start_new_game_button"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_marginBottom="24dp"
@@ -22,18 +22,5 @@
     android:textSize="24sp"
     tools:padding="24dp"/>
 
-
-  <Button
-    android:id="@+id/return_to_main_menu"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginBottom="24dp"
-    android:layout_marginLeft="8dp"
-    android:layout_marginRight="8dp"
-    android:background="#808080"
-    android:gravity="center"
-    android:text="@string/return_to_main_menu"
-    android:textColor="#eeeeee"
-    android:textSize="24sp"/>
 
 </LinearLayout>

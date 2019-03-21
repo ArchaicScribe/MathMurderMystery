@@ -10,7 +10,7 @@ import edu.cnm.deepdive.mathmurdermystery.R;
 
 public class PlayFragment extends LinkedFragment {
 
-  private Button playButton;
+  private Button startNewGameButton;
 
   @Override
   public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
@@ -18,7 +18,18 @@ public class PlayFragment extends LinkedFragment {
     View view = inflater.inflate(R.layout.game_fragment, container, false);
     return menuButton(view);
   }
+  protected View menuButton(View view) {
 
+    startNewGameButton = (Button) view.findViewById(R.id.start_new_game_button);
+    startNewGameButton.setOnClickListener(new View.OnClickListener() {
+
+      @Override
+      public void onClick(View view) {
+        loadScenarioFragment();
+      }
+    });
+    return view;
+  }
 
 }
 
