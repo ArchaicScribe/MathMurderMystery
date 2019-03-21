@@ -13,7 +13,7 @@ public abstract class LinkedFragment extends Fragment {
   private Button selectLevelButton;
   private Button selectGameFragButton;
   private Button selectRoomButton;
-  private Button selectNewGameButton;
+
 
 
   protected void loadHomeFragment() {
@@ -21,8 +21,9 @@ public abstract class LinkedFragment extends Fragment {
 
     FragmentManager manager = getFragmentManager();
     FragmentTransaction transaction = manager.beginTransaction();
-    transaction.add(R.id.fragment_container, fragmentMainScreenFragment, "home");
-    transaction.addToBackStack(null);
+    transaction.add(R.id.fragment_container, fragmentMainScreenFragment,
+        fragmentMainScreenFragment.getClass().getSimpleName());
+    transaction.addToBackStack("Main Menu");
     transaction.commit();
   }
 
@@ -45,79 +46,82 @@ public abstract class LinkedFragment extends Fragment {
 
     FragmentManager manager = getFragmentManager();
     FragmentTransaction transaction = manager.beginTransaction();
-    transaction.add(R.id.fragment_container, fragmentScenarioScreenFragment, "scenario");
-    transaction.addToBackStack(null);
+    transaction.add(R.id.fragment_container, fragmentScenarioScreenFragment,
+        fragmentScenarioScreenFragment.getClass().getSimpleName());
+    transaction.addToBackStack("scenario");
     transaction.commit();
   }
 
-  protected View scenarioButton(View view) {
+  protected View selectLevelButton(View view) {
     selectLevelButton = (Button) view.findViewById(R.id.new_level_button);
     selectLevelButton.setOnClickListener(new View.OnClickListener() {
+
       @Override
       public void onClick(View view) {
-        loadScenarioFragment();
+        loadLevelFragment();
       }
 
     });
     return view;
   }
-}
 
-//  protected void loadLevelFragment() {
-//    Fragment fragmentScenarioScreenFragment = new ScenarioFragment();
+
+  protected void loadLevelFragment() {
+    Fragment fragmentLevelFragment = new LevelFragment();
+
+    FragmentManager manager = getFragmentManager();
+    FragmentTransaction transaction = manager.beginTransaction();
+    transaction.add(R.id.fragment_container, fragmentLevelFragment,
+        fragmentLevelFragment.getClass().getSimpleName());
+    transaction.addToBackStack("Level");
+    transaction.commit();
+  }
+
+  protected View selectRoomButton(View view) {
+    selectRoomButton = (Button) view.findViewById(R.id.new_room_button);
+    selectRoomButton.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        loadRoomFragment();
+      }
+    });
+    return view;
+  }
+
+  protected void loadRoomFragment() {
+    Fragment fragmentRoomFragment = new RoomEntityFragment();
+
+    FragmentManager manager = getFragmentManager();
+    FragmentTransaction transaction = manager.beginTransaction();
+    transaction.add(R.id.fragment_container, fragmentRoomFragment,
+        fragmentRoomFragment.getClass().getSimpleName());
+    transaction.addToBackStack("Room");
+    transaction.commit();
+  }
+
+//  protected View selectGameFragButton(View view) {
+//    selectGameFragButton = (Button) view.findViewById(R.id.new_game_button);
+//    selectGameFragButton.setOnClickListener(new View.OnClickListener() {
+//      @Override
+//      public void onClick(View view) {
+//        loadPlayFragment;
 //
-//    FragmentManager manager = getFragmentManager();
-//    FragmentTransaction transaction = manager.beginTransaction();
-//    transaction.add(R.id.fragment_container, fragmentRoomFragment, "room");
-//    transaction.addToBackStack(null);
-//    transaction.commit();
-//  }
+//        @Override
+//        public void onClick (View view){
+//          loadPl;
+//        }
 //
-//  @Override
-//  public void onClick(View view) {
-//    loadRoomFragment();
-//  }
-//
-//});
+//      });
 //    return view;
 //    }
+//    protected void loadPlayFragment() {
+//      Fragment fragmentPlayFragment = new PlayFragment();
 //
-//protected View levelButton(View view){
-//    selectLevelButton=(Button)view.findViewById(R.id.new_level_button);
-//    selectLevelButton.setOnClickListener(new View.OnClickListener(){
-//
-//@Override
-//public void onClick(View view){
-//    loadHomeFragment();
+//      FragmentManager manager = getFragmentManager();
+//      FragmentTransaction transaction = manager.beginTransaction();
+//      transaction.add(R.id.fragment_container, fragmentPlayFragment,
+//          fragmentPlayFragment.getClass().getSimpleName());
+//      transaction.addToBackStack("Play");
+//      transaction.commit();
 //    }
-//
-//    });
-//    return view;
-//    }
-//
-//protected View roomButton(View view){
-//    selectRoomButton=(Button)view.findViewById(R.id.new_room_button);
-//    selectRoomButton.setOnClickListener(new View.OnClickListener(){
-//
-//@Override
-//public void onClick(View view){
-//    loadHomeFragment();
-//    }
-//
-//    });
-//    return view;
-//    }
-//
-//protected View gameButton(View view){
-//    selectGameFragButton=(Button)view.findViewById(R.id.new_game_button);
-//    selectGameFragButton.setOnClickListener(new View.OnClickListener(){
-//
-//@Override
-//public void onClick(View view){
-//    loadHomeFragment();
-//    }
-//
-//    });
-//    return view;
-//    }
-//    }
+  }
