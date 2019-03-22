@@ -6,6 +6,7 @@ import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import java.util.List;
 
 
 @Entity
@@ -25,9 +26,14 @@ public class MathProblem {
   @NonNull
   @Expose
   private Type type;
-  @ColumnInfo(name = "answer", index = true)
+  @ColumnInfo(name = "correct_answer", index = true)
   @Expose
-  private long answer;
+  @SerializedName("correct_answer")
+  private String correctAnswer;
+  @ColumnInfo(name = "incorrect_answer", index = true)
+  @Expose
+  @SerializedName("incorrect_answer")
+  private List<String> incorrectAnswers;
   @ColumnInfo(name = "attempts", index = true)
   private long attempts;
   @ColumnInfo(name = "pool_of_problems")
@@ -65,12 +71,20 @@ public class MathProblem {
     this.type = type;
   }
 
-  public long getAnswer() {
-    return answer;
+  public String getCorrectAnswer() {
+    return correctAnswer;
   }
 
-  public void setAnswer(long answer) {
-    this.answer = answer;
+  public void setCorrectAnswer(String correctAnswer) {
+    this.correctAnswer = correctAnswer;
+  }
+
+  public List<String> getIncorrectAnswers() {
+    return incorrectAnswers;
+  }
+
+  public void setIncorrectAnswers(List<String> incorrectAnswers) {
+    this.incorrectAnswers = incorrectAnswers;
   }
 
   public long getAttempts() {

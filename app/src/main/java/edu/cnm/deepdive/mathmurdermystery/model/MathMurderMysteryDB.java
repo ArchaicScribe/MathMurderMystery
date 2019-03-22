@@ -16,6 +16,7 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import edu.cnm.deepdive.android.BaseFluentAsyncTask;
 import edu.cnm.deepdive.mathmurdermystery.MathMurderMysteryApplication;
 import edu.cnm.deepdive.mathmurdermystery.R;
@@ -34,12 +35,10 @@ import edu.cnm.deepdive.mathmurdermystery.model.entity.MathProblem;
 import edu.cnm.deepdive.mathmurdermystery.model.entity.RoomEntity;
 import edu.cnm.deepdive.mathmurdermystery.model.entity.Scenario;
 import edu.cnm.deepdive.mathmurdermystery.model.entity.UserInformation;
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
-import java.sql.Wrapper;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
@@ -96,6 +95,16 @@ public abstract class MathMurderMysteryDB extends RoomDatabase {
     }
   }
 
+  public static class LoadQuestionTask extends BaseFluentAsyncTask<Void, Void,
+      MathProblem, MathProblem> {
+
+    @Nullable
+    @Override
+    protected MathProblem perform(Void... voids) throws TaskException {
+      return MathMurderMysteryDB.getInstance().getMathProblem().getRandom();
+
+    }
+  }
 
   private static class PreloadTask extends BaseFluentAsyncTask<Void, Void, Void, Void> {
 
@@ -217,6 +226,14 @@ public abstract class MathMurderMysteryDB extends RoomDatabase {
     public static int typeToInt(MathProblem.Type type) {
       return type.ordinal();
 
+    }
+    @TypeConverter
+    public static List<String> fromString(String value) {
+      return new Gson().fromJson(value, new TypeToken<List<String>>(){}.getType());
+    }
+    @TypeConverter
+    public static String fromArrayList(List<String> list){
+      return new Gson().toJson(list);
     }
   }
 }

@@ -20,7 +20,7 @@ public interface MathProblemDao {
   @Query("SELECT * FROM MathProblem ORDER BY pool_of_problems DESC")
   List<MathProblem> getAll();
 
-  @Query("SELECT * FROM MathProblem WHERE difficulty = :difficulty ORDER BY RANDOM() LIMIT 1")
-  MathProblem getRandom(String difficulty);
+  @Query("SELECT * FROM MathProblem ORDER BY RANDOM() LIMIT 1")
+  MathProblem getRandom();
 
 }

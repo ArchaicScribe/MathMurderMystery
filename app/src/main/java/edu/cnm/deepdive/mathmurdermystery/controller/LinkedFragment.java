@@ -3,18 +3,10 @@ package edu.cnm.deepdive.mathmurdermystery.controller;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.view.View;
-import android.widget.Button;
 import edu.cnm.deepdive.mathmurdermystery.R;
 
 public abstract class LinkedFragment extends Fragment {
 
-  private Button mainMenuButton;
-  private Button levelButton;
-  private Button startNewGameButton;
-  private Button roomEntityButton;
-  private Button loadScenarioButton;
-  private Button startGameButton;
 
   protected void loadHomeFragment() {
     Fragment fragmentMainScreenFragment = new MainScreenFragment();
@@ -26,7 +18,6 @@ public abstract class LinkedFragment extends Fragment {
     transaction.addToBackStack("Main Menu");
     transaction.commit();
   }
-
 
 
   protected void loadScenarioFragment() {
@@ -41,7 +32,6 @@ public abstract class LinkedFragment extends Fragment {
   }
 
 
-
   protected void loadLevelFragment() {
     Fragment fragmentLevelFragment = new LevelFragment();
 
@@ -54,7 +44,6 @@ public abstract class LinkedFragment extends Fragment {
   }
 
 
-
   protected void loadRoomFragment() {
     Fragment fragmentRoomFragment = new RoomEntityFragment();
 
@@ -65,7 +54,6 @@ public abstract class LinkedFragment extends Fragment {
     transaction.addToBackStack("Room");
     transaction.commit();
   }
-
 
 
   protected void loadProblemFragment() {

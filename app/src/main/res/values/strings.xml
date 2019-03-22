@@ -20,5 +20,7 @@
   <string name="new_room">New room</string>
   <string name="new_room_game">Beginning of new game</string>
   <string name="new_scenario">Scenarios</string>
-  <string name="new_problem_game">go_to_problem</string>
+  <string name="new_problem_game">Go to Problems!</string>
+  <string name="Problems">problems</string>
+  <string name="New">new</string>
 </resources>

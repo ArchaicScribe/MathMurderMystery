@@ -17,10 +17,28 @@
     android:layout_marginLeft="8dp"
     android:layout_marginRight="8dp"
     android:background="#616161"
-    android:text="@string/Problems"
+    android:text="@string/New"
     android:textColor="#830303"
     android:textSize="24sp"
     tools:padding="24dp"/>
 
+  <Button
+    android:id="@+id/button_answer_1"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"/>
 
+  <Button
+    android:id="@+id/button_answer_2"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"/>
+
+  <Button
+    android:id="@+id/button_answer_3"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"/>
+
+  <Button
+    android:id="@+id/button_answer_4"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"/>
 </LinearLayout>

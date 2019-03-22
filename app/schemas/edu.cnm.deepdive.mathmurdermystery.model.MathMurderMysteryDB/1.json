@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "a10f169997668a944817dec3cdb3a6c8",
+    "identityHash": "f614875b4f2631c9d273d96cd3e87054",
     "entities": [
       {
         "tableName": "Connection",
@@ -208,7 +208,7 @@
       },
       {
         "tableName": "MathProblem",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`problem_id` INTEGER NOT NULL, `difficulty` INTEGER NOT NULL, `type` INTEGER NOT NULL, `answer` INTEGER NOT NULL, `attempts` INTEGER NOT NULL, `pool_of_problems` TEXT NOT NULL, `outcome` INTEGER NOT NULL, PRIMARY KEY(`problem_id`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`problem_id` INTEGER NOT NULL, `difficulty` INTEGER NOT NULL, `type` INTEGER NOT NULL, `correct_answer` TEXT, `incorrect_answer` TEXT, `attempts` INTEGER NOT NULL, `pool_of_problems` TEXT NOT NULL, `outcome` INTEGER NOT NULL, PRIMARY KEY(`problem_id`))",
         "fields": [
           {
             "fieldPath": "problemId",
@@ -229,10 +229,16 @@
             "notNull": true
           },
           {
-            "fieldPath": "answer",
-            "columnName": "answer",
-            "affinity": "INTEGER",
-            "notNull": true
+            "fieldPath": "correctAnswer",
+            "columnName": "correct_answer",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "incorrectAnswers",
+            "columnName": "incorrect_answer",
+            "affinity": "TEXT",
+            "notNull": false
           },
           {
             "fieldPath": "attempts",
@@ -285,12 +291,20 @@
             "createSql": "CREATE  INDEX `index_MathProblem_type` ON `${TABLE_NAME}` (`type`)"
           },
           {
-            "name": "index_MathProblem_answer",
+            "name": "index_MathProblem_correct_answer",
             "unique": false,
             "columnNames": [
-              "answer"
+              "correct_answer"
             ],
-            "createSql": "CREATE  INDEX `index_MathProblem_answer` ON `${TABLE_NAME}` (`answer`)"
+            "createSql": "CREATE  INDEX `index_MathProblem_correct_answer` ON `${TABLE_NAME}` (`correct_answer`)"
+          },
+          {
+            "name": "index_MathProblem_incorrect_answer",
+            "unique": false,
+            "columnNames": [
+              "incorrect_answer"
+            ],
+            "createSql": "CREATE  INDEX `index_MathProblem_incorrect_answer` ON `${TABLE_NAME}` (`incorrect_answer`)"
           },
           {
             "name": "index_MathProblem_attempts",
@@ -469,7 +483,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"a10f169997668a944817dec3cdb3a6c8\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"f614875b4f2631c9d273d96cd3e87054\")"
     ]
   }
 }
