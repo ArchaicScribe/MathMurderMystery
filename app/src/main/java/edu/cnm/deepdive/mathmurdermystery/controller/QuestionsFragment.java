@@ -30,6 +30,12 @@ public class QuestionsFragment extends LinkedFragment {
     new LoadQuestionTask().setSuccessListener(new ResultListener<MathProblem>() {
       @Override
       public void handle(MathProblem mathProblem) {
+        String value = "true";
+        String value1 = "12";
+        String value2 = "15.3";
+
+        Boolean val = Boolean.valueOf(value);
+
         //if (mathProblem.getIncorrectAnswers().size())
       }
     });

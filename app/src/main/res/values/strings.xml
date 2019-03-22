@@ -23,4 +23,6 @@
   <string name="new_problem_game">Go to Problems!</string>
   <string name="Problems">problems</string>
   <string name="New">new</string>
+  <string name="true_button">True</string>
+  <string name="false_button">False</string>
 </resources>
