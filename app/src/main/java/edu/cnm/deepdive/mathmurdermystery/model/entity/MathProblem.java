@@ -13,17 +13,14 @@ import java.util.List;
 
 public class MathProblem {
 
-  @PrimaryKey
+  @PrimaryKey(autoGenerate = true)
   @ColumnInfo(name = "problem_id", index = true)
-  @NonNull
   @Expose
   private long problemId;
   @ColumnInfo(name = "difficulty", index = true)
-  @NonNull
   @Expose
   private Difficulty difficulty;
   @ColumnInfo(name = "type", index = true)
-  @NonNull
   @Expose
   private Type type;
   @ColumnInfo(name = "correct_answer", index = true)
@@ -32,12 +29,11 @@ public class MathProblem {
   private String correctAnswer;
   @ColumnInfo(name = "incorrect_answer", index = true)
   @Expose
-  @SerializedName("incorrect_answer")
+  @SerializedName("incorrect_answers")
   private List<String> incorrectAnswers;
   @ColumnInfo(name = "attempts", index = true)
   private long attempts;
   @ColumnInfo(name = "pool_of_problems")
-  @NonNull
   @Expose
   private String poolProblems;
   @ColumnInfo(name = "outcome", index = true)
@@ -95,12 +91,11 @@ public class MathProblem {
     this.attempts = attempts;
   }
 
-  @NonNull
   public String getPoolProblems() {
     return poolProblems;
   }
 
-  public void setPoolProblems(@NonNull String poolProblems) {
+  public void setPoolProblems(String poolProblems) {
     this.poolProblems = poolProblems;
   }
 

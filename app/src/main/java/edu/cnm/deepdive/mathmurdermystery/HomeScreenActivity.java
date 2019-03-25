@@ -16,6 +16,8 @@ import android.widget.Button;
 import edu.cnm.deepdive.mathmurdermystery.controller.MainScreenFragment;
 import edu.cnm.deepdive.mathmurdermystery.controller.PlayFragment;
 import edu.cnm.deepdive.mathmurdermystery.controller.ScoreboardFragment;
+import edu.cnm.deepdive.mathmurdermystery.model.MathMurderMysteryDB;
+import edu.cnm.deepdive.mathmurdermystery.model.MathMurderMysteryDB.GetQuestionTask;
 
 public class HomeScreenActivity extends AppCompatActivity
     implements NavigationView.OnNavigationItemSelectedListener {
@@ -42,6 +44,7 @@ public class HomeScreenActivity extends AppCompatActivity
     navigationView.setNavigationItemSelectedListener(this);
 
     loadHomeFragment();
+    new GetQuestionTask().execute();
 
   }
 

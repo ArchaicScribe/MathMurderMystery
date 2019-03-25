@@ -66,5 +66,15 @@ public abstract class LinkedFragment extends Fragment {
     transaction.addToBackStack("Problems");
     transaction.commit();
   }
-}
 
+  protected void loadGameFragment() {
+    Fragment fragmentGameFragment = new GameFragment();
+
+    FragmentManager manager = getFragmentManager();
+    FragmentTransaction transaction = manager.beginTransaction();
+    transaction.add(R.id.fragment_container, fragmentGameFragment,
+        fragmentGameFragment.getClass().getSimpleName());
+    transaction.addToBackStack("Questions");
+    transaction.commit();
+  }
+}

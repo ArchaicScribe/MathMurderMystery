@@ -13,14 +13,25 @@ public class ProblemFragment extends LinkedFragment {
 
   private Button problemSelection;
 
-   @Override
+  @Override
   public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
       @Nullable Bundle savedInstanceState) {
     View view = inflater.inflate(R.layout.problem_fragment, container, false);
-    return view;
+    return menuButton(view);
   }
 
+  protected View menuButton(View view) {
 
+    problemSelection = (Button) view.findViewById(R.id.new_go_to_problems);
+    problemSelection.setOnClickListener(new View.OnClickListener() {
+
+      @Override
+      public void onClick(View view) {
+        loadGameFragment();
+      }
+    });
+    return view;
+  }
 
 
 }

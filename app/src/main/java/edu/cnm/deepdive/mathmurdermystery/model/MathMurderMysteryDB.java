@@ -156,7 +156,7 @@ public abstract class MathMurderMysteryDB extends RoomDatabase {
         for (CSVRecord record : parser) {
           Level level = new Level();
           level.setLevelId(Long.parseLong(record.get(0)));
-          level.setScenrioId(Long.parseLong(record.get(2)));
+          level.setScenrioId(Long.parseLong(record.get(2).trim()));
           level.setLevelTitle(record.get(1));
           levels.add(level);
         }
@@ -179,7 +179,7 @@ public abstract class MathMurderMysteryDB extends RoomDatabase {
         for (CSVRecord record : parser) {
           RoomEntity entity = new RoomEntity();
           entity.setRoomId(Long.parseLong(record.get(0)));
-          entity.setLevelId(Long.parseLong(record.get(2)));
+          entity.setLevelId(Long.parseLong(record.get(2).trim()));
           entities.add(entity);
         }
         db.getRoomEntity().insert(entities);

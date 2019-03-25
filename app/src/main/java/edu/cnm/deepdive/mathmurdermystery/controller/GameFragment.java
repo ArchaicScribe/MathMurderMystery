@@ -26,7 +26,9 @@ public class GameFragment extends LinkedFragment {
   public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
       @Nullable Bundle savedInstanceState) {
     view = inflater.inflate(R.layout.game_fragment, container, false);
+    randomQuestions();
     return view;
+
   }
 
   public void randomQuestions() {
@@ -78,13 +80,13 @@ public class GameFragment extends LinkedFragment {
           correct.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-            Toast.makeText(getActivity(), "Correct Answer", Toast.LENGTH_SHORT).show();
+              Toast.makeText(getActivity(), "Correct Answer", Toast.LENGTH_SHORT).show();
             }
           });
           incorrect.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-            Toast.makeText(getActivity(), "Incorrect Answer", Toast.LENGTH_SHORT).show();
+              Toast.makeText(getActivity(), "Incorrect Answer", Toast.LENGTH_SHORT).show();
             }
           });
         }
@@ -92,7 +94,7 @@ public class GameFragment extends LinkedFragment {
 
       }
 
-    });
+    }).execute();
 
 
   }

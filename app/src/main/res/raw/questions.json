@@ -1,6 +1,5 @@
-{
-  "response_code": 0,
-  "results": [
+
+  [
     {
       "category": "Science: Mathematics",
       "type": "multiple",
@@ -282,4 +281,3 @@
       ]
     }
   ]
-}

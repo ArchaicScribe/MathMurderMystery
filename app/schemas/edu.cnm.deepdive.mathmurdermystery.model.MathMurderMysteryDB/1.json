@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "f614875b4f2631c9d273d96cd3e87054",
+    "identityHash": "b7a692fc5413f36a7c72dca2207e9854",
     "entities": [
       {
         "tableName": "Connection",
@@ -208,7 +208,7 @@
       },
       {
         "tableName": "MathProblem",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`problem_id` INTEGER NOT NULL, `difficulty` INTEGER NOT NULL, `type` INTEGER NOT NULL, `correct_answer` TEXT, `incorrect_answer` TEXT, `attempts` INTEGER NOT NULL, `pool_of_problems` TEXT NOT NULL, `outcome` INTEGER NOT NULL, PRIMARY KEY(`problem_id`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`problem_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `difficulty` INTEGER, `type` INTEGER, `correct_answer` TEXT, `incorrect_answer` TEXT, `attempts` INTEGER NOT NULL, `pool_of_problems` TEXT, `outcome` INTEGER NOT NULL)",
         "fields": [
           {
             "fieldPath": "problemId",
@@ -220,13 +220,13 @@
             "fieldPath": "difficulty",
             "columnName": "difficulty",
             "affinity": "INTEGER",
-            "notNull": true
+            "notNull": false
           },
           {
             "fieldPath": "type",
             "columnName": "type",
             "affinity": "INTEGER",
-            "notNull": true
+            "notNull": false
           },
           {
             "fieldPath": "correctAnswer",
@@ -250,7 +250,7 @@
             "fieldPath": "poolProblems",
             "columnName": "pool_of_problems",
             "affinity": "TEXT",
-            "notNull": true
+            "notNull": false
           },
           {
             "fieldPath": "outcome",
@@ -263,7 +263,7 @@
           "columnNames": [
             "problem_id"
           ],
-          "autoGenerate": false
+          "autoGenerate": true
         },
         "indices": [
           {
@@ -483,7 +483,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"f614875b4f2631c9d273d96cd3e87054\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"b7a692fc5413f36a7c72dca2207e9854\")"
     ]
   }
 }
