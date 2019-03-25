@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="JavadocGenerationManager">
+    <option name="OUTPUT_DIRECTORY" value="$PROJECT_DIR$/docs/api" />
+    <option name="OPTION_DOCUMENT_TAG_USE" value="true" />
+    <option name="OPTION_DOCUMENT_TAG_AUTHOR" value="true" />
+    <option name="OPTION_DOCUMENT_TAG_VERSION" value="true" />
+    <option name="OTHER_OPTIONS" value="-bootclasspath &quot;C:\Program Files\Java\jdk1.8.0_191\jre\lib\rt.jar&quot;;C:\android\sdk\platforms\android-21\android.jar -link https://docs.oracle.com/javase/8/docs/api/ -link https://google.github.io/gson/apidocs/ -link http://square.github.io/retrofit/2.x/converter-gson/ -link http://square.github.io/retrofit/2.x/retrofit/ -link https://square.github.io/okhttp/3.x/okhttp/ -linkoffline https://developer.android.com/reference C:\android/sdk/docs/reference -windowtitle &quot;Math Murder Mystery Service Client&quot; -link https://commmons.apache.org/proper/commons-csv/apidocs/" />
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_7" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>

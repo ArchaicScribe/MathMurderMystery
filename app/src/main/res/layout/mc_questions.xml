@@ -23,24 +23,14 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    app:layout_constraintGuide_percent="0.85"/>
+    app:layout_constraintGuide_percent="0.35"/>
 
   <Button
-    android:id="@+id/retake_survey_button"
+    android:id="@+id/first_button"
     android:layout_width="150dp"
     android:layout_height="wrap_content"
-    android:text="@string/true_button"
-    app:layout_constraintLeft_toLeftOf="parent"
-    app:layout_constraintRight_toLeftOf="@id/center_guideline"
-    app:layout_constraintTop_toBottomOf="@id/horizontal_guideline"/>
-
-  <Button
-    android:id="@+id/false_button"
-    android:layout_width="150dp"
-    android:layout_height="wrap_content"
-    android:text="@string/false_button"
-    app:layout_constraintRight_toRightOf="parent"
-    app:layout_constraintTop_toBottomOf="@id/horizontal_guideline"
-    app:layout_constraintLeft_toRightOf="@id/center_guideline"/>
+    android:text="@string/button_A"
+    app:layout_constraintHorizontal_weight=
+    app:layout_constraintBottom_toTopOf="@id/horizontal_guideline"/>
 
 </android.support.constraint.ConstraintLayout>
