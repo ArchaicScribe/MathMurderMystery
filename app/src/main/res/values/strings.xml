@@ -26,4 +26,5 @@
   <string name="true_button">True</string>
   <string name="false_button">False</string>
   <string name="button_A">button_A</string>
+  <string name="start_new_game_button">New Game</string>
 </resources>

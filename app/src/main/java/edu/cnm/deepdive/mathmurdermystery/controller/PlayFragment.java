@@ -15,7 +15,7 @@ public class PlayFragment extends LinkedFragment {
   @Override
   public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
       @Nullable Bundle savedInstanceState) {
-    View view = inflater.inflate(R.layout.game_fragment, container, false);
+    View view = inflater.inflate(R.layout.begin_game_fragment, container, false);
     return menuButton(view);
   }
   protected View menuButton(View view) {

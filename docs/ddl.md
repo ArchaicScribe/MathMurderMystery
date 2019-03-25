@@ -2,7 +2,7 @@
 
 ```sql
 
-```
+
 CREATE TABLE IF NOT EXISTS `${Connection}` 
 	(`room_id1` INTEGER NOT NULL, 
 	`room_id2` INTEGER NOT NULL, 
@@ -53,7 +53,7 @@ CREATE TABLE IF NOT EXISTS `${Connection}`
 	
 	
 	
-	
+```
 	
 	
 	

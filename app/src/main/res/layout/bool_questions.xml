@@ -26,7 +26,7 @@
     app:layout_constraintGuide_percent="0.85"/>
 
   <Button
-    android:id="@+id/retake_survey_button"
+    android:id="@+id/true_button"
     android:layout_width="150dp"
     android:layout_height="wrap_content"
     android:text="@string/true_button"

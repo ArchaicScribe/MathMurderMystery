@@ -9,18 +9,19 @@
   android:orientation="vertical">
 
 
-  <Button
-    android:id="@+id/start_new_game_button"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginBottom="24dp"
-    android:layout_marginLeft="8dp"
-    android:layout_marginRight="8dp"
-    android:background="#616161"
-    android:text="@string/new_game"
-    android:textColor="#830303"
-    android:textSize="24sp"
-    tools:padding="24dp"/>
+
+  <ViewStub
+    android:id="@+id/mc_question"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout="@layout/mc_questions"/>
+
+
+  <ViewStub
+    android:id="@+id/bool_question"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout="@layout/bool_questions"/>
 
 
 </LinearLayout>

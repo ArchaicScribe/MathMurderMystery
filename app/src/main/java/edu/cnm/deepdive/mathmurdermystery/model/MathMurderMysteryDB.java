@@ -124,6 +124,7 @@ public abstract class MathMurderMysteryDB extends RoomDatabase {
       return null;
     }
 
+
     private void getAScenario(Context context, MathMurderMysteryDB db) {
       try (
           InputStream inputStream = context.getResources().openRawResource(R.raw.scenarios);
@@ -189,6 +190,17 @@ public abstract class MathMurderMysteryDB extends RoomDatabase {
     }
   }
 
+  public static class GetQuestionTask extends
+      BaseFluentAsyncTask<Void, Void, MathProblem, MathProblem>{
+
+    @Nullable
+    @Override
+    protected MathProblem perform(Void... voids) throws TaskException {
+      return MathMurderMysteryDB.getInstance().getMathProblem().getRandom();
+
+    }
+  }
+
 
   public static class Converters {
 
@@ -227,12 +239,15 @@ public abstract class MathMurderMysteryDB extends RoomDatabase {
       return type.ordinal();
 
     }
+
     @TypeConverter
     public static List<String> fromString(String value) {
-      return new Gson().fromJson(value, new TypeToken<List<String>>(){}.getType());
+      return new Gson().fromJson(value, new TypeToken<List<String>>() {
+      }.getType());
     }
+
     @TypeConverter
-    public static String fromArrayList(List<String> list){
+    public static String fromArrayList(List<String> list) {
       return new Gson().toJson(list);
     }
   }

@@ -8,8 +8,12 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import edu.cnm.deepdive.android.BaseFluentAsyncTask.ResultListener;
 import edu.cnm.deepdive.mathmurdermystery.R;
+import edu.cnm.deepdive.mathmurdermystery.model.MathMurderMysteryDB.GetQuestionTask;
 import edu.cnm.deepdive.mathmurdermystery.model.MathMurderMysteryDB.LoadQuestionTask;
 import edu.cnm.deepdive.mathmurdermystery.model.entity.MathProblem;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class QuestionsFragment extends LinkedFragment {
 
@@ -17,9 +21,6 @@ public class QuestionsFragment extends LinkedFragment {
   private Button buttonAnswer2;
   private Button buttonAnswer3;
   private Button buttonAnswer4;
-
-
-
 
 
   @Override
