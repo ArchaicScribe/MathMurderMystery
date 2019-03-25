@@ -8,6 +8,7 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.ViewStub;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 import edu.cnm.deepdive.android.BaseFluentAsyncTask.ResultListener;
 import edu.cnm.deepdive.mathmurdermystery.R;
@@ -37,6 +38,8 @@ public class GameFragment extends LinkedFragment {
       public void handle(MathProblem mathProblem) {
         final String correctAnswer;
         List<String> incorrectAnswer;
+        TextView question = view.findViewById(R.id.question);
+        question.setText(mathProblem.getQuestions());
 
         correctAnswer = mathProblem.getCorrectAnswer();
         incorrectAnswer = mathProblem.getIncorrectAnswers();

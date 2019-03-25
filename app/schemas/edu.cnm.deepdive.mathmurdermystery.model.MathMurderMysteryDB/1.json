@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "b7a692fc5413f36a7c72dca2207e9854",
+    "identityHash": "2e190f0c8882336f8891012ae6cdd499",
     "entities": [
       {
         "tableName": "Connection",
@@ -208,7 +208,7 @@
       },
       {
         "tableName": "MathProblem",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`problem_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `difficulty` INTEGER, `type` INTEGER, `correct_answer` TEXT, `incorrect_answer` TEXT, `attempts` INTEGER NOT NULL, `pool_of_problems` TEXT, `outcome` INTEGER NOT NULL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`problem_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `difficulty` INTEGER, `type` INTEGER, `correct_answer` TEXT, `incorrect_answer` TEXT, `attempts` INTEGER NOT NULL, `pool_of_problems` TEXT, `outcome` INTEGER NOT NULL, `questions` TEXT)",
         "fields": [
           {
             "fieldPath": "problemId",
@@ -257,6 +257,12 @@
             "columnName": "outcome",
             "affinity": "INTEGER",
             "notNull": true
+          },
+          {
+            "fieldPath": "questions",
+            "columnName": "questions",
+            "affinity": "TEXT",
+            "notNull": false
           }
         ],
         "primaryKey": {
@@ -321,6 +327,14 @@
               "outcome"
             ],
             "createSql": "CREATE  INDEX `index_MathProblem_outcome` ON `${TABLE_NAME}` (`outcome`)"
+          },
+          {
+            "name": "index_MathProblem_questions",
+            "unique": false,
+            "columnNames": [
+              "questions"
+            ],
+            "createSql": "CREATE  INDEX `index_MathProblem_questions` ON `${TABLE_NAME}` (`questions`)"
           }
         ],
         "foreignKeys": []
@@ -483,7 +497,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"b7a692fc5413f36a7c72dca2207e9854\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"2e190f0c8882336f8891012ae6cdd499\")"
     ]
   }
 }

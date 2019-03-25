@@ -39,6 +39,9 @@ public class MathProblem {
   @ColumnInfo(name = "outcome", index = true)
   @Expose
   private boolean outcome;
+  @ColumnInfo(name = "questions", index = true)
+  @Expose
+  private String questions;
 
   public long getProblemId() {
     return problemId;
@@ -105,6 +108,14 @@ public class MathProblem {
 
   public void setOutcome(boolean outcome) {
     this.outcome = outcome;
+  }
+
+  public String getQuestions() {
+    return questions;
+  }
+
+  public void setQuestions(String questions) {
+    this.questions = questions;
   }
 
   public enum Difficulty {
