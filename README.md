@@ -21,9 +21,7 @@ Math students, whether in elementary, middle, high school or higher education al
 * Would like to have more artwork incorporated into the game itself. 
 
 ## User Stories ##
-[User Story 1](https://docs.google.com/document/d/1JVU19X-xQfA6fU3goDgLy75rhIJaqxmhaXbxoZHQNNQ/edit?usp=sharing)
-
-[User Story 2](https://docs.google.com/document/d/1KXC_i3Gzwxig17I88iY3ix03r-fJtae0juXO51dzBFg/edit?usp=sharing)
+[User Stories](https://github.com/ArchaicScribe/MathMurderMystery/blob/master/userStories.md)
 
 **Could this app be useful on its own, with no connection to the Internet?**
 Yes, this app will still allow players to play offline on their own. They will not be able to update their rankings or trophies until they can reconnect to the internet and update through the server.
