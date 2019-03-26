@@ -39,10 +39,10 @@ public class MathProblem {
   @ColumnInfo(name = "outcome", index = true)
   @Expose
   private boolean outcome;
-  @ColumnInfo(name = "questions", index = true)
+  @ColumnInfo(name = "question", index = true)
   @Expose
   @SerializedName("question")
-  private String questions;
+  private String question;
 
   public long getProblemId() {
     return problemId;
@@ -111,12 +111,12 @@ public class MathProblem {
     this.outcome = outcome;
   }
 
-  public String getQuestions() {
-    return questions;
+  public String getQuestion() {
+    return question;
   }
 
-  public void setQuestions(String questions) {
-    this.questions = questions;
+  public void setQuestion(String question) {
+    this.question = question;
   }
 
   public enum Difficulty {

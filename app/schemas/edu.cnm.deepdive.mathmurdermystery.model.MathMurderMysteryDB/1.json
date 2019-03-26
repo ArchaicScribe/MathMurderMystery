@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "2e190f0c8882336f8891012ae6cdd499",
+    "identityHash": "0c23e2b26e03ed410c044e871d5e7b2e",
     "entities": [
       {
         "tableName": "Connection",
@@ -208,7 +208,7 @@
       },
       {
         "tableName": "MathProblem",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`problem_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `difficulty` INTEGER, `type` INTEGER, `correct_answer` TEXT, `incorrect_answer` TEXT, `attempts` INTEGER NOT NULL, `pool_of_problems` TEXT, `outcome` INTEGER NOT NULL, `questions` TEXT)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`problem_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `difficulty` INTEGER, `type` INTEGER, `correct_answer` TEXT, `incorrect_answer` TEXT, `attempts` INTEGER NOT NULL, `pool_of_problems` TEXT, `outcome` INTEGER NOT NULL, `question` TEXT)",
         "fields": [
           {
             "fieldPath": "problemId",
@@ -259,8 +259,8 @@
             "notNull": true
           },
           {
-            "fieldPath": "questions",
-            "columnName": "questions",
+            "fieldPath": "question",
+            "columnName": "question",
             "affinity": "TEXT",
             "notNull": false
           }
@@ -329,12 +329,12 @@
             "createSql": "CREATE  INDEX `index_MathProblem_outcome` ON `${TABLE_NAME}` (`outcome`)"
           },
           {
-            "name": "index_MathProblem_questions",
+            "name": "index_MathProblem_question",
             "unique": false,
             "columnNames": [
-              "questions"
+              "question"
             ],
-            "createSql": "CREATE  INDEX `index_MathProblem_questions` ON `${TABLE_NAME}` (`questions`)"
+            "createSql": "CREATE  INDEX `index_MathProblem_question` ON `${TABLE_NAME}` (`question`)"
           }
         ],
         "foreignKeys": []
@@ -439,7 +439,7 @@
       },
       {
         "tableName": "UserInformation",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`user_id` TEXT NOT NULL, `username` TEXT NOT NULL, `user_progress` TEXT NOT NULL, PRIMARY KEY(`user_id`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`user_id` TEXT NOT NULL, `username` TEXT NOT NULL, `user_progress` TEXT NOT NULL, `time` TEXT NOT NULL, `score` REAL, PRIMARY KEY(`user_id`))",
         "fields": [
           {
             "fieldPath": "userId",
@@ -458,6 +458,18 @@
             "columnName": "user_progress",
             "affinity": "TEXT",
             "notNull": true
+          },
+          {
+            "fieldPath": "time",
+            "columnName": "time",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "score",
+            "columnName": "score",
+            "affinity": "REAL",
+            "notNull": false
           }
         ],
         "primaryKey": {
@@ -497,7 +509,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"2e190f0c8882336f8891012ae6cdd499\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"0c23e2b26e03ed410c044e871d5e7b2e\")"
     ]
   }
 }

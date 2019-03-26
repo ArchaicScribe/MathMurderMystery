@@ -3,7 +3,7 @@
 ## An app that will incorporate gaming elements with math problems, to help imporve the user's math skills. 
 
 **Application Name: Math Murder Mystery**
-The functionality of this app will feature a user trying to navigate themselves through a murder mystery and solve the crime by solving math problems. The user will be able to keep track of their score, progress, where they are in the story and can keep track of their score. The app will not necessarily need internet access; however, to compete against other player's score, they will. It will pull the questions from a pool of potential questions, and the app will randomly choose a question to ask the user to answer, with some of the mysteries being multiple choice or true and false type questions. 
+The functionality of this app will feature a user trying to navigate themselves through a murder mystery and solve the crime by solving math problems. The user will be able to keep track of their score, progress, where they are in the story and can keep track of their score. The app will not necessarily need internet access; however, to compete against other player's score, they will. It will pull the question from a pool of potential question, and the app will randomly choose a question to ask the user to answer, with some of the mysteries being multiple choice or true and false type question. 
 
 **What will your app be called?**
 The app that I am proposing is currently called is Math Murder Mystery game or M^3. The reason for the naming for this game is because you are trying to solve a series of clues or hints to solve a murder utilizing mathematics and logic. 
@@ -17,7 +17,7 @@ Math students, whether in elementary, middle, high school or higher education al
 
 ## Unimplemented/Incomplete Element of Math Murder Mystery ##
 * Need to have more scenarios, levels, and rooms implemented.
-* Need to have more questions available. 
+* Need to have more question available. 
 * Would like to have more artwork incorporated into the game itself. 
 
 ## User Stories ##

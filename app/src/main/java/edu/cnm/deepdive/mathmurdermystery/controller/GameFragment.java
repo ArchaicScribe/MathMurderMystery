@@ -39,7 +39,7 @@ public class GameFragment extends LinkedFragment {
         final String correctAnswer;
         List<String> incorrectAnswer;
         TextView question = view.findViewById(R.id.question);
-        question.setText(mathProblem.getQuestions());
+        question.setText(mathProblem.getQuestion());
 
         correctAnswer = mathProblem.getCorrectAnswer();
         incorrectAnswer = mathProblem.getIncorrectAnswers();
