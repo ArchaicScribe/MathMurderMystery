@@ -1,4 +1,4 @@
-# MathMurderMystery #
+# MathMurderMystery or MCubed #
 
 ## An app that will incorporate gaming elements with math problems, to help imporve the user's math skills. 
 
@@ -11,6 +11,11 @@ The main functionality of the app is to enhance the user's cognitive ability to 
 **Who would find this app useful or fun, and when would they use it?**
 User 1, The Math Student
 Math students, whether in elementary, middle, high school or higher education all are looking for a way to challenge themselves with math and logic problems. With these types of challenges, it can become very tedious and often dull if there isn't a type of reward or goal set before them. That is where Math Murder Mystery game will come in. It will engage the user(s) to progress and challenge themselves to achieve badges or trophies to showcase to their friends and challenge others in mathematics to see who can solve the murder the quickest. Eventually, this game will allow the user(s) to prompt other players from across the world in this game and build their social network(s) and find other "mathletes" or players who share their same interests. 
+
+
+**User Story #1**
+
+As a teacher, you want an app that can incorporate your current curriculum in an easy-to-use,  stable, organized fashion that engages your students. Additionally, you want to keep data to track your students' progress with your coursework. Through the app, the teacher will be able to monitor the progress of each student in their classes and see how they're progressing. The teacher will be able to see if one or more of their students are excelling, falling behind, or are completing all the assignments on time. The teacher would be able to enter the game, having their avatar integrated within the game. The teacher will have administrator level access who can view all of the students' progress and only the teacher. 
 
 **User 2,  Someone looking to improve their math skills.** 
 
@@ -26,3 +31,7 @@ The data that would be shared would be user's rankings, trophies, and global vie
 Imagine you're a student who has been assigned some homework and you are just receiving a grade that is boring and does not have any real meaning to you whereas you can see an avatar and earn items through completing tasks and assignments. As a kid, seeing your progression that is tangible and incorporates a fun element into it where you can engage in battles with your other classmates would be tremendous fun — competing and gathering items that you earn through completing assignments, quizzes, and tests and show off to your friends and parents, receiving the best things you can. Achieving a problematic item through completing your work is a gratifying feeling. 
 
 In Math Murder Mystery or M Cubed, SQL will be utilized by storing the math problems that will be used in the game. By keeping track of the math problems, their difficulties, and how they will be used in each level will all be completed through the database. Also, keeping track of the player's progress throughout the game will come into play as well. Using LEFT, RIGHT, and FULL JOIN in the program to compartmentalize and organize all of the player's data and history. Using queries, if the player wants to see a detail of their progress within the game will also come in handy for them to see and read about during the game. 
+
+
+**ERDs**
+[ERD Diagram](https://drive.google.com/file/d/1LKRuEyf0FsU06t3hBMaPJ-Bphsx4FxDr/view?usp=sharing)
