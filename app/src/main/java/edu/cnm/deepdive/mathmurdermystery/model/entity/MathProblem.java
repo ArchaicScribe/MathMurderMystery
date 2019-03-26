@@ -41,6 +41,7 @@ public class MathProblem {
   private boolean outcome;
   @ColumnInfo(name = "questions", index = true)
   @Expose
+  @SerializedName("question")
   private String questions;
 
   public long getProblemId() {

@@ -16,7 +16,6 @@ import android.widget.Button;
 import edu.cnm.deepdive.mathmurdermystery.controller.MainScreenFragment;
 import edu.cnm.deepdive.mathmurdermystery.controller.PlayFragment;
 import edu.cnm.deepdive.mathmurdermystery.controller.ScoreboardFragment;
-import edu.cnm.deepdive.mathmurdermystery.model.MathMurderMysteryDB;
 import edu.cnm.deepdive.mathmurdermystery.model.MathMurderMysteryDB.GetQuestionTask;
 
 public class HomeScreenActivity extends AppCompatActivity
@@ -105,9 +104,7 @@ public class HomeScreenActivity extends AppCompatActivity
       case R.id.scroreboard_button:
         loadFragment(new ScoreboardFragment(), R.id.fragment_container, "scoreboardFragment", args);
         break;
-//      case R.id.help_button:
-//        loadFragment(new HelpFragment(), R.id.fragment_container, "helpFragment", args);
-//        break;
+
     }
 
     DrawerLayout drawer = findViewById(R.id.drawer_layout);
