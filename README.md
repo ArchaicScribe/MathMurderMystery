@@ -41,6 +41,7 @@ The data that would be shared would be user's rankings, trophies, and global vie
 * Room
 * Stehto
 * Retrofit
+* GSON
 
 **Potential Future for Math Murder Mystery**
 As this app progresses further into development, having more problems and a variety of puzzles could add a myriad of new challenges to the users. Even with the data structure as is, having it be implemented into another game would be another avenue that could be explored. Because of the structure, having this model integrated into another game could be an exciting idea. 
