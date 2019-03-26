@@ -46,7 +46,7 @@ The data that would be shared would be user's rankings, trophies, and global vie
 As this app progresses further into development, having more problems and a variety of puzzles could add a myriad of new challenges to the users. Even with the data structure as is, having it be implemented into another game would be another avenue that could be explored. Because of the structure, having this model integrated into another game could be an exciting idea. 
 
 **DDL**
-* [DDL](https://github.com/ArchaicScribe/MathMurderMystery/blob/master/ddl.sql.md)
+* [DDL](https://github.com/ArchaicScribe/MathMurderMystery/blob/master/docs/ddl.sql.md)
 
 **ERDs**
 * [ERD Diagram](https://drive.google.com/file/d/1LKRuEyf0FsU06t3hBMaPJ-Bphsx4FxDr/view?usp=sharing)
