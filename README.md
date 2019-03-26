@@ -15,6 +15,14 @@ The main functionality of the app is to enhance the user's cognitive ability to 
 User 1, The Math Student
 Math students, whether in elementary, middle, high school or higher education all are looking for a way to challenge themselves with math and logic problems. With these types of challenges, it can become very tedious and often dull if there isn't a type of reward or goal set before them. That is where Math Murder Mystery game will come in. It will engage the user(s) to progress and challenge themselves to achieve badges or trophies to showcase to their friends and challenge others in mathematics to see who can solve the murder the quickest. Eventually, this game will allow the user(s) to prompt other players from across the world in this game and build their social network(s) and find other "mathletes" or players who share their same interests. 
 
+**Could this app be useful on its own, with no connection to the Internet?**
+Yes, this app will still allow players to play offline on their own. They will not be able to update their rankings or trophies until they can reconnect to the internet and update through the server.
+
+**What sort of data would this app use or share if it had a connection to the Internet?**
+The data that would be shared would be user's rankings, trophies, and global view of other players' awards, rankings, and status. 
+
+ In Math Murder Mystery or M Cubed, SQL will be utilized by storing the math problems that will be used in the game. By keeping track of the math problems, their difficulties, and how they will be used in each level will all be completed through the database. Also, keeping track of the player's progress throughout the game will come into play as well. Using LEFT, RIGHT, and FULL JOIN in the program to compartmentalize and organize all of the player's data and history. Using queries, if the player wants to see a detail of their progress within the game will also come in handy for them to see and read about during the game.
+
 ## Unimplemented/Incomplete Element of Math Murder Mystery ##
 * Need to have more scenarios, levels, and rooms implemented.
 * Need to have more question available. 
@@ -23,13 +31,6 @@ Math students, whether in elementary, middle, high school or higher education al
 ## User Stories ##
 [User Stories](https://github.com/ArchaicScribe/MathMurderMystery/blob/master/docs/userStories.md)
 
-**Could this app be useful on its own, with no connection to the Internet?**
-Yes, this app will still allow players to play offline on their own. They will not be able to update their rankings or trophies until they can reconnect to the internet and update through the server.
-
-**What sort of data would this app use or share if it had a connection to the Internet?**
-The data that would be shared would be user's rankings, trophies, and global view of other players' awards, rankings, and status. 
-
- In Math Murder Mystery or M Cubed, SQL will be utilized by storing the math problems that will be used in the game. By keeping track of the math problems, their difficulties, and how they will be used in each level will all be completed through the database. Also, keeping track of the player's progress throughout the game will come into play as well. Using LEFT, RIGHT, and FULL JOIN in the program to compartmentalize and organize all of the player's data and history. Using queries, if the player wants to see a detail of their progress within the game will also come in handy for them to see and read about during the game.
 
 **Android API version and Hardware**
 * Samsung Galaxy Note 9
