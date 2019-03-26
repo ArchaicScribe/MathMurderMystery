@@ -6,7 +6,10 @@ import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
 import com.google.gson.annotations.Expose;
 
-
+/**
+ * The purpose of this entity class, Answer, is to differentiate between the answers and questions.
+ * This is for the DB and help clarify to the system what is needed
+ */
 @Entity
 public class Answer {
 

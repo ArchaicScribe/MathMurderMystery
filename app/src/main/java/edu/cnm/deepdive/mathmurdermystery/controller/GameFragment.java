@@ -23,6 +23,13 @@ public class GameFragment extends LinkedFragment {
 
   private View view;
 
+  /**
+   * This view will inflate the game_fragment, and bring up the randomQuestions() method.
+   * @param inflater
+   * @param container
+   * @param savedInstanceState
+   * @return
+   */
   @Override
   public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
       @Nullable Bundle savedInstanceState) {
@@ -32,6 +39,12 @@ public class GameFragment extends LinkedFragment {
 
   }
 
+  /**
+   * This method will handle the random questions, correct and incorrect answers as well.
+   * Along with randomizing the questions, it will decide what the type of question is, bool or
+   * multiple) and that will dictate how many buttons will appear.
+   * The buttons will be added in as well
+   */
   public void randomQuestions() {
     new GetQuestionTask().setSuccessListener(new ResultListener<MathProblem>() {
       @Override

@@ -10,9 +10,18 @@ import edu.cnm.deepdive.mathmurdermystery.R;
 
 public class ProblemFragment extends LinkedFragment {
 
-
+  /**
+   * Creates a new button.
+   */
   private Button problemSelection;
 
+  /**
+   * Method will inflate the problemFragment, returns a menuButton. This will be saved to a Bundle.
+   * @param inflater
+   * @param container
+   * @param savedInstanceState
+   * @return
+   */
   @Override
   public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
       @Nullable Bundle savedInstanceState) {
@@ -20,6 +29,11 @@ public class ProblemFragment extends LinkedFragment {
     return menuButton(view);
   }
 
+  /**
+   * This button will go to the new problems and wait for the OnClickListener.
+   * @param view
+   * @return
+   */
   protected View menuButton(View view) {
 
     problemSelection = (Button) view.findViewById(R.id.new_go_to_problems);

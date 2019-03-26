@@ -11,15 +11,25 @@ import edu.cnm.deepdive.mathmurdermystery.R;
 public class RoomEntityFragment extends LinkedFragment {
 
 
+  /**
+   * Adds new button.
+   */
   private Button startNewGameButton;
 
 
+  /**
+   * This view will inflate the room fragment.
+   */
   @Override
   public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
       @Nullable Bundle savedInstanceState) {
     View view = inflater.inflate(R.layout.room_fragment, container, false);
     return selectGameButton(view);
   }
+
+  /**
+   * This button will take the user to the problems. It inflates the ProblemFragment.
+   */
   protected View selectGameButton(View view) {
     startNewGameButton = (Button) view.findViewById(R.id.new_go_to_problems);
     startNewGameButton.setOnClickListener(new View.OnClickListener() {

@@ -13,6 +13,13 @@ public class LevelFragment extends LinkedFragment {
 
   private Button roomEntityButton;
 
+  /**
+   *
+   * @param inflater
+   * @param container
+   * @param savedInstanceState
+   * @return
+   */
   @Override
   public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
       @Nullable Bundle savedInstanceState) {
@@ -20,6 +27,11 @@ public class LevelFragment extends LinkedFragment {
     return selectRoomButton(view);
   }
 
+  /**
+   *
+   * @param view
+   * @return
+   */
   protected View selectRoomButton(View view) {
     roomEntityButton = (Button) view.findViewById(R.id.new_room_button);
     roomEntityButton.setOnClickListener(new View.OnClickListener() {

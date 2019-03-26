@@ -7,7 +7,9 @@ import edu.cnm.deepdive.mathmurdermystery.R;
 
 public abstract class LinkedFragment extends Fragment {
 
-
+  /**
+   * This will load the Home Fragment. From the fragment container.
+   */
   protected void loadHomeFragment() {
     Fragment fragmentMainScreenFragment = new MainScreenFragment();
 
@@ -19,7 +21,10 @@ public abstract class LinkedFragment extends Fragment {
     transaction.commit();
   }
 
-
+  /**
+   * This will load the scenario fragment. From the fragment container.Then add it to the backstack.
+   * This allows the end-user to use the back button to revert.
+   */
   protected void loadScenarioFragment() {
     Fragment fragmentScenarioScreenFragment = new ScenarioFragment();
 
@@ -31,7 +36,10 @@ public abstract class LinkedFragment extends Fragment {
     transaction.commit();
   }
 
-
+  /**
+   * This will load the level fragment. From the fragment container. Then add it to the backstack.
+   * This allows the end-user to use the back button to revert.
+   */
   protected void loadLevelFragment() {
     Fragment fragmentLevelFragment = new LevelFragment();
 
@@ -44,6 +52,10 @@ public abstract class LinkedFragment extends Fragment {
   }
 
 
+  /**
+   * This will load the Room Fragment, From the fragment container.Then add it to the backstack.
+   * This allows the end-user to use the back button to revert.
+   */
   protected void loadRoomFragment() {
     Fragment fragmentRoomFragment = new RoomEntityFragment();
 
@@ -56,6 +68,10 @@ public abstract class LinkedFragment extends Fragment {
   }
 
 
+  /**
+   * This will load the problem fragment from the fragment container, add to the backstack and
+   * commit it to the backstack.
+   */
   protected void loadProblemFragment() {
     Fragment fragmentProblemFragment = new ProblemFragment();
 
@@ -67,6 +83,9 @@ public abstract class LinkedFragment extends Fragment {
     transaction.commit();
   }
 
+  /**
+   * Loads the game fragment, from the fragment container, adds to the backstack, and commits it.
+   */
   protected void loadGameFragment() {
     Fragment fragmentGameFragment = new GameFragment();
 
