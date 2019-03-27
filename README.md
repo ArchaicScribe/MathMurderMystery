@@ -85,4 +85,4 @@ The only external service utilized for this app was [Open Trivia Database](https
 7. You will not need an API Key because the questions are preloaded already onto the database. 
 8. It's recommended that you the default Grade wrapper (recommended) for when executing the Gradle and ensure that the Gradle JVM (Java Virtual Machine) is set to Java 1.8x version. 
 
-## Full copyright & license notices ##
+## [Full copyright & license notices](https://github.com/ArchaicScribe/MathMurderMystery/tree/master) ##
