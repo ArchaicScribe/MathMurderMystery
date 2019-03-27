@@ -1,12 +1,3 @@
-# MathMurderMystery
-
-## A murder mystery type game, that will incorporate math in order to solve the murder(s). The difficulty and content of the math will  range from basic arithmetic to calculus and above. 
-
-**What will your app be called?**
-The app that I am proposing is currently called is Math Murder Mystery game or M^3. The reason for the naming for this game is because you are trying to solve a series of clues or hints to solve a murder utilizing mathematics and logic. 
-
-**What is the basic functionality of the app?**
-The main functionality of the app is to enhance the user's cognitive ability to work through math problems, ranging from basic arithmetic to calculus. I want to be able to have multiple levels, maps, murder scenarios to challenge the user(s) and have a progression system. 
 
 **Who would find this app useful or fun, and when would they use it?**
 ## User 1, The Math Student
