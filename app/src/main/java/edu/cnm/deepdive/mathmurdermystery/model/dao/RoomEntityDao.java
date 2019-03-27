@@ -6,6 +6,10 @@ import android.arch.persistence.room.Query;
 import edu.cnm.deepdive.mathmurdermystery.model.entity.RoomEntity;
 import java.util.List;
 
+/**
+ * The RoomEntity DAO will insert a List of rooms. These rooms will be used to allow the end-user
+ * to select which room they want to go into.
+ */
 @Dao
 public interface RoomEntityDao {
 

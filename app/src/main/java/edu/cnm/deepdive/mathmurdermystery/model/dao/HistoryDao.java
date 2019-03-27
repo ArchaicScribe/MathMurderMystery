@@ -6,6 +6,9 @@ import android.arch.persistence.room.Query;
 import edu.cnm.deepdive.mathmurdermystery.model.entity.History;
 import java.util.List;
 
+/**
+ * This DAO will obtain the user's history, progress, and score.
+ */
 @Dao
 public interface HistoryDao {
 

@@ -14,10 +14,6 @@ public class PlayFragment extends LinkedFragment {
 
   /**
    * Inflates the beginGame Fragment, uses the menuButton to return to the view.
-   * @param inflater
-   * @param container
-   * @param savedInstanceState
-   * @return
    */
   @Override
   public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
@@ -27,9 +23,8 @@ public class PlayFragment extends LinkedFragment {
   }
 
   /**
-   * This is the menuButton that will start a new Game and will then load the ScenarioFragment, so that it will progress to that next fragment.
-   * @param view
-   * @return
+   * This is the menuButton that will start a new Game and will then load the ScenarioFragment, so
+   * that it will progress to that next fragment.
    */
   protected View menuButton(View view) {
 

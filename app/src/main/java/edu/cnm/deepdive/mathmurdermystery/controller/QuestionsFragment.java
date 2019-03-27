@@ -28,10 +28,6 @@ public class QuestionsFragment extends LinkedFragment {
 
   /**
    * Creates a new view, loads the questionFragment but will also add a new Task.
-   * @param inflater
-   * @param container
-   * @param savedInstanceState
-   * @return
    */
   @Override
   public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
@@ -39,7 +35,7 @@ public class QuestionsFragment extends LinkedFragment {
     View view = inflater.inflate(R.layout.questions_fragment, container, false);
 
     /**
-     * This Task will give a new mathProblem.
+     * This Task will give a new, random mathProblem.
      */
     new LoadQuestionTask().setSuccessListener(new ResultListener<MathProblem>() {
       @Override
@@ -55,7 +51,8 @@ public class QuestionsFragment extends LinkedFragment {
     });
 
     /**
-     * Adds a new button, will load the RoomFragment for each one of the buttons.
+     * Adds a new button, will load the RoomFragment for each one of the buttons. This will only be
+     * applicable for the multiple choice questions.
      */
     buttonAnswer1 = (Button) view.findViewById(R.id.button_answer_1);
     buttonAnswer1.setOnClickListener(new View.OnClickListener() {

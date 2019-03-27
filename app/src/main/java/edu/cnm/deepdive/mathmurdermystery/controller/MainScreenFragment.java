@@ -10,11 +10,8 @@ import edu.cnm.deepdive.mathmurdermystery.R;
 public class MainScreenFragment extends LinkedFragment {
 
   /**
-   * This onCreateView will inflate the homescreen background fragment, directs it to the container, known as ViewGroup.
-   * @param inflater
-   * @param container
-   * @param savedInstanceState
-   * @return
+   * This onCreateView will inflate the homescreen background fragment, directs it to the container,
+   * known as ViewGroup.
    */
   @Override
   public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,

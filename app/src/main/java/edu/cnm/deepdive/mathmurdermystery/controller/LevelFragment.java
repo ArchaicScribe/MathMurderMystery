@@ -14,11 +14,8 @@ public class LevelFragment extends LinkedFragment {
   private Button roomEntityButton;
 
   /**
-   *
-   * @param inflater
-   * @param container
-   * @param savedInstanceState
-   * @return
+   * Will inflate the {@link LevelFragment} and then allow the user to select a {@link
+   * edu.cnm.deepdive.mathmurdermystery.model.entity.RoomEntity}.
    */
   @Override
   public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
@@ -28,9 +25,7 @@ public class LevelFragment extends LinkedFragment {
   }
 
   /**
-   *
-   * @param view
-   * @return
+   * This allows the user to select a room on their own choosing.
    */
   protected View selectRoomButton(View view) {
     roomEntityButton = (Button) view.findViewById(R.id.new_room_button);

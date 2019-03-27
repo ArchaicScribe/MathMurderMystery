@@ -4,9 +4,13 @@ import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
 import edu.cnm.deepdive.mathmurdermystery.model.entity.Level;
-import edu.cnm.deepdive.mathmurdermystery.model.entity.RoomEntity;
 import java.util.List;
 
+/**
+ * This DAO will act as a go-between for the {@link edu.cnm.deepdive.mathmurdermystery.controller.LevelFragment},
+ * {@link edu.cnm.deepdive.mathmurdermystery.model.entity.RoomEntity}, and {@link
+ * edu.cnm.deepdive.mathmurdermystery.controller.ScenarioFragment}.
+ */
 @Dao
 public interface LevelDao {
 
