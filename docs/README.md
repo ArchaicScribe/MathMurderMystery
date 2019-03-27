@@ -39,9 +39,9 @@ The data that would be shared would be user's rankings, trophies, and global vie
 
 **Third Party Libraries Utilized**
 * Room
-* Stehto
-* Retrofit
-* GSON
+* [Stehto](https://github.com/facebook/stetho)
+* [Retrofit](https://square.github.io/retrofit/)
+* [GSON](https://github.com/google/gson)
 
 **Potential Future for Math Murder Mystery**
 As this app progresses further into development, having more problems and a variety of puzzles could add a myriad of new challenges to the users. Even with the data structure as is, having it be implemented into another game would be another avenue that could be explored. Because of the structure, having this model integrated into another game could be an exciting idea. 
