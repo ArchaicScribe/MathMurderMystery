@@ -3,12 +3,13 @@ package edu.cnm.deepdive.mathmurdermystery.model.entity;
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
-import android.arch.persistence.room.TypeConverter;
 import android.support.annotation.NonNull;
-import java.util.Calendar;
 
+/**
+ * This class is used to store the user's information, progress, and score. The purpose of this
+ * is to keep all details on the scoreboard for the user to see.
+ */
 @Entity
-
 public class UserInformation {
 
   @PrimaryKey

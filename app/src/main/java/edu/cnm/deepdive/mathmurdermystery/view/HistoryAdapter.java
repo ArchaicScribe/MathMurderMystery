@@ -18,6 +18,10 @@ public class HistoryAdapter extends ArrayAdapter<UserInformation> {
   DateFormat dateFormat;
   String scoreFormat;
 
+  /**
+   * This HistoryAdapter is used to keep track of the user's information, stored in {@link
+   * UserInformation} and will display in a ListView.
+   */
   public HistoryAdapter(@NonNull Context context, List<UserInformation> items) {
     super(context, R.layout.scoreboard_fragment, items);
     dateFormat = android.text.format.DateFormat.getDateFormat(context);
@@ -25,6 +29,13 @@ public class HistoryAdapter extends ArrayAdapter<UserInformation> {
   }
 
 
+  /**
+   * The
+   * @param position
+   * @param convertView
+   * @param parent
+   * @return
+   */
   @NonNull
   @Override
   public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {

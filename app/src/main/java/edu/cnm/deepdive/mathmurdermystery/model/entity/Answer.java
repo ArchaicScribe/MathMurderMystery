@@ -8,7 +8,8 @@ import com.google.gson.annotations.Expose;
 
 /**
  * The purpose of this entity class, Answer, is to differentiate between the answers and questions.
- * This is for the DB and help clarify to the system what is needed
+ * This is for the {@link edu.cnm.deepdive.mathmurdermystery.model.MathMurderMysteryDB} and help
+ * clarify to the system what is needed
  */
 @Entity
 public class Answer {

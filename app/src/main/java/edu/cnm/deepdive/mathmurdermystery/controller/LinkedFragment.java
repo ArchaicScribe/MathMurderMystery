@@ -8,7 +8,7 @@ import edu.cnm.deepdive.mathmurdermystery.R;
 public abstract class LinkedFragment extends Fragment {
 
   /**
-   * This will load the Home Fragment. From the fragment container.
+   * This will load the Home Fragment. From the {@link android.support.v4.app.FragmentContainer}.
    */
   protected void loadHomeFragment() {
     Fragment fragmentMainScreenFragment = new MainScreenFragment();

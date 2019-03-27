@@ -21,7 +21,7 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * GameFragment extends {@Link LinkedFragment}
+ * GameFragment extends {@link LinkedFragment}, which is the superclass for all of my fragments.
  */
 public class GameFragment extends LinkedFragment {
 
@@ -30,7 +30,7 @@ public class GameFragment extends LinkedFragment {
   /**
    * This view will inflate the game_fragment, and bring up the randomQuestions() method.
    *
-   * @param inflater Inflates the {@Link game_fragment}
+   * @param inflater Inflates the {@link GameFragment}
    * @return Returns view.
    */
   @Override
@@ -45,7 +45,8 @@ public class GameFragment extends LinkedFragment {
   /**
    * This method will handle the random questions, correct and incorrect answers as well. Along with
    * randomizing the questions, it will decide what the type of question is, bool or multiple) and
-   * that will dictate how many buttons will appear. The buttons will be added in as well
+   * that will dictate how many buttons will appear. The buttons will be added in as well and will
+   * wait for the user to make their selection.
    */
   public void randomQuestions() {
     new GetQuestionTask().setSuccessListener(new ResultListener<MathProblem>() {
@@ -80,6 +81,11 @@ public class GameFragment extends LinkedFragment {
             buttons[i].setText(allAnswers.get(i));
             final int finalI = i;
             buttons[i].setOnClickListener(new OnClickListener() {
+              /**
+               * This onClick method is for displaying a toast on whether the user answered the question
+               * correctly or incorrectly. This is for the multiple choice questions portion.
+               * @param view This view is returned, which is the toast.
+               */
               @Override
               public void onClick(View view) {
                 if (allAnswers.get(finalI).equals(correctAnswer)) {
@@ -97,6 +103,10 @@ public class GameFragment extends LinkedFragment {
           Button correct = mathProblem.isOutcome() ? buttonT : buttonF;
           Button incorrect = mathProblem.isOutcome() ? buttonF : buttonT;
           correct.setOnClickListener(new OnClickListener() {
+            /**
+             * This onClick will display a toast, correct or incorrect, and then will have a {@link ProceedAfterDelay}
+             * @param view This returns the view/toast to the user.
+             */
             @Override
             public void onClick(View view) {
               Toast.makeText(getActivity(), "Correct Answer", Toast.LENGTH_SHORT).show();
@@ -104,6 +114,10 @@ public class GameFragment extends LinkedFragment {
             }
           });
           incorrect.setOnClickListener(new OnClickListener() {
+            /**
+             * This displays the onClick toast for incorrect answers.
+             * @param view
+             */
             @Override
             public void onClick(View view) {
               Toast.makeText(getActivity(), "Incorrect Answer", Toast.LENGTH_SHORT).show();
@@ -121,11 +135,18 @@ public class GameFragment extends LinkedFragment {
 
   private class ProceedAfterDelay extends AsyncTask<Void, Void, Void> {
 
+    /**
+     * This will load the {@link ProblemFragment} which holds all of the problems.
+     */
     @Override
     protected void onPostExecute(Void aVoid) {
       loadProblemFragment();
     }
 
+    /**
+     * The doInBackground will delay the thread from continuing and return the user back to the
+     * {@link ProblemFragment}
+     */
     @Override
     protected Void doInBackground(Void... voids) {
       try {
