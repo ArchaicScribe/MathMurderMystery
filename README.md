@@ -52,5 +52,5 @@ As this app progresses further into development, having more problems and a vari
 **ERDs**
 * [ERD Diagram](https://drive.google.com/file/d/1LKRuEyf0FsU06t3hBMaPJ-Bphsx4FxDr/view?usp=sharing)
 
-**External Services**
+## External Services ##
 The only external service utilized for this app was [Open Trivia Database](https://opentdb.com/api_config.php)
