@@ -54,7 +54,7 @@ As this app progresses further into development, having more problems and a vari
 * [ERD Diagram](https://drive.google.com/file/d/1LKRuEyf0FsU06t3hBMaPJ-Bphsx4FxDr/view?usp=sharing)
 
 **JavaDocs**
-* [JavaDocs](file:///C:/Users/xande/Desktop/bootcamp/projects/MathMurderMystery/docs/api/index.html)
+* [JavaDocs](dpcs/api)
 
 ## Third Party Libraries Used ## 
 
