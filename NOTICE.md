@@ -52,7 +52,7 @@ THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR I
 
 ## [OpenTrivia API](https://creativecommons.org/licenses/by-sa/4.0/) ##
 
-
+https://creativecommons.org/licenses/by-sa/4.0/
 
    Attribution — You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
 
