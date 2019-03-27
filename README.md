@@ -42,6 +42,7 @@ The data that would be shared would be user's rankings, trophies, and global vie
 * [Stehto](https://github.com/facebook/stetho)
 * [Retrofit](https://square.github.io/retrofit/)
 * [GSON](https://github.com/google/gson)
+* [Deep Dive Coding Android Utilities/BaseFluentAsyncTask](https://github.com/deep-dive-coding-java/android-utilities)
 
 **Potential Future for Math Murder Mystery**
 As this app progresses further into development, having more problems and a variety of puzzles could add a myriad of new challenges to the users. Even with the data structure as is, having it be implemented into another game would be another avenue that could be explored. Because of the structure, having this model integrated into another game could be an exciting idea. 
@@ -83,3 +84,5 @@ The only external service utilized for this app was [Open Trivia Database](https
 6. Be sure to build the app onto a device running a minimum of API 21.
 7. You will not need an API Key because the questions are preloaded already onto the database. 
 8. It's recommended that you the default Grade wrapper (recommended) for when executing the Gradle and ensure that the Gradle JVM (Java Virtual Machine) is set to Java 1.8x version. 
+
+## Full copyright & license notices ##
