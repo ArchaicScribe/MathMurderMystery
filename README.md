@@ -52,5 +52,34 @@ As this app progresses further into development, having more problems and a vari
 **ERDs**
 * [ERD Diagram](https://drive.google.com/file/d/1LKRuEyf0FsU06t3hBMaPJ-Bphsx4FxDr/view?usp=sharing)
 
+## Third Party Libraries Used ## 
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.android.support:support-v4:28.0.0'
+    implementation 'com.android.support:design:28.0.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    implementation 'com.github.deep-dive-coding-java:android-utilities:1.0.0'
+    implementation 'org.apache.commons:commons-csv:1.6'
+    implementation 'com.facebook.stetho:stetho:1.5.0'
+    implementation 'android.arch.persistence.room:runtime:1.1.1'
+    implementation 'com.squareup.retrofit2:retrofit:2.5.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
+    annotationProcessor 'android.arch.persistence.room:compiler:1.1.1'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    androidTestImplementation 'com.android.support.test:rules:1.0.2'
+
 ## External Services ##
 The only external service utilized for this app was [Open Trivia Database](https://opentdb.com/api_config.php)
+
+## Basic Instructions for user for building MCubed ##
+1. Clone the repository to the local Android Studio project.
+2. The repository for the app is located on [Github](https://github.com/ArchaicScribe)
+3. Go to your IDE and choose to check out from version control utilizing GIT. 
+4. Paste URL, that was copied, into a browser and go to [Github.](https://github.com/ArchaicScribe) 
+5. To build and run your app, select Run > Run in the menu bar (or click Run in the toolbar). Android Studio asks you to select a deployment target. Select a device to install and run your app. 
+6. Be sure to build the app onto a device running a minimum of API 21.
+7. You will not need an API Key because the questions are preloaded already onto the database. 
+8. It's recommended that you the default Grade wrapper (recommended) for when executing the Gradle and ensure that the Gradle JVM (Java Virtual Machine) is set to Java 1.8x version. 
