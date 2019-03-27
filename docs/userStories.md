@@ -1,5 +1,4 @@
 
-**Who would find this app useful or fun, and when would they use it?**
 ## User 1, The Math Student
 Math students, whether in elementary, middle, high school or higher education all are looking for a way to challenge themselves with math and logic problems. With these types of challenges, it can become very tedious and often dull if there isn't a type of reward or goal set before them. That is where Math Murder Mystery game will come in. It will engage the user(s) to progress and challenge themselves to achieve badges or trophies to showcase to their friends and challenge others in mathematics to see who can solve the murder the quickest. Eventually, this game will allow the user(s) to prompt other players from across the world in this game and build their social network(s) and find other "mathletes" or players who share their same interests. 
 
