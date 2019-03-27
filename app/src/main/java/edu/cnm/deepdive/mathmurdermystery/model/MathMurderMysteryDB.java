@@ -46,12 +46,19 @@ import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
 
+/**
+ * This is the database class, which will hold all of the classes and create them within the SQL
+ * table.This will pull information from the questions.json file.
+ */
 @Database(
     entities = {Connection.class, History.class, Level.class, MathProblem.class, RoomEntity.class,
         Scenario.class, UserInformation.class},
     version = 1,
     exportSchema = true
 )
+/**
+ * The database will utilize Room and get every single DAO (Data Access Object) created.
+ */
 @TypeConverters(Converters.class)
 public abstract class MathMurderMysteryDB extends RoomDatabase {
 
@@ -88,6 +95,10 @@ public abstract class MathMurderMysteryDB extends RoomDatabase {
 
   private static class Callback extends RoomDatabase.Callback {
 
+    /**
+     * This onCreate will create and preload the database so that it is ready for use. Utilizes the
+     * {@link PreloadTask}.
+     */
     @Override
     public void onCreate(@NonNull SupportSQLiteDatabase db) {
       super.onCreate(db);
@@ -98,6 +109,10 @@ public abstract class MathMurderMysteryDB extends RoomDatabase {
   public static class LoadQuestionTask extends BaseFluentAsyncTask<Void, Void,
       MathProblem, MathProblem> {
 
+    /**
+     * This will get an instance of a {@link MathProblem} and return a random problem from the
+     * database.
+     */
     @Nullable
     @Override
     protected MathProblem perform(Void... voids) throws TaskException {
@@ -108,7 +123,12 @@ public abstract class MathMurderMysteryDB extends RoomDatabase {
 
   private static class PreloadTask extends BaseFluentAsyncTask<Void, Void, Void, Void> {
 
-
+    /**
+     * This method loads from the database from the {@link Scenario},{@link Level}, {@link
+     * RoomEntity}, and {@link MathMurderMysteryDB}. All of these will gather context. Then we
+     * create a {@link MathProblem} array which we parse using GSON from JSON, pulling it from the
+     * CSV file questions.
+     */
     @Nullable
     @Override
     protected Void perform(Void... voids) throws TaskException {
@@ -124,7 +144,12 @@ public abstract class MathMurderMysteryDB extends RoomDatabase {
       return null;
     }
 
-
+    /**
+     * From the CSV file, it will load the List of {@link edu.cnm.deepdive.mathmurdermystery.controller.ScenarioFragment}
+     * and get the first scenario. Then, this will add to the list of scenarios, in theory. The game
+     * will have multiple scenarios and the user would be able to select a different level, which in
+     * turn would have different rooms. This method would retrieve the scenarios.
+     */
     private void getAScenario(Context context, MathMurderMysteryDB db) {
       try (
           InputStream inputStream = context.getResources().openRawResource(R.raw.scenarios);
@@ -144,7 +169,10 @@ public abstract class MathMurderMysteryDB extends RoomDatabase {
       }
     }
 
-
+    /**
+     * Just as the method above, this would retrieve all of the levels available. This ensures that
+     * the questions align up with the correct levels.
+     */
     private List<Level> getLevels(Context context,
         MathMurderMysteryDB db) {
       try (
@@ -167,7 +195,10 @@ public abstract class MathMurderMysteryDB extends RoomDatabase {
       }
     }
 
-
+    /**
+     * This method will gather all of the rooms, parse the CSV file, questions.JSON, and will add
+     * the roomEntity to the Levels.
+     */
     private List<RoomEntity> getRoomEntities(Context context,
         MathMurderMysteryDB db) {
       try (
@@ -190,8 +221,11 @@ public abstract class MathMurderMysteryDB extends RoomDatabase {
     }
   }
 
+  /**
+   * Will retrieve a random math problem, utilizing BaseFluentAsyncTask.
+   */
   public static class GetQuestionTask extends
-      BaseFluentAsyncTask<Void, Void, MathProblem, MathProblem>{
+      BaseFluentAsyncTask<Void, Void, MathProblem, MathProblem> {
 
     @Nullable
     @Override
@@ -204,6 +238,10 @@ public abstract class MathMurderMysteryDB extends RoomDatabase {
 
   public static class Converters {
 
+    /**
+     * This will set the difficulty of the problems, easy, medium, and hard difficulty. This will be
+     * sorted from the CSV file.
+     */
     @TypeConverter
     public static MathProblem.Difficulty difficulty(int difficulty) {
       if (difficulty == EASY.ordinal()) {
@@ -217,12 +255,17 @@ public abstract class MathMurderMysteryDB extends RoomDatabase {
       }
     }
 
+    /**
+     * Convert the math problem difficulty in ordinal order.
+     */
     @TypeConverter
     public static int difficultyToInt(MathProblem.Difficulty difficulty) {
       return difficulty.ordinal();
     }
 
-
+    /**
+     * This determines what is the type of question: boolean or multiple choice.
+     */
     @TypeConverter
     public static MathProblem.Type type(int type) {
       if (type == MULTIPLE.ordinal()) {

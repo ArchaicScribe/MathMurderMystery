@@ -23,7 +23,11 @@ public class HomeScreenActivity extends AppCompatActivity
 
   private Button mainMenuButton;
 
-
+  /**
+   * This will be the first screen that the user will see, inflates the activityHomeScreen, utilizes
+   * the toolbar and inflates that so it appears. It will also load the homeFragment from the {@link
+   * android.support.v4.app.FragmentContainer}.
+   */
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -47,6 +51,9 @@ public class HomeScreenActivity extends AppCompatActivity
 
   }
 
+  /**
+   * This will load the {@link MainScreenFragment} and act as the mainscreen fragment.
+   */
   private void loadHomeFragment() {
     Fragment fragmentMainScreenFragment = new MainScreenFragment();
 
@@ -69,19 +76,15 @@ public class HomeScreenActivity extends AppCompatActivity
 
   @Override
   public boolean onCreateOptionsMenu(Menu menu) {
-    // Inflate the menu; this adds items to the action bar if it is present.
     getMenuInflater().inflate(R.menu.home_screen, menu);
     return true;
   }
 
   @Override
   public boolean onOptionsItemSelected(MenuItem item) {
-    // Handle action bar item clicks here. The action bar will
-    // automatically handle clicks on the Home/Up button, so long
-    // as you specify a parent activity in AndroidManifest.xml.
+
     int id = item.getItemId();
 
-    //noinspection SimplifiableIfStatement
     if (id == R.id.action_settings) {
       return true;
     }
@@ -89,7 +92,10 @@ public class HomeScreenActivity extends AppCompatActivity
     return super.onOptionsItemSelected(item);
   }
 
-
+  /**
+   * This method is for the navigation items selected from menu. It will appear on the left-hand
+   * side.
+   */
   @Override
   public boolean onNavigationItemSelected(MenuItem item) {
     Bundle args = new Bundle();

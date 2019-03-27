@@ -7,10 +7,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 
-
 public class homeScreenBackground extends Fragment {
 
-
+  /**
+   * This inflates the {@link HomeScreenActivity} fragment. This does not extend to the superclass
+   * {@link edu.cnm.deepdive.mathmurdermystery.controller.LinkedFragment}.
+   */
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container,
       Bundle savedInstanceState) {
