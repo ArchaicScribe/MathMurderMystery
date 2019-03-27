@@ -88,4 +88,4 @@ The only external service utilized for this app was [Open Trivia Database](https
 
 ## [Copyright and License for Math Murder Mystery](https://github.com/ArchaicScribe/MathMurderMystery/blob/master/LICENSE) ##
 
-## [Full copyright & license notices](https://github.com/ArchaicScribe/MathMurderMystery/tree/master) ##
+## [Full copyright & license notices](https://github.com/ArchaicScribe/MathMurderMystery/blob/master/NOTICE.md) ##
