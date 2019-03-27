@@ -9,7 +9,6 @@ import java.util.Calendar;
 
 @Entity
 
-
 public class UserInformation {
 
   @PrimaryKey
@@ -22,20 +21,9 @@ public class UserInformation {
   @ColumnInfo(name = "user_progress", index = true)
   @NonNull
   private String userProgress;
-  @NonNull
-  @TypeConverter
-  private Calendar time = Calendar.getInstance();
+
 
   private Float score;
-
-  @NonNull
-  public Calendar getTime() {
-    return time;
-  }
-
-  public void setTime(@NonNull Calendar time) {
-    this.time = time;
-  }
 
   public Float getScore() {
     return score;

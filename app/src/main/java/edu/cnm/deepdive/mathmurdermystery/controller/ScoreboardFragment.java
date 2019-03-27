@@ -18,29 +18,20 @@ import java.util.List;
 
 public class ScoreboardFragment extends LinkedFragment {
 
-
-  @Override
-  public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
-      @Nullable Bundle savedInstanceState) {
-    View view = inflater.inflate(R.layout.scoreboard_fragment, container, false);
-    return (view);
-  }
-
   private Button backButton;
 
   private List<UserInformation> scores;
 
   private HistoryAdapter adapter;
 
-
+  @Override
   public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
 
       @Nullable Bundle savedInstanceState) {
-
     View view = inflater.inflate(R.layout.scoreboard_fragment, container, false);
 
     ListView listView = view.findViewById(R.id.list_history);
-    //listView.setOnItemClickListener(this);
+
 
     scores = new LinkedList<>();
 
@@ -62,7 +53,7 @@ public class ScoreboardFragment extends LinkedFragment {
 
     @Override
     protected List<UserInformation> doInBackground(Void... voids) {
-      return MathMurderMysteryDB.getInstance().getUserInformation();
+      return MathMurderMysteryDB.getInstance().getUserInformation().getUserInfo();
     }
   }
 }

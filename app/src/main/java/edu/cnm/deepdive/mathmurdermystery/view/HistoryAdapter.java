@@ -33,7 +33,6 @@ public class HistoryAdapter extends ArrayAdapter<UserInformation> {
     UserInformation userInformation = getItem(position);
     TextView date = view.findViewById(R.id.date);
     TextView score = view.findViewById(R.id.score);
-    date.setText(dateFormat.format(userInformation.getTime().getTime()));
     score.setText(String.format(scoreFormat, userInformation.getScore()));
 
     return view;

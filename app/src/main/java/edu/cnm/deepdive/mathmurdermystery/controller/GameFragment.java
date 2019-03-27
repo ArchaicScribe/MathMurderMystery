@@ -1,5 +1,6 @@
 package edu.cnm.deepdive.mathmurdermystery.controller;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -19,16 +20,18 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * GameFragment extends {@Link LinkedFragment}
+ */
 public class GameFragment extends LinkedFragment {
 
   private View view;
 
   /**
    * This view will inflate the game_fragment, and bring up the randomQuestions() method.
-   * @param inflater
-   * @param container
-   * @param savedInstanceState
-   * @return
+   *
+   * @param inflater Inflates the {@Link game_fragment}
+   * @return Returns view.
    */
   @Override
   public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
@@ -40,10 +43,9 @@ public class GameFragment extends LinkedFragment {
   }
 
   /**
-   * This method will handle the random questions, correct and incorrect answers as well.
-   * Along with randomizing the questions, it will decide what the type of question is, bool or
-   * multiple) and that will dictate how many buttons will appear.
-   * The buttons will be added in as well
+   * This method will handle the random questions, correct and incorrect answers as well. Along with
+   * randomizing the questions, it will decide what the type of question is, bool or multiple) and
+   * that will dictate how many buttons will appear. The buttons will be added in as well
    */
   public void randomQuestions() {
     new GetQuestionTask().setSuccessListener(new ResultListener<MathProblem>() {
@@ -82,6 +84,7 @@ public class GameFragment extends LinkedFragment {
               public void onClick(View view) {
                 if (allAnswers.get(finalI).equals(correctAnswer)) {
                   Toast.makeText(getActivity(), "Correct Answer!", Toast.LENGTH_SHORT).show();
+                  new ProceedAfterDelay().execute();
                 } else {
                   Toast.makeText(getActivity(), "Incorrect Answer", Toast.LENGTH_SHORT).show();
                 }
@@ -97,6 +100,7 @@ public class GameFragment extends LinkedFragment {
             @Override
             public void onClick(View view) {
               Toast.makeText(getActivity(), "Correct Answer", Toast.LENGTH_SHORT).show();
+              new ProceedAfterDelay().execute();
             }
           });
           incorrect.setOnClickListener(new OnClickListener() {
@@ -115,6 +119,23 @@ public class GameFragment extends LinkedFragment {
 
   }
 
+  private class ProceedAfterDelay extends AsyncTask<Void, Void, Void> {
+
+    @Override
+    protected void onPostExecute(Void aVoid) {
+      loadProblemFragment();
+    }
+
+    @Override
+    protected Void doInBackground(Void... voids) {
+      try {
+        Thread.sleep(3000);
+      } catch (InterruptedException e) {
+        //DO NOTHING!
+      }
+      return null;
+    }
+  }
 
 }
 
