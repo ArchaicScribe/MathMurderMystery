@@ -53,6 +53,9 @@ As this app progresses further into development, having more problems and a vari
 **ERDs**
 * [ERD Diagram](https://drive.google.com/file/d/1LKRuEyf0FsU06t3hBMaPJ-Bphsx4FxDr/view?usp=sharing)
 
+**JavaDocs**
+* [JavaDocs](file:///C:/Users/xande/Desktop/bootcamp/projects/MathMurderMystery/docs/api/index.html)
+
 ## Third Party Libraries Used ## 
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
