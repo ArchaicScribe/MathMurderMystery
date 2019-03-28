@@ -27,6 +27,7 @@ The data that would be shared would be user's rankings, trophies, and global vie
 * Need to have more scenarios, levels, and rooms implemented.
 * Need to have more question available. 
 * Would like to have more artwork incorporated into the game itself. 
+* ListView is working, but needs to display the scores and user names. 
 
 ## User Stories ##
 [User Stories](https://github.com/ArchaicScribe/MathMurderMystery/blob/master/docs/userStories.md)
@@ -45,7 +46,7 @@ The data that would be shared would be user's rankings, trophies, and global vie
 * [Deep Dive Coding Android Utilities/BaseFluentAsyncTask](https://github.com/deep-dive-coding-java/android-utilities)
 
 **Potential Future for Math Murder Mystery**
-As this app progresses further into development, having more problems and a variety of puzzles could add a myriad of new challenges to the users. Even with the data structure as is, having it be implemented into another game would be another avenue that could be explored. Because of the structure, having this model integrated into another game could be an exciting idea. 
+As this app progresses further into development, having more problems and a variety of puzzles could add a myriad of new challenges to the users. Even with the data structure as is, having it be implemented into another game would be another avenue that could be explored. Because of the structure, having this model integrated into another game could be an exciting idea. I want to add in more levels, scenarios, and rooms to the project as well. 
 
 **DDL**
 * [DDL](https://github.com/ArchaicScribe/MathMurderMystery/blob/master/docs/ddl.sql.md)
@@ -88,6 +89,14 @@ The only external service utilized for this app was [Open Trivia Database](https
 7. You will not need an API Key because the questions are preloaded already onto the database. 
 8. It's recommended that you the default Grade wrapper (recommended) for when executing the Gradle and ensure that the Gradle JVM (Java Virtual Machine) is set to Java 1.8x version. 
 
+## Instructions for Using MCubed ##
+1. Clone the Git repository located at https://github.com/ArchaicScribe/MathMurderMystery, to create a local clone of the repository.
+2. You will not be required to acquire an API Key, as all of the questions will be pre-loaded into the database. 
+3. At the main screen fragment, you will then be able to select from the navigation drawer menu which fragment you would like to select. 
+4. When you choose the Play Fragment, you will enter into the game. 
+5. From here, you will be able to determine which scenario, level, and room you would like to enter and play. 
+6. Once you have selected this, then you will be presented with math problems, either true and false or multiple choice questions. 
+7. The end-user will be able to hit the back button to return to the previous fragment they selected initially. 
 
 ## [Copyright and License for Math Murder Mystery](https://github.com/ArchaicScribe/MathMurderMystery/blob/master/LICENSE) ##
 
