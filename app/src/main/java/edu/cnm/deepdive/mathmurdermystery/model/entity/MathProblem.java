@@ -2,6 +2,7 @@ package edu.cnm.deepdive.mathmurdermystery.model.entity;
 /**
  *  @author Alex Rauenzahn
  *  @version 1.0
+ *  This class is for all of the math problems and how they will appear to the user.
  */
 
 import android.arch.persistence.room.ColumnInfo;
