@@ -1,7 +1,7 @@
 # MathMurderMystery or MCubed #
 
 ## An app that will incorporate gaming elements with math problems, to help imporve the user's math skills. 
-
+**App Name: Math Murder Mystery**
 **Application Name: Math Murder Mystery**
 The functionality of this app will feature a user trying to navigate themselves through a murder mystery and solve the crime by solving math problems. The user will be able to keep track of their score, progress, where they are in the story and can keep track of their score. The app will not necessarily need internet access; however, to compete against other player's score, they will. It will pull the question from a pool of potential question, and the app will randomly choose a question to ask the user to answer, with some of the mysteries being multiple choice or true and false type question. 
 
@@ -21,7 +21,10 @@ Yes, this app will still allow players to play offline on their own. They will n
 **What sort of data would this app use or share if it had a connection to the Internet?**
 The data that would be shared would be user's rankings, trophies, and global view of other players' awards, rankings, and status. 
 
- In Math Murder Mystery or M Cubed, SQL will be utilized by storing the math problems that will be used in the game. By keeping track of the math problems, their difficulties, and how they will be used in each level will all be completed through the database. Also, keeping track of the player's progress throughout the game will come into play as well. Using LEFT, RIGHT, and FULL JOIN in the program to compartmentalize and organize all of the player's data and history. Using queries, if the player wants to see a detail of their progress within the game will also come in handy for them to see and read about during the game.
+In Math Murder Mystery or M Cubed, SQL will be utilized by storing the math problems that will be used in the game. By keeping track of the math problems, their difficulties, and how they will be used in each level will all be completed through the database. Also, keeping track of the player's progress throughout the game will come into play as well. Using LEFT, RIGHT, and FULL JOIN in the program to compartmentalize and organize all of the player's data and history. Using queries, if the player wants to see a detail of their progress within the game will also come in handy for them to see and read about during the game.
+
+## Current Development of Math Murder Mystery ##
+Math Murder Mystery's current state is the user is able to play a trivia type mathematics game, can enter a scenario, level, and room. ListView is working, however, it needs to be able to populate the user's information. 
 
 ## Unimplemented/Incomplete Element of Math Murder Mystery ##
 * Need to have more scenarios, levels, and rooms implemented.
@@ -56,6 +59,9 @@ As this app progresses further into development, having more problems and a vari
 
 **JavaDocs**
 * [JavaDocs](docs/api/)
+
+**Wireframes**
+* [WireFrames](https://www.draw.io/#G10p1FsYoNyFfj5ZYtjN6fl4yVf1bfvVXu)
 
 ## Third Party Libraries Used ## 
 
