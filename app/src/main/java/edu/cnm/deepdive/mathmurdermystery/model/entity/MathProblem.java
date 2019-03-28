@@ -10,7 +10,11 @@ import java.util.List;
 
 
 @Entity
-
+/**
+ *  This entity will interact with the {@link MathProblem} class. The columns for this entity are
+ *  designed to keep track of the math problems that are given to the user. It will track the
+ *  mathProblem entirely.
+ */
 public class MathProblem {
 
   @PrimaryKey(autoGenerate = true)

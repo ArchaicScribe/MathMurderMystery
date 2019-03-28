@@ -4,7 +4,11 @@ import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.ForeignKey;
 
-
+/**
+ * This entity will create the {@link RoomEntity} entities, with room_id for the parent columns, and
+ * for the child columns will be room_id2. This is for the use of multiple rooms in case the *
+ * developer wanted to add more rooms for the user to access.
+ */
 @Entity(
     primaryKeys = {"room_id1", "room_id2"},
     foreignKeys = {
@@ -12,6 +16,9 @@ import android.arch.persistence.room.ForeignKey;
         @ForeignKey(entity = RoomEntity.class, parentColumns = "room_id", childColumns = "room_id2")
     }
 )
+/**
+ * This class will be the connection between all of the {@link RoomEntity}, with accessors and mutators. It will grab the RoomId and set them within the SQL table.
+ */
 public class Connection {
 
 

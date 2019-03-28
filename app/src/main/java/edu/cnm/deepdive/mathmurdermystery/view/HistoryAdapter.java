@@ -30,11 +30,8 @@ public class HistoryAdapter extends ArrayAdapter<UserInformation> {
 
 
   /**
-   * The
-   * @param position
-   * @param convertView
-   * @param parent
-   * @return
+   * This method is designed to use the scoreboard fragment to display the user's history, score,
+   * and the date.
    */
   @NonNull
   @Override

@@ -5,7 +5,13 @@ import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.ForeignKey;
 import android.arch.persistence.room.PrimaryKey;
 
-@Entity (foreignKeys = @ForeignKey(entity = Level.class,
+/**
+ * This entity will keep a relation between itself and the {@link Level} class. This is designed to
+ * keep track of the specific room and its corresponding level. Certain rooms will only be
+ * obtainable through progressing onto higher levels. It will gather the info from the level and
+ * room ids and ensure that they go to the corresponding ones.
+ */
+@Entity(foreignKeys = @ForeignKey(entity = Level.class,
     parentColumns = "level_id", childColumns = "level_id"))
 public class RoomEntity {
 

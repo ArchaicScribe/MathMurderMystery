@@ -6,10 +6,16 @@ import android.arch.persistence.room.Index;
 import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
 
+/**
+ * This entity is designed to keep track of the scenario titles.
+ */
 @Entity(indices = @Index(value = "scenario_title", unique = true))
 
 public class Scenario {
 
+  /**
+   * This will create the scenario_id and titles for columns.
+   */
   @PrimaryKey
   @ColumnInfo(name = "scenario_id", index = true)
   private long scenarioId;

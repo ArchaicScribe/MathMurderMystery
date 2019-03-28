@@ -6,10 +6,17 @@ import android.arch.persistence.room.Index;
 import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
 
+/**
+ * This will create two different indices for scenario_id and level_title. Each one will be unique.
+ */
 @Entity(indices = @Index(value = {"scenario_id", "level_title"}, unique = true))
 public class Level {
 
-
+  /**
+   * The {@link Level} will create a relation this class and {@link MathProblem} class. The reason
+   * for this will be as the user progresses through the levels, the difficulty of the problems will
+   * increase with difficulty.
+   */
   @PrimaryKey
   @ColumnInfo(name = "level_id", index = true)
   private long levelId;

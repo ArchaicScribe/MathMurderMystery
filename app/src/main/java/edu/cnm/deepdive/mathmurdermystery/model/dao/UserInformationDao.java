@@ -6,6 +6,10 @@ import android.arch.persistence.room.Query;
 import edu.cnm.deepdive.mathmurdermystery.model.entity.UserInformation;
 import java.util.List;
 
+/**
+ * This DAO will store all of the user's info, from a list form {@link UserInformation}. It will
+ * return the user's info.
+ */
 @Dao
 public interface UserInformationDao {
 

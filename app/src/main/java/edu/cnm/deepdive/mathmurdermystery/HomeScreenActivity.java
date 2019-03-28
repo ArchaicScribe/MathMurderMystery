@@ -82,13 +82,10 @@ public class HomeScreenActivity extends AppCompatActivity
 
   @Override
   public boolean onOptionsItemSelected(MenuItem item) {
-
     int id = item.getItemId();
-
     if (id == R.id.action_settings) {
       return true;
     }
-
     return super.onOptionsItemSelected(item);
   }
 
@@ -110,9 +107,7 @@ public class HomeScreenActivity extends AppCompatActivity
       case R.id.scroreboard_button:
         loadFragment(new ScoreboardFragment(), R.id.fragment_container, "scoreboardFragment", args);
         break;
-
     }
-
     DrawerLayout drawer = findViewById(R.id.drawer_layout);
     drawer.closeDrawer(GravityCompat.START);
     return true;

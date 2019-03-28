@@ -7,6 +7,10 @@ public class MathMurderMysteryApplication extends Application {
 
   private static MathMurderMysteryApplication instance = null;
 
+  /**
+   * This will initialize an instance of Stethos for the Goolge developer tools to see if the
+   * database is performing as it is suppose to.
+   */
   @Override
   public void onCreate() {
     super.onCreate();
