@@ -1,4 +1,8 @@
 package edu.cnm.deepdive.mathmurdermystery.model.entity;
+/**
+ *  @author Alex Rauenzahn
+ *  @version 1.0
+ */
 
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;

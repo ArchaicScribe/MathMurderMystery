@@ -1,4 +1,8 @@
 package edu.cnm.deepdive.mathmurdermystery.model.dao;
+/**
+ *  @author Alex Rauenzahn
+ *  @version 1.0
+ */
 
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Insert;

@@ -15,6 +15,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ *  @author Alex Rauenzahn
+ *  @version 1.0
+ */
 public class QuestionsFragment extends LinkedFragment {
 
   /**

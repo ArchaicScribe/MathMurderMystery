@@ -7,6 +7,8 @@ import edu.cnm.deepdive.mathmurdermystery.model.entity.Scenario;
 import java.util.List;
 
 /**
+ *  @author Alex Rauenzahn
+ *  @version 1.0
  * The scenario DAO will be populated from the
  * {@link edu.cnm.deepdive.mathmurdermystery.model.MathMurderMysteryDB}
  * and then it will gather all of the

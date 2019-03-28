@@ -1,4 +1,8 @@
 package edu.cnm.deepdive.mathmurdermystery;
+/**
+ *  @author Alex Rauenzahn
+ *  @version 1.0
+ */
 
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;

@@ -1,4 +1,8 @@
 package edu.cnm.deepdive.mathmurdermystery.model.entity;
+/**
+ *  @author Alex Rauenzahn
+ *  @version 1.0
+ */
 
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
@@ -11,6 +15,9 @@ import java.util.List;
 
 @Entity
 /**
+ *
+ *  @author Alex Rauenzahn
+ *  @version 1.0
  *  This entity will interact with the {@link MathProblem} class. The columns for this entity are
  *  designed to keep track of the math problems that are given to the user. It will track the
  *  mathProblem entirely.
@@ -123,6 +130,9 @@ public class MathProblem {
     this.question = question;
   }
 
+  /**
+   * This will set the difficulty level for the problem.
+   */
   public enum Difficulty {
     @SerializedName("easy")
     EASY,
@@ -132,6 +142,9 @@ public class MathProblem {
     HARD
   }
 
+  /**
+   * This sets the type of problem, whether it is boolean or multiple.
+   */
   public enum Type {
     @SerializedName("multiple")
     MULTIPLE,

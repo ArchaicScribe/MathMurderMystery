@@ -9,6 +9,10 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import edu.cnm.deepdive.mathmurdermystery.R;
 
+/**
+ * @author Alex Rauenzahn
+ * @version 1.0
+ */
 public class ScenarioFragment extends LinkedFragment {
 
   /**
@@ -30,6 +34,7 @@ public class ScenarioFragment extends LinkedFragment {
   /**
    * The level button will inflate, then progressing the user to the level fragment. This is in the
    * order of the game flow. Levels, scenarios, and finally rooms.
+   * @return Returns the view.
    */
   protected View levelButton(View view) {
     levelButton = (Button) view.findViewById(R.id.new_go_to_scenario_button);

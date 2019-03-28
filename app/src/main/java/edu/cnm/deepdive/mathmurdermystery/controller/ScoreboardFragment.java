@@ -15,7 +15,12 @@ import edu.cnm.deepdive.mathmurdermystery.model.entity.UserInformation;
 import edu.cnm.deepdive.mathmurdermystery.view.HistoryAdapter;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Objects;
 
+/**
+ * @author Alex Rauenzahn
+ * @version 1.0
+ */
 public class ScoreboardFragment extends LinkedFragment {
 
   private Button backButton;
@@ -26,7 +31,8 @@ public class ScoreboardFragment extends LinkedFragment {
 
   /**
    * This onCreateView that will inflate the {@link ScoreboardFragment}. Will also present the
-   * ListView so that the user is able to see their score.
+   * ListView so that the user is able to see their score. The ListView does work, but needs to have
+   * scores and user info displaying.
    *
    * @param inflater Will inflate the {@link ScoreboardFragment}
    * @param container Utilizes the {@link android.support.v4.app.FragmentContainer}
@@ -37,13 +43,13 @@ public class ScoreboardFragment extends LinkedFragment {
   public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
 
       @Nullable Bundle savedInstanceState) {
-    View view = inflater.inflate(R.layout.scoreboard_fragment, container, false);
+    View view = inflater.inflate(R.layout.scoreboard_history_fragment, container, false);
 
     ListView listView = view.findViewById(R.id.list_history);
 
     scores = new LinkedList<>();
 
-    adapter = new HistoryAdapter(getContext(), scores);
+    adapter = new HistoryAdapter(Objects.requireNonNull(getContext()), scores);
     listView.setAdapter(adapter);
 
     new ScoreQueryTask().execute();
@@ -67,12 +73,13 @@ public class ScoreboardFragment extends LinkedFragment {
     /**
      * This doInBackground method will utilize {@link edu.cnm.deepdive.android.BaseFluentAsyncTask}
      * and work on the backend of the thread.
+     *
      * @param voids Takes in voids as a return type.
      * @return returns voids.
      */
     @Override
     protected List<UserInformation> doInBackground(Void... voids) {
-      return MathMurderMysteryDB.getInstance().getUserInformation().getUserInfo();
+      return MathMurderMysteryDB.getInstance().getUserInformationDao().getUserInfo();
     }
   }
 }

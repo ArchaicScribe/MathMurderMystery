@@ -1,5 +1,10 @@
 package edu.cnm.deepdive.mathmurdermystery.model;
 
+/**
+ *  @author Alex Rauenzahn
+ *  @version 1.0
+ */
+
 import static edu.cnm.deepdive.mathmurdermystery.model.entity.MathProblem.Difficulty.EASY;
 import static edu.cnm.deepdive.mathmurdermystery.model.entity.MathProblem.Difficulty.HARD;
 import static edu.cnm.deepdive.mathmurdermystery.model.entity.MathProblem.Difficulty.MEDIUM;
@@ -80,7 +85,7 @@ public abstract class MathMurderMysteryDB extends RoomDatabase {
 
   public abstract ScenarioDao getScenarioDao();
 
-  public abstract UserInformationDao getUserInformation();
+  public abstract UserInformationDao getUserInformationDao();
 
   private static MathMurderMysteryDB instance = null;
 

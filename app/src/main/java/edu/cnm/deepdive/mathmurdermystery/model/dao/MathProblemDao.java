@@ -8,8 +8,9 @@ import edu.cnm.deepdive.mathmurdermystery.model.entity.MathProblem;
 import java.util.List;
 
 /**
- * This will obtain all of the {@link MathProblem} and gather them for a pool of problems. Then, it
- * will gather random problems.
+ * @author Alex Rauenzahn
+ * @version 1.0 This will obtain all of the {@link MathProblem} and gather them for a pool of
+ * problems. Then, it will gather random problems.
  */
 @Dao
 public interface MathProblemDao {

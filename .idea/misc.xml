@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ExternalStorageConfigurationManager" enabled="true" />
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="JavadocGenerationManager">
+    <option name="OUTPUT_DIRECTORY" value="$PROJECT_DIR$/docs/api" />
+    <option name="OTHER_OPTIONS" value="-bootclasspath &quot;C:\Program Files\Java\jdk1.8.0_191\jre\lib\rt.jar&quot;;C:\android\sdk\platforms\android-21\android.jar -link https://docs.oracle.com/javase/8/docs/api/ -link http://square.github.io/retrofit/2.x/converter-simplexml/retrofit2/converter/simplexml/ -link http://square.github.io/retrofit/2.x/retrofit/ -link http://square.github.io/okhttp/3.x/okhttp/ -linkoffline https://developer.android.com/reference C:\android\sdk\docs\reference -windowtitle &quot;Math Murder Mystery”" />
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_7" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
 </project>

@@ -1,4 +1,8 @@
 package edu.cnm.deepdive.mathmurdermystery;
+/**
+ *  @author Alex Rauenzahn
+ *  @version 1.0
+ */
 
 import android.app.Application;
 import com.facebook.stetho.Stetho;

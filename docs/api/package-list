@@ -3,3 +3,4 @@ edu.cnm.deepdive.mathmurdermystery.controller
 edu.cnm.deepdive.mathmurdermystery.model
 edu.cnm.deepdive.mathmurdermystery.model.dao
 edu.cnm.deepdive.mathmurdermystery.model.entity
+edu.cnm.deepdive.mathmurdermystery.view

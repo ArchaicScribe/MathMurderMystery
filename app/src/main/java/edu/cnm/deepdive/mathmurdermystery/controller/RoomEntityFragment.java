@@ -8,6 +8,10 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import edu.cnm.deepdive.mathmurdermystery.R;
 
+/**
+ *  @author Alex Rauenzahn
+ *  @version 1.0
+ */
 public class RoomEntityFragment extends LinkedFragment {
 
 
