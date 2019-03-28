@@ -27,6 +27,7 @@ The data that would be shared would be user's rankings, trophies, and global vie
 * Need to have more scenarios, levels, and rooms implemented.
 * Need to have more question available. 
 * Would like to have more artwork incorporated into the game itself. 
+* ListView is working, but needs to display the scores and user names. 
 
 ## User Stories ##
 [User Stories](https://github.com/ArchaicScribe/MathMurderMystery/blob/master/docs/userStories.md)
